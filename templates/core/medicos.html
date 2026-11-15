@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "partials/page_hero.html" with hero=page.s.hero %}
+
+{% with sec=page.s.equipes %}
+<section class="px-5 py-20 lg:px-8 lg:py-28">
+  <div class="mx-auto max-w-7xl">
+    {% include "partials/heading.html" %}
+    <div class="mt-14 grid gap-6 md:grid-cols-2">
+      {% for d in doctors %}<article class="surface-card border border-border/60 p-8"><h3 class="text-2xl text-primary">{{ d.name }}</h3><p class="mt-2 text-sm tracking-[0.1em] text-gold uppercase">{{ d.role }}</p><p class="mt-4 text-sm leading-relaxed text-muted-foreground">{{ d.detail }}</p></article>{% endfor %}
+    </div>
+    {% if sec.note %}<p class="mt-8 max-w-3xl text-xs leading-relaxed text-muted-foreground">{{ sec.note }}</p>{% endif %}
+  </div>
+</section>
+{% endwith %}
+
+{% with sec=page.s.instituicoes %}
+<section class="px-5 py-20 lg:px-8 lg:py-28 bg-sand">
+  <div class="mx-auto max-w-7xl">
+    <div class="grid items-center gap-14 lg:grid-cols-2">
+      <img src="{% image_url sec 'img/hospital.jpg' %}" alt="{{ sec.image_alt }}" loading="lazy" width="1200" height="900" class="w-full object-cover shadow-[var(--shadow-lift)]">
+      <div>
+        {% include "partials/heading.html" %}
+        <ul class="mt-8 space-y-6">
+          {% for h in hospitals %}<li class="border-t border-border pt-5"><h3 class="text-lg text-primary">{{ h.name }}</h3><p class="mt-2 text-sm leading-relaxed text-muted-foreground">{{ h.detail }}</p></li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endwith %}
+
+{% include "partials/cta.html" %}
+{% endblock %}

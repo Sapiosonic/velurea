@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "partials/page_hero.html" with hero=page.s.hero %}
+
+<section class="px-5 py-20 lg:px-8 lg:py-28">
+  <div class="mx-auto max-w-7xl">
+    <div class="mx-auto max-w-3xl">
+      <div class="w-full" data-orientation="vertical">
+        {% for f in faqs %}
+        <div data-accordion-item data-state="closed" data-orientation="vertical" class="border-b">
+          <h3 data-orientation="vertical" data-state="closed" class="flex"><button type="button" aria-expanded="false" data-state="closed" data-orientation="vertical" id="faq-{{ forloop.counter }}" aria-controls="faq-{{ forloop.counter }}-content" class="flex flex-1 items-center justify-between py-4 font-medium cursor-pointer transition-all hover:underline [&amp;[data-state=open]&gt;svg]:rotate-180 text-left font-display text-lg text-primary" data-accordion-trigger>{{ f.question }}{% icon "chevron-down" "h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200" %}</button></h3>
+          <div data-state="closed" id="faq-{{ forloop.counter }}-content" hidden role="region" aria-labelledby="faq-{{ forloop.counter }}" data-orientation="vertical" class="overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"><div class="pb-4 pt-0 text-sm leading-relaxed text-muted-foreground">{{ f.answer|linebreaksbr }}</div></div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "partials/cta.html" %}
+{% endblock %}

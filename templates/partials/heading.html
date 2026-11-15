@@ -1,0 +1,6 @@
+{# Título de seção. Recebe `sec` (Section) e, opcionalmente, `center` e `invert`. #}
+<div class="max-w-2xl{% if center %} mx-auto text-center{% endif %}">
+  {% if sec.eyebrow %}<p class="eyebrow">{{ sec.eyebrow }}</p>{% endif %}
+  <h2 class="mt-4 text-3xl leading-tight md:text-4xl {% if invert %}text-deep-foreground{% else %}text-primary{% endif %}">{{ sec.title }}</h2>
+  {% if sec.text %}<p class="mt-5 text-base leading-relaxed {% if invert %}opacity-75{% else %}text-muted-foreground{% endif %}">{{ sec.text }}</p>{% endif %}
+</div>

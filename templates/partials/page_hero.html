@@ -1,0 +1,8 @@
+{# Topo padrão das páginas internas. Recebe `hero` (uma Section). #}
+<section class="bg-sand">
+  <div class="mx-auto max-w-4xl px-5 py-20 text-center lg:px-8 lg:py-28">
+    {% if hero.eyebrow %}<p class="eyebrow">{{ hero.eyebrow }}</p>{% endif %}
+    <h1 class="mt-5 text-4xl leading-[1.1] text-primary md:text-6xl">{{ hero.title }}</h1>
+    {% if hero.text %}<p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">{{ hero.text }}</p>{% endif %}
+  </div>
+</section>

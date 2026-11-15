@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "partials/page_hero.html" with hero=page.s.hero %}
+
+<section class="px-5 py-20 lg:px-8 lg:py-28">
+  <div class="mx-auto max-w-7xl">
+    <ol class="grid gap-x-14 gap-y-14 md:grid-cols-2">
+      {% for s in steps %}<li class="flex gap-6 border-t border-border pt-6"><span class="font-display text-4xl text-gold">{{ forloop.counter|stringformat:"02d" }}</span><div><h2 class="text-2xl text-primary">{{ s.title }}</h2><p class="mt-3 text-sm leading-relaxed text-muted-foreground">{{ s.text }}</p></div></li>{% endfor %}
+    </ol>
+  </div>
+</section>
+
+{% with sec=page.s.incluidos %}
+<section class="px-5 py-20 lg:px-8 lg:py-28 bg-sand">
+  <div class="mx-auto max-w-7xl">
+    {% include "partials/heading.html" %}
+    <ul class="mt-12 grid gap-x-10 gap-y-4 md:grid-cols-2">
+      {% for i in sec.item_list %}<li class="flex gap-3 border-b border-border/70 py-3 text-sm text-muted-foreground"><span class="text-gold">—</span>{{ i }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+{% endwith %}
+
+<section class="px-5 py-20 lg:px-8 lg:py-28 bg-deep text-deep-foreground">
+  <div class="mx-auto max-w-7xl">
+    {% include "partials/heading.html" with sec=page.s.transparencia invert=True %}
+  </div>
+</section>
+
+{% include "partials/cta.html" %}
+{% endblock %}

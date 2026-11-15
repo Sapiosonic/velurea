@@ -1,0 +1,15 @@
+{% comment %}
+  Faixa de chamada do fim das páginas. Título e texto: `cta_title`/`cta_text`
+  explícitos, senão os da página, senão o padrão das Configurações do site.
+{% endcomment %}
+<section class="bg-deep px-5 py-20 text-deep-foreground lg:px-8 lg:py-24">
+  <div class="mx-auto flex max-w-5xl flex-col items-center text-center">
+    <p class="eyebrow">{{ site.cta_eyebrow }}</p>
+    <h2 class="mt-4 max-w-2xl text-3xl leading-tight text-deep-foreground md:text-4xl">{% firstof cta_title page.cta_title site.cta_title %}</h2>
+    <p class="mt-5 max-w-2xl text-base leading-relaxed opacity-75">{% firstof cta_text page.cta_text site.cta_text %}</p>
+    <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+      <a href="{% url 'contato' %}" class="bg-gold px-8 py-4 text-[0.78rem] tracking-[0.16em] text-gold-foreground uppercase transition-opacity hover:opacity-90">Solicitar avaliação</a>
+      <a href="{{ site.whatsapp_link }}" target="_blank" rel="noopener noreferrer" class="border border-white/25 px-8 py-4 text-[0.78rem] tracking-[0.16em] uppercase transition-colors hover:bg-white/10">Falar no WhatsApp</a>
+    </div>
+  </div>
+</section>

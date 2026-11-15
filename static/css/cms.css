@@ -1,0 +1,103 @@
+/* Velurea — estilos que o site estático não precisava.
+ *
+ * `style.css` é Tailwind compilado: só existem nele as classes que o projeto
+ * React usava. O que é novo na versão Django (texto do blog vindo do editor,
+ * erros do formulário) mora aqui, com os mesmos tokens do :root.
+ */
+
+/* ---------------------------------------------------- corpo dos posts --- */
+.post-body {
+  color: var(--foreground);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+.post-body > * + * { margin-top: 1.25em; }
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+  font-family: Cormorant Garamond, Georgia, serif;
+  color: var(--primary);
+  line-height: 1.2;
+}
+.post-body h2 { font-size: 2rem; margin-top: 2.2em; }
+.post-body h3 { font-size: 1.5rem; margin-top: 1.8em; }
+.post-body h4 { font-size: 1.25rem; margin-top: 1.6em; }
+.post-body h2 + *, .post-body h3 + *, .post-body h4 + * { margin-top: .75em; }
+.post-body a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 3px;
+}
+.post-body a:hover { color: var(--gold); }
+.post-body strong, .post-body b { font-weight: 600; }
+.post-body ul, .post-body ol { padding-left: 1.4em; }
+.post-body ul { list-style: disc; }
+.post-body ol { list-style: decimal; }
+.post-body li + li { margin-top: .4em; }
+.post-body li::marker { color: var(--gold); }
+.post-body blockquote {
+  border-left: 2px solid var(--gold);
+  padding: .25em 0 .25em 1.25em;
+  font-family: Cormorant Garamond, Georgia, serif;
+  font-size: 1.35rem;
+  color: var(--primary);
+}
+.post-body img { max-width: 100%; height: auto; }
+.post-body figcaption { font-size: .85rem; color: var(--muted-foreground); margin-top: .5em; }
+.post-body hr { border: 0; border-top: 1px solid var(--border); margin: 2.5em 0; }
+.post-body table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.post-body th, .post-body td { border-bottom: 1px solid var(--border); padding: .6em .5em; text-align: left; }
+.post-body th { color: var(--primary); font-weight: 600; }
+
+.post-card-cover { aspect-ratio: 16 / 9; }
+
+/* --------------------------------------------------- paginação do blog --- */
+.pager {
+  margin-top: 3.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.pager-pages { display: flex; align-items: center; gap: .375rem; list-style: none; margin: 0; padding: 0; }
+.pager-step,
+.pager-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  font-size: .78rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--primary);
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+.pager-step { padding: .7rem 1.1rem; border: 1px solid color-mix(in oklab, var(--primary) 25%, transparent); }
+.pager-step:hover { background: color-mix(in oklab, var(--primary) 5%, transparent); }
+.pager-step.is-disabled { opacity: .35; pointer-events: none; }
+.pager-num { min-width: 2.5rem; height: 2.5rem; letter-spacing: 0; font-size: .875rem; border: 1px solid transparent; }
+.pager-num:hover { border-color: var(--border); background: var(--sand); }
+.pager-num.is-current { background: var(--primary); color: var(--primary-foreground); }
+.pager-gap { display: inline-flex; min-width: 1.5rem; justify-content: center; color: var(--muted-foreground); }
+.pager-summary { margin-top: 1rem; font-size: .75rem; color: var(--muted-foreground); text-align: center; }
+
+/* No celular, os botões viram só setas para caber com os números. */
+@media (max-width: 639px) {
+  .pager-step span { display: none; }
+  .pager-step { padding: .7rem; }
+  .pager-num { min-width: 2.25rem; height: 2.25rem; }
+}
+
+/* --------------------------------------------------------- formulário --- */
+.form-alert {
+  border: 1px solid color-mix(in oklab, var(--destructive) 40%, transparent);
+  background: color-mix(in oklab, var(--destructive) 7%, var(--card));
+  color: var(--destructive);
+  padding: .75rem 1rem;
+  font-size: .875rem;
+}
+.field-error { border-color: var(--destructive) !important; }
+.field-error-text { margin-top: .375rem; font-size: .75rem; color: var(--destructive); }
