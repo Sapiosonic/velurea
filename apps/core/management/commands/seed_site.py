@@ -7,9 +7,10 @@ sobrescreve um texto já editado no admin. Para recomeçar do zero, use
 
 import datetime
 
+from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.db import transaction
-from django.utils import timezone
+from django.utils import timezone, translation
 from django.utils.text import slugify
 
 from apps.blog.models import Category, Post
@@ -32,8 +33,15 @@ class Command(BaseCommand):
         parser.add_argument("--reset", action="store_true",
                             help="Apaga o conteúdo existente antes de carregar.")
 
-    @transaction.atomic
     def handle(self, *args, reset=False, **opts):
+        # O conteúdo inicial é português. Com o modeltranslation, `title=...`
+        # grava na coluna do idioma ativo — então o idioma é fixado aqui, em
+        # vez de depender de quem chamou o comando.
+        with translation.override(settings.LANGUAGE_CODE):
+            self._load(reset)
+
+    @transaction.atomic
+    def _load(self, reset):
         if reset:
             for model in (Section, Page, Treatment, Step, Differential, Testimonial,
                           Faq, Doctor, Hospital, Post, Category, SiteSettings):

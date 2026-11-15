@@ -12,13 +12,13 @@
         {# Duração e estadia só aparecem quando a equipe médica confirmou o dado. #}
         {% if t.duration or t.stay %}
         <dl class="mt-6 grid grid-cols-2 gap-4 border-t border-border pt-5 text-sm">
-          {% if t.duration %}<div><dt class="text-xs tracking-[0.14em] text-muted-foreground uppercase">Duração</dt><dd class="mt-1 text-foreground">{{ t.duration }}</dd></div>{% endif %}
-          {% if t.stay %}<div><dt class="text-xs tracking-[0.14em] text-muted-foreground uppercase">Estadia</dt><dd class="mt-1 text-foreground">{{ t.stay }}</dd></div>{% endif %}
+          {% if t.duration %}<div><dt class="text-xs tracking-[0.14em] text-muted-foreground uppercase">{% translate "Duração" %}</dt><dd class="mt-1 text-foreground">{{ t.duration }}</dd></div>{% endif %}
+          {% if t.stay %}<div><dt class="text-xs tracking-[0.14em] text-muted-foreground uppercase">{% translate "Estadia" %}</dt><dd class="mt-1 text-foreground">{{ t.stay }}</dd></div>{% endif %}
         </dl>
         {% else %}
-        <p class="mt-6 border-t border-border pt-5 text-sm text-muted-foreground">{{ t.procedure_list|length }} procedimentos coordenados</p>
+        <p class="mt-6 border-t border-border pt-5 text-sm text-muted-foreground">{% blocktranslate count n=t.procedure_list|length %}{{ n }} procedimento coordenado{% plural %}{{ n }} procedimentos coordenados{% endblocktranslate %}</p>
         {% endif %}
-        <a href="{{ t.get_absolute_url }}" class="mt-8 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.16em] text-gold uppercase">Ver detalhes {% icon "arrow-right" "h-4 w-4" %}</a>
+        <a href="{{ t.get_absolute_url }}" class="mt-8 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.16em] text-gold uppercase">{% translate "Ver detalhes" %} {% icon "arrow-right" "h-4 w-4" %}</a>
       </article>
       {% endfor %}
     </div>

@@ -1,7 +1,7 @@
 {% load static %}<!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="{{ lang.html }}">
 <head>
-  {% if site.noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+  {% if site.noindex or language_preview %}<meta name="robots" content="noindex, nofollow">{% endif %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {% block preload %}{% endblock %}
@@ -11,8 +11,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&amp;family=Karla:wght@300;400;500;600;700&amp;display=swap">
   {% block seo %}
-    {% firstof page.seo_title "Velurea Clinic — Turismo médico em Istambul" as seo_title %}
-    {% firstof page.seo_description "Coordenação completa de tratamentos médicos na Turquia para pacientes internacionais." as seo_description %}
+    {% translate "Velurea Clinic — Turismo médico em Istambul" as default_title %}
+    {% translate "Coordenação completa de tratamentos médicos na Turquia para pacientes internacionais." as default_description %}
+    {% firstof page.seo_title default_title as seo_title %}
+    {% firstof page.seo_description default_description as seo_description %}
     <title>{{ seo_title }}</title>
     <meta name="description" content="{{ seo_description }}">
     <meta property="og:title" content="{% firstof page.og_title seo_title %}">
@@ -24,27 +26,40 @@
   {% block og_image %}{% endblock %}
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="{% block canonical %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endblock %}">
+  {% language_versions as versions %}
+  {% if versions|length > 1 and not language_preview %}
+  {# Versões desta página em outros idiomas, para o Google mostrar a certa a cada público. #}
+  <meta property="og:locale" content="{{ lang.og }}">
+  {% for v in versions %}<link rel="alternate" hreflang="{{ v.hreflang }}" href="{{ v.absolute_url }}">
+  {% if not v.current %}<meta property="og:locale:alternate" content="{{ v.og }}">{% endif %}
+  {% if forloop.first %}<link rel="alternate" hreflang="x-default" href="{{ v.absolute_url }}">{% endif %}{% endfor %}
+  {% endif %}
   <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
   {% block head_extra %}{% endblock %}
 </head>
 <body>
+{% if language_preview %}
+<div class="lang-preview-bar">{% blocktranslate with name=lang.short %}Pré-visualização: o idioma {{ name }} ainda não está publicado. Só quem está logado no admin vê esta página; campos sem tradução aparecem em português.{% endblocktranslate %}</div>
+{% endif %}
 <div class="flex min-h-screen flex-col">
-  <header class="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
+  <header class="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md{% if versions|length > 1 %} has-lang-menu{% endif %}">
     <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:px-8">
       <a class="group flex flex-col leading-none" href="{% url 'home' %}"><span class="font-display text-2xl tracking-[0.18em] text-primary">VELUREA</span><span class="mt-1 text-[0.6rem] tracking-[0.34em] text-muted-foreground">CLINIC · ISTANBUL</span></a>
       <nav class="hidden items-center gap-6 xl:flex">
         {% for item in nav %}<a href="{{ item.url }}" class="text-[0.82rem] tracking-wide text-muted-foreground transition-colors hover:text-primary{% if item.active %} text-primary font-semibold{% endif %}"{% if item.active %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
       </nav>
       <div class="hidden items-center gap-3 lg:flex">
-        <a href="{{ site.whatsapp_link }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-primary/25 px-4 py-2.5 text-[0.78rem] tracking-[0.12em] text-primary uppercase transition-colors hover:bg-primary/5">{% icon "message-circle" "h-4 w-4" %} WhatsApp</a>
-        <a href="{% url 'contato' %}" class="bg-primary px-5 py-2.5 text-[0.78rem] tracking-[0.12em] text-primary-foreground uppercase transition-opacity hover:opacity-90">Avaliação gratuita</a>
+        {% if versions|length > 1 %}{% include "partials/language_switcher.html" with variant="header" %}{% endif %}
+        <a href="{{ site.whatsapp_link }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-primary/25 px-4 py-2.5 text-[0.78rem] tracking-[0.12em] text-primary uppercase transition-colors hover:bg-primary/5" aria-label="WhatsApp">{% icon "message-circle" "h-4 w-4" %}<span class="header-wa-label"> WhatsApp</span></a>
+        <a href="{% url 'contato' %}" class="bg-primary px-5 py-2.5 text-[0.78rem] tracking-[0.12em] text-primary-foreground uppercase transition-opacity hover:opacity-90">{% translate "Avaliação gratuita" %}</a>
       </div>
-      <button type="button" id="menu-toggle" aria-label="Abrir menu" class="text-primary xl:hidden">{% icon "menu" "h-6 w-6" %}</button>
+      <button type="button" id="menu-toggle" aria-label="{% translate 'Abrir menu' %}" data-label-open="{% translate 'Abrir menu' %}" data-label-close="{% translate 'Fechar menu' %}" class="text-primary xl:hidden">{% icon "menu" "h-6 w-6" %}</button>
     </div>
     <div id="menu-mobile" class="overflow-hidden border-border bg-background transition-all duration-300 xl:hidden max-h-0 border-t-0">
       <nav class="flex flex-col px-5 py-4">
         {% for item in nav %}<a href="{{ item.url }}" class="border-b border-border/60 py-3 text-sm text-foreground/80{% if item.active %} text-primary font-semibold{% endif %}"{% if item.active %} aria-current="page"{% endif %}>{{ item.label }}</a>{% endfor %}
-        <a href="{% url 'contato' %}" class="mt-4 bg-primary px-5 py-3 text-center text-[0.78rem] tracking-[0.12em] text-primary-foreground uppercase">Avaliação gratuita</a>
+        <a href="{% url 'contato' %}" class="mt-4 bg-primary px-5 py-3 text-center text-[0.78rem] tracking-[0.12em] text-primary-foreground uppercase">{% translate "Avaliação gratuita" %}</a>
+        {% if versions|length > 1 %}{% include "partials/language_switcher.html" with variant="mobile" %}{% endif %}
       </nav>
     </div>
   </header>
@@ -61,42 +76,46 @@
         <p class="mt-6 max-w-xs text-sm leading-relaxed opacity-75">{{ site.footer_about }}</p>
       </div>
       <div>
-        <h3 class="text-sm tracking-[0.2em] uppercase opacity-70">Tratamentos</h3>
+        <h3 class="text-sm tracking-[0.2em] uppercase opacity-70">{% translate "Tratamentos" %}</h3>
         <ul class="mt-5 space-y-3 text-sm">
           {% for t in nav_treatments %}<li><a href="{{ t.get_absolute_url }}" class="opacity-80 transition-opacity hover:opacity-100">{{ t.title }}</a></li>{% endfor %}
         </ul>
       </div>
       <div>
-        <h3 class="text-sm tracking-[0.2em] uppercase opacity-70">Institucional</h3>
+        <h3 class="text-sm tracking-[0.2em] uppercase opacity-70">{% translate "Institucional" %}</h3>
         <ul class="mt-5 space-y-3 text-sm">
-          <li><a href="{% url 'sobre' %}" class="opacity-80 hover:opacity-100">Sobre a Velurea</a></li>
-          <li><a href="{% url 'como_funciona' %}" class="opacity-80 hover:opacity-100">Como funciona</a></li>
-          <li><a href="{% url 'medicos' %}" class="opacity-80 hover:opacity-100">Médicos e hospitais</a></li>
-          <li><a href="{% url 'depoimentos' %}" class="opacity-80 hover:opacity-100">Depoimentos</a></li>
-          <li><a href="{% url 'blog:list' %}" class="opacity-80 hover:opacity-100">Blog</a></li>
-          <li><a href="{% url 'faq' %}" class="opacity-80 hover:opacity-100">Perguntas frequentes</a></li>
+          <li><a href="{% url 'sobre' %}" class="opacity-80 hover:opacity-100">{% translate "Sobre a Velurea" %}</a></li>
+          <li><a href="{% url 'como_funciona' %}" class="opacity-80 hover:opacity-100">{% translate "Como funciona" %}</a></li>
+          <li><a href="{% url 'medicos' %}" class="opacity-80 hover:opacity-100">{% translate "Médicos e hospitais" %}</a></li>
+          <li><a href="{% url 'depoimentos' %}" class="opacity-80 hover:opacity-100">{% translate "Depoimentos" %}</a></li>
+          <li><a href="{% url 'blog:list' %}" class="opacity-80 hover:opacity-100">{% translate "Blog" %}</a></li>
+          <li><a href="{% url 'faq' %}" class="opacity-80 hover:opacity-100">{% translate "Perguntas frequentes" %}</a></li>
         </ul>
       </div>
       <div>
-        <h3 class="text-sm tracking-[0.2em] uppercase opacity-70">Contato</h3>
+        <h3 class="text-sm tracking-[0.2em] uppercase opacity-70">{% translate "Contato" %}</h3>
         <ul class="mt-5 space-y-4 text-sm">
           <li class="flex gap-3">{% icon "message-circle" "mt-0.5 h-4 w-4 shrink-0 opacity-70" %}<a href="{{ site.whatsapp_link }}" target="_blank" rel="noopener noreferrer" class="opacity-85 hover:opacity-100">{{ site.whatsapp_display }}</a></li>
           <li class="flex gap-3">{% icon "mail" "mt-0.5 h-4 w-4 shrink-0 opacity-70" %}<a href="mailto:{{ site.email }}" class="opacity-85 hover:opacity-100">{{ site.email }}</a></li>
           <li class="flex gap-3 opacity-85">{% icon "map-pin" "mt-0.5 h-4 w-4 shrink-0 opacity-70" %}{{ site.address }}</li>
           <li class="flex gap-3 opacity-85">{% icon "clock" "mt-0.5 h-4 w-4 shrink-0 opacity-70" %}{{ site.hours }}</li>
         </ul>
+        {% if versions|length > 1 %}
+        {% include "partials/language_switcher.html" with variant="footer" %}
+        {% else %}
         <p class="mt-6 text-xs tracking-[0.15em] uppercase opacity-60">{{ site.languages_label }}</p>
+        {% endif %}
       </div>
     </div>
     <div class="border-t border-white/10">
       <div class="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-6 text-xs opacity-60 md:flex-row md:items-center md:justify-between lg:px-8">
-        <p>© {% now "Y" %} {{ site.site_name }}. Todos os direitos reservados.</p>
+        <p>© {% now "Y" %} {{ site.site_name }}. {% translate "Todos os direitos reservados." %}</p>
         <p>{{ site.footer_disclaimer }}</p>
       </div>
     </div>
   </footer>
 </div>
-<a href="{{ site.whatsapp_link }}" target="_blank" rel="noopener noreferrer" aria-label="Falar no WhatsApp" class="fixed right-5 bottom-5 z-50 flex items-center gap-2 rounded-full bg-primary px-5 py-4 text-primary-foreground shadow-[var(--shadow-lift)] transition-transform hover:scale-105">{% icon "message-circle" "h-5 w-5" %}<span class="hidden text-sm tracking-wide sm:inline">Fale conosco</span></a>
+<a href="{{ site.whatsapp_link }}" target="_blank" rel="noopener noreferrer" aria-label="{% translate 'Falar no WhatsApp' %}" class="fixed right-5 bottom-5 z-50 flex items-center gap-2 rounded-full bg-primary px-5 py-4 text-primary-foreground shadow-[var(--shadow-lift)] transition-transform hover:scale-105">{% icon "message-circle" "h-5 w-5" %}<span class="hidden text-sm tracking-wide sm:inline">{% translate "Fale conosco" %}</span></a>
 <script src="{% static 'js/site.js' %}" defer></script>
 </body>
 </html>

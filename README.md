@@ -85,18 +85,78 @@ Detalhes que valem saber:
 
 ---
 
+## Idiomas (PT · ES · EN · TR)
+
+O site suporta português, espanhol, inglês e turco. **Só o português está no
+ar**; cada outro idioma é publicado quando a tradução estiver completa e
+revisada.
+
+### Para quem traduz (admin)
+
+1. Todo campo traduzível tem **abas por idioma** (PT-BR, ES, EN, TR). Preencha
+   a aba do idioma; a aba PT-BR é o texto original.
+2. Para revisar, abra o site com o prefixo do idioma **estando logado no
+   admin**: `/es/`, `/en/`, `/tr/`. Uma faixa dourada indica a
+   pré-visualização. Campo ainda sem tradução aparece em português.
+3. Com tudo revisado, marque o idioma em **Configurações do site → Idiomas
+   publicados**. A partir daí ele fica público, ganha seletor de idioma no
+   header e no rodapé, entra no sitemap e nas tags `hreflang`.
+
+O que **não** se traduz, de propósito: o texto dos depoimentos (fica no idioma
+em que o paciente escreveu), nomes de pacientes e médicos, telefone e e-mail.
+
+**Blog:** um post só aparece num idioma se tiver título naquele idioma. O blog
+em espanhol não mostra artigos em português.
+
+**Endereços:** o português não tem prefixo e mantém as URLs de sempre
+(`/contato/`). Os outros idiomas usam prefixo e caminho traduzido
+(`/es/contacto/`, `/en/contact/`, `/tr/iletisim/`). Tratamentos, posts e
+categorias têm um campo "endereço" por idioma; em branco, usam o endereço em
+português. Quem chega pelo endereço em português de algo que tem endereço
+traduzido é redirecionado (301).
+
+**Formulário:** cada contato registra o idioma em que foi enviado (aparece no
+admin e no assunto do e-mail, ex.: `[ES]`), para a equipe responder na língua
+do paciente. O tratamento é gravado sempre com o nome em português.
+
+### Para desenvolvedores (textos fixos dos templates)
+
+Textos que não estão no banco ("Ver detalhes", rótulos do formulário, menu)
+usam o i18n do Django: `{% translate %}` nos templates e `gettext` no Python.
+O texto em português é a própria chave. Traduções em
+`locale/<idioma>/LC_MESSAGES/django.po`. Os `.mo` compilados são versionados
+para o servidor não precisar do gettext.
+
+Requer GNU gettext instalado (Windows: `winget install mlocati.GetText`).
+
+```bash
+python manage.py makemessages -l es -l en -l tr --ignore=.venv --no-obsolete
+python manage.py compilemessages --ignore=.venv
+```
+
+Os trechos de URL estão nos mesmos arquivos, com contexto `url`
+(`msgctxt "url"`). **Já estão traduzidos; mudá-los depois de publicado muda os
+endereços do site.** Os demais textos estão vazios, à espera da tradução.
+
+Novos idiomas: acrescente em `LANGUAGES` e `apps/core/languages.py` (META),
+rode `makemigrations` (o modeltranslation cria as colunas) e `makemessages`.
+
+---
+
 ## Estrutura
 
 ```
-config/                 settings, urls
-apps/core/              configurações, páginas/seções, coleções, seed_site
+config/                 settings, urls (rotas por idioma)
+apps/core/              configurações, páginas/seções, coleções, seed_site,
+                        idiomas (languages.py, middleware.py, translation.py)
 apps/treatments/        tratamentos
 apps/blog/              posts e categorias
 apps/contact/           formulário e contatos recebidos
 templates/              base.html (header/rodapé) + uma pasta por app
+locale/                 traduções dos textos fixos (.po/.mo)
 static/css/style.css    CSS original (Tailwind compilado) — não editar à mão
-static/css/cms.css      estilos novos: corpo dos posts, erros do formulário
-static/js/site.js       menu mobile + FAQ (original)
+static/css/cms.css      estilos novos: blog, formulário, seletor de idioma
+static/js/site.js       menu mobile, FAQ e seletor de idioma
 ```
 
 `style.css` é Tailwind já compilado: só existem nele as classes que o projeto

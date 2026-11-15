@@ -1,7 +1,8 @@
 from django.core.paginator import Paginator
 from django.http import Http404
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import redirect, render
 
+from apps.core import languages
 from apps.core.views import get_page
 
 from .models import Category, Post
@@ -10,10 +11,14 @@ PER_PAGE = 8
 
 
 def post_list(request, category_slug=None):
-    posts = Post.published.all()
+    posts = Post.published.for_language(languages.current())
     category = None
     if category_slug:
-        category = get_object_or_404(Category, slug=category_slug)
+        category, should_redirect = languages.find_by_slug(Category.objects.all(), category_slug)
+        if category is None:
+            raise Http404
+        if should_redirect:
+            return redirect("blog:category", category_slug=category.slug, permanent=True)
         posts = posts.filter(category=category)
 
     paginator = Paginator(posts, PER_PAGE)
@@ -33,15 +38,32 @@ def post_list(request, category_slug=None):
 
 
 def post_detail(request, slug):
-    post = get_object_or_404(Post.objects.select_related("category"), slug=slug)
-    # Quem está logado no admin vê o rascunho, para revisar antes de publicar.
-    if not post.is_live and not request.user.is_staff:
+    lang = languages.current()
+    post, should_redirect = languages.find_by_slug(Post.objects.select_related("category"), slug)
+    if post is None:
         raise Http404
 
+    # Quem está logado no admin vê rascunhos e posts ainda sem tradução
+    # (com o texto em português no lugar), para revisar antes de publicar.
+    if not request.user.is_staff:
+        if not post.is_live or not post.is_translated(lang):
+            raise Http404
+    if should_redirect:
+        return redirect(post, permanent=True)
+
     # "Leia também": primeiro da mesma categoria, completando com os mais recentes.
-    others = Post.published.exclude(pk=post.pk)
+    others = Post.published.for_language(lang).exclude(pk=post.pk)
     related = list(others.filter(category_id=post.category_id)[:2]) if post.category_id else []
     if len(related) < 2:
         related += list(others.exclude(pk__in=[p.pk for p in related])[: 2 - len(related)])
 
-    return render(request, "blog/detail.html", {"post": post, "related": related})
+    # O post só tem versão nos idiomas em que foi traduzido.
+    translated_in = [code for code in request.published_languages if post.is_translated(code)]
+    return render(
+        request, "blog/detail.html",
+        {
+            "post": post,
+            "related": related,
+            "alternates": languages.alternates_for_object(post, translated_in),
+        },
+    )

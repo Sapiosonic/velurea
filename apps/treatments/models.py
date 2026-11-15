@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.translation import get_language
+from django.utils.translation import gettext as _
 
 from apps.core.models import OrderedModel
 
@@ -76,19 +78,22 @@ class Treatment(OrderedModel):
 
     @property
     def page_title(self):
-        return self.seo_title or f"{self.title} na Turquia — Velurea Clinic"
+        return self.seo_title or _("%(title)s na Turquia — Velurea Clinic") % {"title": self.title}
 
     @property
     def cta_title(self):
-        return f"Quer saber se {self.title.lower()} é indicado para você?"
+        # Minúsculas no meio da frase. Turco fica de fora: str.lower() erra
+        # o İ/I turco, e a tradução pode reorganizar a frase de todo modo.
+        title = self.title if get_language() == "tr" else self.title.lower()
+        return _("Quer saber se %(title)s é indicado para você?") % {"title": title}
 
     @property
     def columns(self):
         """Listas da página de detalhe, na ordem do layout original."""
         cols = []
         if self.area_list:
-            cols.append(("Áreas atendidas", self.area_list))
-        cols.append(("Procedimentos disponíveis", self.procedure_list))
+            cols.append((_("Áreas atendidas"), self.area_list))
+        cols.append((_("Procedimentos disponíveis"), self.procedure_list))
         if self.include_list:
-            cols.append(("O que a coordenação inclui", self.include_list))
+            cols.append((_("O que a coordenação inclui"), self.include_list))
         return cols

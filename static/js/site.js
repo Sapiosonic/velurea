@@ -1,7 +1,7 @@
 /* Velurea — interatividade do site.
  *
  * JavaScript puro, sem dependência e sem build. Substitui o que antes era feito
- * por React. São duas coisas apenas: o menu mobile e o accordion do FAQ.
+ * por React: o menu mobile, o accordion do FAQ e o seletor de idioma.
  *
  * Todo o resto do site é HTML estático: links, formulário e navegação funcionam
  * com este arquivo desativado.
@@ -32,7 +32,13 @@
       painel.classList.toggle("max-h-0", !aberto);
       painel.classList.toggle("border-t-0", !aberto);
       painel.classList.toggle("max-h-[36rem]", aberto);
-      botao.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+      // Rótulos vêm do HTML (data-label-*), já traduzidos pelo Django.
+      botao.setAttribute(
+        "aria-label",
+        aberto
+          ? botao.getAttribute("data-label-close") || "Fechar menu"
+          : botao.getAttribute("data-label-open") || "Abrir menu"
+      );
       botao.setAttribute("aria-expanded", aberto ? "true" : "false");
       if (svg) svg.innerHTML = aberto ? ICONE_FECHAR : ICONE_MENU;
     }
@@ -120,9 +126,32 @@
     });
   }
 
+  /* ------------------------------------------------------------------ *
+   * Seletor de idioma do header (<details>): fecha ao clicar fora e com Esc.
+   * ------------------------------------------------------------------ */
+  function iniciarIdiomas() {
+    var menus = document.querySelectorAll(".lang-menu");
+    if (!menus.length) return;
+    document.addEventListener("click", function (e) {
+      Array.prototype.forEach.call(menus, function (m) {
+        if (m.open && !m.contains(e.target)) m.open = false;
+      });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      Array.prototype.forEach.call(menus, function (m) {
+        if (m.open) {
+          m.open = false;
+          m.querySelector("summary").focus();
+        }
+      });
+    });
+  }
+
   function iniciar() {
     iniciarMenu();
     iniciarAccordion();
+    iniciarIdiomas();
   }
 
   if (document.readyState === "loading") {

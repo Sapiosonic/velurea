@@ -12,8 +12,8 @@
       <h1 class="mt-6 text-4xl leading-[1.08] md:text-6xl">{{ hero.title }}</h1>
       {% if hero.text %}<p class="mt-7 max-w-xl text-base leading-relaxed opacity-85">{{ hero.text }}</p>{% endif %}
       <div class="mt-10 flex flex-col gap-3 sm:flex-row">
-        <a href="{% url 'contato' %}" class="inline-flex items-center justify-center gap-2 bg-gold px-8 py-4 text-[0.78rem] tracking-[0.16em] text-gold-foreground uppercase transition-opacity hover:opacity-90">Avaliação gratuita {% icon "arrow-right" "h-4 w-4" %}</a>
-        <a href="{{ site.whatsapp_link }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center border border-white/30 px-8 py-4 text-[0.78rem] tracking-[0.16em] uppercase transition-colors hover:bg-white/10">Falar no WhatsApp</a>
+        <a href="{% url 'contato' %}" class="inline-flex items-center justify-center gap-2 bg-gold px-8 py-4 text-[0.78rem] tracking-[0.16em] text-gold-foreground uppercase transition-opacity hover:opacity-90">{% translate "Avaliação gratuita" %} {% icon "arrow-right" "h-4 w-4" %}</a>
+        <a href="{{ site.whatsapp_link }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center border border-white/30 px-8 py-4 text-[0.78rem] tracking-[0.16em] uppercase transition-colors hover:bg-white/10">{% translate "Falar no WhatsApp" %}</a>
       </div>
       {% if hero.note %}<p class="mt-8 text-xs tracking-[0.2em] uppercase opacity-70">{{ hero.note }}</p>{% endif %}
     </div>
@@ -41,7 +41,7 @@
         <ul class="mt-8 space-y-3 text-sm text-muted-foreground">
           {% for item in sec.item_list %}<li class="flex gap-3 border-b border-border/60 pb-3"><span class="text-gold">—</span>{{ item }}</li>{% endfor %}
         </ul>
-        <a href="{% url 'sobre' %}" class="mt-9 inline-flex items-center gap-2 text-sm tracking-[0.12em] text-primary uppercase hover:text-gold">{% firstof sec.note "Conhecer a Velurea" %} {% icon "arrow-right" "h-4 w-4" %}</a>
+        <a href="{% url 'sobre' %}" class="mt-9 inline-flex items-center gap-2 text-sm tracking-[0.12em] text-primary uppercase hover:text-gold">{% translate "Conhecer a Velurea" as fallback %}{% firstof sec.note fallback %} {% icon "arrow-right" "h-4 w-4" %}</a>
       </div>
       <img src="{% image_url sec 'img/coordination.jpg' %}" alt="{{ sec.image_alt }}" loading="lazy" width="1200" height="900" class="h-full w-full object-cover shadow-[var(--shadow-lift)]">
     </div>
@@ -54,7 +54,7 @@
     {% include "partials/heading.html" with sec=page.s.tratamentos %}
     <div class="mt-14 grid gap-6 md:grid-cols-2">
       {% for t in treatments %}
-      <a href="{{ t.get_absolute_url }}" class="surface-card group flex flex-col justify-between border border-border/60 p-8"><div><h3 class="text-2xl text-primary">{{ t.title }}</h3><p class="mt-4 text-sm leading-relaxed text-muted-foreground">{{ t.short }}</p></div><span class="mt-8 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.16em] text-gold uppercase">Ver detalhes {% icon "arrow-right" "h-4 w-4 transition-transform group-hover:translate-x-1" %}</span></a>
+      <a href="{{ t.get_absolute_url }}" class="surface-card group flex flex-col justify-between border border-border/60 p-8"><div><h3 class="text-2xl text-primary">{{ t.title }}</h3><p class="mt-4 text-sm leading-relaxed text-muted-foreground">{{ t.short }}</p></div><span class="mt-8 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.16em] text-gold uppercase">{% translate "Ver detalhes" %} {% icon "arrow-right" "h-4 w-4 transition-transform group-hover:translate-x-1" %}</span></a>
       {% endfor %}
     </div>
   </div>
@@ -67,7 +67,7 @@
     <ol class="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
       {% for s in steps %}<li class="border-t border-border pt-6"><span class="font-display text-3xl text-gold">{{ forloop.counter|stringformat:"02d" }}</span><h3 class="mt-3 text-xl text-primary">{{ s.title }}</h3><p class="mt-3 text-sm leading-relaxed text-muted-foreground">{{ s.text }}</p></li>{% endfor %}
     </ol>
-    <div class="mt-12 text-center"><a href="{% url 'como_funciona' %}" class="inline-flex items-center gap-2 border border-primary/25 px-7 py-3.5 text-[0.78rem] tracking-[0.14em] text-primary uppercase hover:bg-primary/5">{% firstof sec.note "Ver o processo completo" %}</a></div>
+    <div class="mt-12 text-center"><a href="{% url 'como_funciona' %}" class="inline-flex items-center gap-2 border border-primary/25 px-7 py-3.5 text-[0.78rem] tracking-[0.14em] text-primary uppercase hover:bg-primary/5">{% translate "Ver o processo completo" as fallback %}{% firstof sec.note fallback %}</a></div>
   </div>
 </section>
 {% endwith %}
@@ -88,7 +88,7 @@
     <div class="mt-14 grid gap-6 md:grid-cols-2">
       {% for t in testimonials %}<figure class="surface-card border border-border/60 p-8"><blockquote class="font-display text-xl leading-relaxed text-primary">“{{ t.quote }}”</blockquote><figcaption class="mt-6 text-sm text-muted-foreground"><strong class="font-semibold text-foreground">{{ t.name }}</strong> · {{ t.origin }}<br>{{ t.treatment }}</figcaption></figure>{% endfor %}
     </div>
-    <a href="{% url 'depoimentos' %}" class="mt-10 inline-flex items-center gap-2 text-sm tracking-[0.12em] text-primary uppercase hover:text-gold">{% firstof sec.note "Ver todos os depoimentos" %} {% icon "arrow-right" "h-4 w-4" %}</a>
+    <a href="{% url 'depoimentos' %}" class="mt-10 inline-flex items-center gap-2 text-sm tracking-[0.12em] text-primary uppercase hover:text-gold">{% translate "Ver todos os depoimentos" as fallback %}{% firstof sec.note fallback %} {% icon "arrow-right" "h-4 w-4" %}</a>
   </div>
 </section>
 {% endwith %}

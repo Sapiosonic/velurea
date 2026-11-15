@@ -33,6 +33,8 @@ ALLOWED_HOSTS = env_list("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1,[::1]")
 CSRF_TRUSTED_ORIGINS = env_list("DJANGO_CSRF_TRUSTED_ORIGINS")
 
 INSTALLED_APPS = [
+    # modeltranslation precisa vir antes do admin para registrar as abas.
+    "modeltranslation",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -51,11 +53,15 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # Depois da autenticação: precisa de request.user para liberar a
+    # pré-visualização de idiomas ainda não publicados.
+    "apps.core.middleware.LanguageGateMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -72,7 +78,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "apps.core.context_processors.site",
             ],
-            "builtins": ["apps.core.templatetags.velurea"],
+            "builtins": ["django.templatetags.i18n", "apps.core.templatetags.velurea"],
         },
     },
 ]
@@ -93,10 +99,30 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
-LANGUAGE_CODE = "pt-br"
 TIME_ZONE = "Europe/Istanbul"
-USE_I18N = True
 USE_TZ = True
+
+# ------------------------------------------------------------- idiomas ---
+# O português é o idioma padrão e fica sem prefixo na URL (/contato/), como
+# sempre foi. Os demais ganham prefixo e endereços traduzidos (/es/contacto/).
+#
+# Estar nesta lista NÃO publica o idioma: ele só aparece para o público depois
+# de marcado em Configurações do site → "Idiomas publicados". Até lá, só quem
+# está logado no admin consegue ver (pré-visualização).
+LANGUAGE_CODE = "pt-br"
+LANGUAGES = [
+    ("pt-br", "Português"),
+    ("es", "Español"),
+    ("en", "English"),
+    ("tr", "Türkçe"),
+]
+USE_I18N = True
+LOCALE_PATHS = [BASE_DIR / "locale"]
+
+# Campos traduzidos pelo admin (django-modeltranslation). Campo vazio num
+# idioma mostra o português — rede de segurança enquanto a tradução não termina.
+MODELTRANSLATION_DEFAULT_LANGUAGE = "pt-br"
+MODELTRANSLATION_FALLBACK_LANGUAGES = ("pt-br",)
 
 # URLs do site original terminam em barra (/contato/); APPEND_SLASH redireciona
 # /contato para /contato/, então os dois formatos continuam funcionando.

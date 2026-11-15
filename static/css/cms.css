@@ -101,3 +101,56 @@
 }
 .field-error { border-color: var(--destructive) !important; }
 .field-error-text { margin-top: .375rem; font-size: .75rem; color: var(--destructive); }
+
+/* ------------------------------------------------------------- idiomas --- */
+/* Seletor de idioma. Só aparece com mais de um idioma publicado (ou para
+   quem está logado no admin). */
+.lang-switch { display: flex; align-items: center; gap: .35rem; font-size: .72rem; letter-spacing: .16em; }
+.lang-link { padding: .25rem .15rem; transition: color .2s, opacity .2s; }
+.lang-link.is-current { font-weight: 600; }
+.lang-link.is-unpublished { text-decoration: line-through; text-decoration-thickness: 1px; }
+.lang-sep { opacity: .4; }
+
+/* Header: menu compacto. <details> abre e fecha sem JavaScript; site.js só
+   fecha ao clicar fora ou apertar Esc. */
+.lang-menu { position: relative; margin-right: .25rem; }
+.lang-menu summary {
+  display: flex; align-items: center; gap: .25rem; cursor: pointer; list-style: none;
+  padding: .55rem .35rem; font-size: .75rem; letter-spacing: .14em; color: var(--primary);
+}
+.lang-menu summary::-webkit-details-marker { display: none; }
+.lang-menu-chevron { width: .85rem; height: .85rem; transition: transform .2s; opacity: .7; }
+.lang-menu[open] .lang-menu-chevron { transform: rotate(180deg); }
+.lang-menu-list {
+  position: absolute; right: 0; top: calc(100% + .35rem); z-index: 60;
+  min-width: 4.5rem; margin: 0; padding: .35rem 0; list-style: none;
+  background: var(--card); border: 1px solid var(--border); box-shadow: var(--shadow-soft);
+}
+.lang-menu-list .lang-link {
+  display: block; padding: .45rem 1rem; font-size: .75rem; letter-spacing: .14em; color: var(--muted-foreground);
+}
+.lang-menu-list a.lang-link:hover { background: var(--sand); color: var(--primary); }
+.lang-menu-list .is-current { color: var(--primary); }
+
+.lang-switch--mobile { justify-content: center; margin-top: 1.25rem; font-size: .8rem; color: var(--muted-foreground); }
+.lang-switch--mobile .is-current { color: var(--primary); }
+
+.lang-switch--footer { margin-top: 1.5rem; }
+.lang-switch--footer .lang-link { opacity: .6; }
+.lang-switch--footer .lang-link:hover,
+.lang-switch--footer .is-current { opacity: 1; }
+
+.lang-preview-bar {
+  background: var(--gold);
+  color: var(--gold-foreground);
+  font-size: .8rem;
+  text-align: center;
+  padding: .55rem 1rem;
+}
+
+/* Entre 1280 e 1439px o menu desktop já ocupa toda a largura. Com o seletor
+   de idioma no header, o botão de WhatsApp vira só ícone para caber — o botão
+   flutuante "Fale conosco" continua visível. Só português publicado: nada muda. */
+@media (min-width: 1280px) and (max-width: 1439.98px) {
+  .has-lang-menu .header-wa-label { display: none; }
+}

@@ -1,13 +1,16 @@
 from django.contrib import admin
 from django.utils.html import format_html
+from modeltranslation.admin import TabbedTranslationAdmin
+
+from apps.core.languages import prepopulated_slugs
 
 from .models import Category, Post
 
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(TabbedTranslationAdmin):
     list_display = ["name", "slug", "post_count"]
-    prepopulated_fields = {"slug": ["name"]}
+    prepopulated_fields = prepopulated_slugs("slug", "name")
 
     @admin.display(description="posts")
     def post_count(self, obj):
@@ -15,12 +18,12 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(TabbedTranslationAdmin):
     list_display = ["title", "category", "status", "published_at", "view_link"]
     list_filter = ["status", "category"]
     search_fields = ["title", "excerpt", "body"]
     date_hierarchy = "published_at"
-    prepopulated_fields = {"slug": ["title"]}
+    prepopulated_fields = prepopulated_slugs("slug", "title")
     actions = ["publish", "unpublish"]
     fieldsets = [
         (None, {"fields": ["title", "slug", "category", "excerpt"]}),

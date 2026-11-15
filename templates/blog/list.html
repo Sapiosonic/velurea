@@ -2,7 +2,7 @@
 {% block seo %}
   {# Páginas 2+ ganham título próprio, para o Google não ver títulos duplicados. #}
   {% firstof page.seo_title "Blog | Velurea Clinic" as seo_title %}
-  <title>{% if posts.number > 1 %}Página {{ posts.number }} — {% endif %}{{ seo_title }}</title>
+  <title>{% if posts.number > 1 %}{% blocktranslate with n=posts.number %}Página {{ n }}{% endblocktranslate %} — {% endif %}{{ seo_title }}</title>
   <meta name="description" content="{{ page.seo_description }}">
   <meta property="og:title" content="{% firstof page.og_title seo_title %}">
   <meta property="og:description" content="{% firstof page.og_description page.seo_description %}">
@@ -14,7 +14,7 @@
 <section class="px-5 py-20 lg:px-8 lg:py-28">
   <div class="mx-auto max-w-7xl">
     {% if category %}
-    <p class="mb-10 text-sm text-muted-foreground">Categoria: <strong class="text-foreground">{{ category.name }}</strong> · <a href="{% url 'blog:list' %}" class="text-gold uppercase tracking-[0.12em] text-[0.75rem]">ver todos</a></p>
+    <p class="mb-10 text-sm text-muted-foreground">{% translate "Categoria:" %} <strong class="text-foreground">{{ category.name }}</strong> · <a href="{% url 'blog:list' %}" class="text-gold uppercase tracking-[0.12em] text-[0.75rem]">{% translate "ver todos" %}</a></p>
     {% endif %}
 
     {% if posts %}
@@ -25,18 +25,18 @@
         {% if p.category %}<p class="text-[0.7rem] tracking-[0.18em] text-gold uppercase">{{ p.category.name }}</p>{% endif %}
         <h2 class="mt-4 text-2xl leading-snug text-primary">{{ p.title }}</h2>
         <p class="mt-4 text-sm leading-relaxed text-muted-foreground">{{ p.excerpt }}</p>
-        <p class="mt-6 border-t border-border pt-4 text-xs text-muted-foreground">{{ p.published_at|date:"j \d\e F \d\e Y"|lower }} · leitura de {{ p.reading_time }} min</p>
-        <span class="mt-6 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.16em] text-gold uppercase">Ler artigo {% icon "arrow-right" "h-4 w-4 transition-transform group-hover:translate-x-1" %}</span>
+        <p class="mt-6 border-t border-border pt-4 text-xs text-muted-foreground">{{ p.published_at|long_date }} · {% blocktranslate with n=p.reading_time %}leitura de {{ n }} min{% endblocktranslate %}</p>
+        <span class="mt-6 inline-flex items-center gap-2 text-[0.75rem] tracking-[0.16em] text-gold uppercase">{% translate "Ler artigo" %} {% icon "arrow-right" "h-4 w-4 transition-transform group-hover:translate-x-1" %}</span>
       </a>
       {% endfor %}
     </div>
 
     {% if posts.has_other_pages %}
-    <nav class="pager" aria-label="Paginação do blog">
+    <nav class="pager" aria-label="{% translate 'Paginação do blog' %}">
       {% if posts.has_previous %}
-      <a class="pager-step" href="{% if posts.previous_page_number == 1 %}{{ request.path }}{% else %}?pagina={{ posts.previous_page_number }}{% endif %}" rel="prev" aria-label="Página anterior">{% icon "arrow-left" "h-4 w-4" %}<span>Anterior</span></a>
+      <a class="pager-step" href="{% if posts.previous_page_number == 1 %}{{ request.path }}{% else %}?pagina={{ posts.previous_page_number }}{% endif %}" rel="prev" aria-label="{% translate 'Página anterior' %}">{% icon "arrow-left" "h-4 w-4" %}<span>{% translate "Anterior" %}</span></a>
       {% else %}
-      <span class="pager-step is-disabled" aria-hidden="true">{% icon "arrow-left" "h-4 w-4" %}<span>Anterior</span></span>
+      <span class="pager-step is-disabled" aria-hidden="true">{% icon "arrow-left" "h-4 w-4" %}<span>{% translate "Anterior" %}</span></span>
       {% endif %}
 
       <ol class="pager-pages">
@@ -46,21 +46,21 @@
           {% elif n == posts.number %}
           <li><span class="pager-num is-current" aria-current="page">{{ n }}</span></li>
           {% else %}
-          <li><a class="pager-num" href="{% if n == 1 %}{{ request.path }}{% else %}?pagina={{ n }}{% endif %}" aria-label="Página {{ n }}">{{ n }}</a></li>
+          <li><a class="pager-num" href="{% if n == 1 %}{{ request.path }}{% else %}?pagina={{ n }}{% endif %}" aria-label="{% blocktranslate %}Página {{ n }}{% endblocktranslate %}">{{ n }}</a></li>
           {% endif %}
         {% endfor %}
       </ol>
 
       {% if posts.has_next %}
-      <a class="pager-step" href="?pagina={{ posts.next_page_number }}" rel="next" aria-label="Próxima página"><span>Próxima</span>{% icon "arrow-right" "h-4 w-4" %}</a>
+      <a class="pager-step" href="?pagina={{ posts.next_page_number }}" rel="next" aria-label="{% translate 'Próxima página' %}"><span>{% translate "Próxima" %}</span>{% icon "arrow-right" "h-4 w-4" %}</a>
       {% else %}
-      <span class="pager-step is-disabled" aria-hidden="true"><span>Próxima</span>{% icon "arrow-right" "h-4 w-4" %}</span>
+      <span class="pager-step is-disabled" aria-hidden="true"><span>{% translate "Próxima" %}</span>{% icon "arrow-right" "h-4 w-4" %}</span>
       {% endif %}
     </nav>
-    <p class="pager-summary">Página {{ posts.number }} de {{ posts.paginator.num_pages }} · {{ posts.paginator.count }} artigos</p>
+    <p class="pager-summary">{% blocktranslate with n=posts.number total=posts.paginator.num_pages %}Página {{ n }} de {{ total }}{% endblocktranslate %} · {% blocktranslate count count=posts.paginator.count %}{{ count }} artigo{% plural %}{{ count }} artigos{% endblocktranslate %}</p>
     {% endif %}
     {% else %}
-    <p class="text-sm text-muted-foreground">Nenhum artigo publicado ainda.</p>
+    <p class="text-sm text-muted-foreground">{% translate "Nenhum artigo publicado ainda." %}</p>
     {% endif %}
 
     {% if page.s.rodape.text %}<p class="mt-10 text-sm text-muted-foreground">{{ page.s.rodape.text }}</p>{% endif %}

@@ -44,6 +44,7 @@ def notify(request, lead):
             f"WhatsApp: {lead.phone}",
             f"País: {lead.country}",
             f"Tratamento: {lead.treatment}",
+            f"Idioma do formulário: {lead.get_language_display()} — responda neste idioma",
             "",
             "Mensagem:",
             lead.message or "(sem mensagem)",
@@ -53,7 +54,7 @@ def notify(request, lead):
     )
     try:
         send_mail(
-            subject=f"Nova solicitação de avaliação — {lead.name}",
+            subject=f"Nova solicitação de avaliação [{lead.language.upper()}] — {lead.name}",
             message=body,
             from_email=None,
             recipient_list=[site.notification_email],

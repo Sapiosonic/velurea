@@ -57,6 +57,12 @@ class SiteSettings(models.Model):
         help_text="Cada formulário recebido gera um aviso neste e-mail. "
         "Em branco, usa o e-mail de contato acima.",
     )
+    published_languages = models.CharField(
+        "idiomas publicados", max_length=50, blank=True,
+        help_text="Além do português, que está sempre no ar. Publique um idioma só "
+        "quando a tradução estiver completa e revisada; antes disso, ele fica "
+        "visível apenas para quem está logado no admin.",
+    )
     noindex = models.BooleanField(
         "esconder o site do Google",
         default=False,

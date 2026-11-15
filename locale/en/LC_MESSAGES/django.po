@@ -1,0 +1,418 @@
+# Velurea — textos fixos do site (English).
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 20:30-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\apps\contact\forms.py:24 .\apps\contact\forms.py:25
+msgid "Selecione um tratamento da lista."
+msgstr ""
+
+#: .\apps\contact\forms.py:37
+msgid "Outro procedimento"
+msgstr ""
+
+#: .\apps\core\context_processors.py:10
+msgid "Início"
+msgstr ""
+
+#: .\apps\core\context_processors.py:11
+msgid "Sobre"
+msgstr ""
+
+#: .\apps\core\context_processors.py:12 .\templates\base.html:79
+msgid "Tratamentos"
+msgstr ""
+
+#: .\apps\core\context_processors.py:13
+msgid "Médicos e Hospitais"
+msgstr ""
+
+#: .\apps\core\context_processors.py:14
+msgid "Como Funciona"
+msgstr ""
+
+#: .\apps\core\context_processors.py:15 .\templates\base.html:90
+msgid "Depoimentos"
+msgstr ""
+
+#: .\apps\core\context_processors.py:16 .\templates\base.html:91
+msgid "Blog"
+msgstr ""
+
+#: .\apps\core\context_processors.py:17
+msgid "FAQ"
+msgstr ""
+
+#: .\apps\treatments\models.py:81
+#, python-format
+msgid "%(title)s na Turquia — Velurea Clinic"
+msgstr ""
+
+#: .\apps\treatments\models.py:88
+#, python-format
+msgid "Quer saber se %(title)s é indicado para você?"
+msgstr ""
+
+#: .\apps\treatments\models.py:95
+msgid "Áreas atendidas"
+msgstr ""
+
+#: .\apps\treatments\models.py:96
+msgid "Procedimentos disponíveis"
+msgstr ""
+
+#: .\apps\treatments\models.py:98
+msgid "O que a coordenação inclui"
+msgstr ""
+
+#: .\config\urls.py:41
+msgctxt "url"
+msgid "categoria/"
+msgstr "category/"
+
+#: .\config\urls.py:60
+msgctxt "url"
+msgid "sobre/"
+msgstr "about/"
+
+#: .\config\urls.py:61
+msgctxt "url"
+msgid "tratamentos/"
+msgstr "treatments/"
+
+#: .\config\urls.py:62
+msgctxt "url"
+msgid "como-funciona/"
+msgstr "how-it-works/"
+
+#: .\config\urls.py:63
+msgctxt "url"
+msgid "depoimentos/"
+msgstr "testimonials/"
+
+#: .\config\urls.py:64
+msgctxt "url"
+msgid "medicos-e-hospitais/"
+msgstr "doctors-and-hospitals/"
+
+#: .\config\urls.py:65
+msgctxt "url"
+msgid "blog/"
+msgstr "blog/"
+
+#: .\config\urls.py:66
+msgctxt "url"
+msgid "perguntas-frequentes/"
+msgstr "faq/"
+
+#: .\config\urls.py:67
+msgctxt "url"
+msgid "contato/"
+msgstr "contact/"
+
+#: .\config\urls.py:68
+msgctxt "url"
+msgid "obrigado/"
+msgstr "thank-you/"
+
+#: .\templates\404.html:3 .\templates\404.html:10
+msgid "Página não encontrada"
+msgstr ""
+
+#: .\templates\404.html:11
+msgid "O endereço que você procurou não existe ou foi movido."
+msgstr ""
+
+#: .\templates\404.html:13 .\templates\core\obrigado.html:20
+msgid "Voltar ao início"
+msgstr ""
+
+#: .\templates\base.html:14
+msgid "Velurea Clinic — Turismo médico em Istambul"
+msgstr ""
+
+#: .\templates\base.html:15
+msgid ""
+"Coordenação completa de tratamentos médicos na Turquia para pacientes "
+"internacionais."
+msgstr ""
+
+#: .\templates\base.html:42
+#, python-format
+msgid ""
+"Pré-visualização: o idioma %(name)s ainda não está publicado. Só quem está "
+"logado no admin vê esta página; campos sem tradução aparecem em português."
+msgstr ""
+
+#: .\templates\base.html:54 .\templates\base.html:61
+#: .\templates\core\home.html:15
+msgid "Avaliação gratuita"
+msgstr ""
+
+#: .\templates\base.html:56
+msgid "Abrir menu"
+msgstr ""
+
+#: .\templates\base.html:56
+msgid "Fechar menu"
+msgstr ""
+
+#: .\templates\base.html:85
+msgid "Institucional"
+msgstr ""
+
+#: .\templates\base.html:87
+msgid "Sobre a Velurea"
+msgstr ""
+
+#: .\templates\base.html:88
+msgid "Como funciona"
+msgstr ""
+
+#: .\templates\base.html:89
+msgid "Médicos e hospitais"
+msgstr ""
+
+#: .\templates\base.html:92
+msgid "Perguntas frequentes"
+msgstr ""
+
+#: .\templates\base.html:96
+msgid "Contato"
+msgstr ""
+
+#: .\templates\base.html:112
+msgid "Todos os direitos reservados."
+msgstr ""
+
+#: .\templates\base.html:118 .\templates\core\home.html:16
+#: .\templates\core\obrigado.html:19 .\templates\partials\cta.html:12
+msgid "Falar no WhatsApp"
+msgstr ""
+
+#: .\templates\base.html:118
+msgid "Fale conosco"
+msgstr ""
+
+#: .\templates\blog\detail.html:12
+msgid ""
+"Pré-visualização: este post ainda não está publicado. Só quem está logado no "
+"admin vê esta página."
+msgstr ""
+
+#: .\templates\blog\detail.html:21 .\templates\blog\list.html:28
+#, python-format
+msgid "leitura de %(n)s min"
+msgstr ""
+
+#: .\templates\blog\detail.html:35
+msgid "Todos os artigos"
+msgstr ""
+
+#: .\templates\blog\detail.html:43
+msgid "Leia também"
+msgstr ""
+
+#: .\templates\blog\list.html:5 .\templates\blog\list.html:49
+#, python-format
+msgid "Página %(n)s"
+msgstr ""
+
+#: .\templates\blog\list.html:17
+msgid "Categoria:"
+msgstr ""
+
+#: .\templates\blog\list.html:17
+msgid "ver todos"
+msgstr ""
+
+#: .\templates\blog\list.html:29
+msgid "Ler artigo"
+msgstr ""
+
+#: .\templates\blog\list.html:35
+msgid "Paginação do blog"
+msgstr ""
+
+#: .\templates\blog\list.html:37
+msgid "Página anterior"
+msgstr ""
+
+#: .\templates\blog\list.html:37 .\templates\blog\list.html:39
+msgid "Anterior"
+msgstr ""
+
+#: .\templates\blog\list.html:55
+msgid "Próxima página"
+msgstr ""
+
+#: .\templates\blog\list.html:55 .\templates\blog\list.html:57
+msgid "Próxima"
+msgstr ""
+
+#: .\templates\blog\list.html:60
+#, python-format
+msgid "Página %(n)s de %(total)s"
+msgstr ""
+
+#: .\templates\blog\list.html:60
+#, python-format
+msgid "%(count)s artigo"
+msgid_plural "%(count)s artigos"
+msgstr[0] ""
+msgstr[1] ""
+
+#: .\templates\blog\list.html:63
+msgid "Nenhum artigo publicado ainda."
+msgstr ""
+
+#: .\templates\contact\contato.html:14
+msgid "Confira os campos destacados abaixo."
+msgstr ""
+
+#: .\templates\contact\contato.html:19
+msgid "Nome completo"
+msgstr ""
+
+#: .\templates\contact\contato.html:20
+msgid "Seu nome"
+msgstr ""
+
+#: .\templates\contact\contato.html:24 .\templates\contact\contato.html:61
+msgid "E-mail"
+msgstr ""
+
+#: .\templates\contact\contato.html:25
+msgid "voce@email.com"
+msgstr ""
+
+#: .\templates\contact\contato.html:29
+msgid "WhatsApp (com DDI)"
+msgstr ""
+
+#: .\templates\contact\contato.html:30
+msgid "+55 11 90000-0000"
+msgstr ""
+
+#: .\templates\contact\contato.html:34
+msgid "País de residência"
+msgstr ""
+
+#: .\templates\contact\contato.html:35
+msgid "Brasil"
+msgstr ""
+
+#: .\templates\contact\contato.html:39
+msgid "Tratamento de interesse"
+msgstr ""
+
+#: .\templates\contact\contato.html:47
+msgid "Conte um pouco sobre o seu caso"
+msgstr ""
+
+#: .\templates\contact\contato.html:48
+msgid ""
+"Idade, histórico de saúde, cirurgias anteriores, expectativas e datas "
+"possíveis para a viagem."
+msgstr ""
+
+#: .\templates\contact\contato.html:52
+msgid "Enviar solicitação"
+msgstr ""
+
+#: .\templates\contact\contato.html:58
+msgid "Canais diretos"
+msgstr ""
+
+#: .\templates\contact\contato.html:60
+msgid "WhatsApp"
+msgstr ""
+
+#: .\templates\contact\contato.html:62
+msgid "Escritório"
+msgstr ""
+
+#: .\templates\contact\contato.html:63
+msgid "Atendimento"
+msgstr ""
+
+#: .\templates\core\home.html:44
+msgid "Conhecer a Velurea"
+msgstr ""
+
+#: .\templates\core\home.html:57 .\templates\treatments\list.html:21
+msgid "Ver detalhes"
+msgstr ""
+
+#: .\templates\core\home.html:70
+msgid "Ver o processo completo"
+msgstr ""
+
+#: .\templates\core\home.html:91
+msgid "Ver todos os depoimentos"
+msgstr ""
+
+#: .\templates\partials\cta.html:11
+msgid "Solicitar avaliação"
+msgstr ""
+
+#: .\templates\partials\language_switcher.html:12
+#: .\templates\partials\language_switcher.html:23
+msgid "Idioma"
+msgstr ""
+
+#: .\templates\partials\language_switcher.html:17
+#: .\templates\partials\language_switcher.html:29
+msgid "Ainda não publicado"
+msgstr ""
+
+#: .\templates\treatments\detail.html:11
+msgid "Tratamento"
+msgstr ""
+
+#: .\templates\treatments\detail.html:16 .\templates\treatments\list.html:15
+msgid "Duração"
+msgstr ""
+
+#: .\templates\treatments\detail.html:17
+msgid "Permanência estimada"
+msgstr ""
+
+#: .\templates\treatments\detail.html:40
+msgid "Quem costuma ser candidato"
+msgstr ""
+
+#: .\templates\treatments\detail.html:41
+msgid ""
+"A indicação final é sempre da equipe médica, após avaliação clínica e "
+"exames. Esta página tem caráter informativo e não substitui consulta médica."
+msgstr ""
+
+#: .\templates\treatments\detail.html:45
+msgid "Outros tratamentos"
+msgstr ""
+
+#: .\templates\treatments\list.html:16
+msgid "Estadia"
+msgstr ""
+
+#: .\templates\treatments\list.html:19
+#, python-format
+msgid "%(n)s procedimento coordenado"
+msgid_plural "%(n)s procedimentos coordenados"
+msgstr[0] ""
+msgstr[1] ""

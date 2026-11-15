@@ -16,8 +16,8 @@
         </div>
       </div>
       <div class="mt-8 flex flex-wrap gap-3">
-        <a href="{{ site.whatsapp_link }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary px-8 py-4 text-[0.78rem] tracking-[0.16em] text-primary-foreground uppercase transition-opacity hover:opacity-90">{% icon "message-circle" "h-4 w-4" "1.6" %}Falar no WhatsApp</a>
-        <a href="{% url 'home' %}" class="inline-flex items-center border border-border px-8 py-4 text-[0.78rem] tracking-[0.16em] text-foreground uppercase transition-colors hover:bg-sand">Voltar ao início</a>
+        <a href="{{ site.whatsapp_link }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary px-8 py-4 text-[0.78rem] tracking-[0.16em] text-primary-foreground uppercase transition-opacity hover:opacity-90">{% icon "message-circle" "h-4 w-4" "1.6" %}{% translate "Falar no WhatsApp" %}</a>
+        <a href="{% url 'home' %}" class="inline-flex items-center border border-border px-8 py-4 text-[0.78rem] tracking-[0.16em] text-foreground uppercase transition-colors hover:bg-sand">{% translate "Voltar ao início" %}</a>
       </div>
       {% if sec.note %}<p class="mt-10 text-xs leading-relaxed text-muted-foreground">{{ sec.note }}</p>{% endif %}
     </div>

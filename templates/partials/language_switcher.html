@@ -1,0 +1,33 @@
+{% comment %}
+  Seletor de idioma. Recebe `versions` (tag language_versions) e `variant`.
+  Cada sigla leva à MESMA página no outro idioma. Idiomas ainda não
+  publicados só aparecem para quem está logado no admin, riscados.
+
+  - header: menu compacto (só a sigla atual + seta). O header desktop não tem
+    espaço para as quatro siglas sem quebrar o menu em 1280–1440px.
+  - mobile / footer: as siglas lado a lado.
+{% endcomment %}
+{% if variant == "header" %}
+<details class="lang-menu">
+  {% for v in versions %}{% if v.current %}<summary aria-label="{% translate 'Idioma' %}: {{ v.short }}"><span lang="{{ v.hreflang }}">{{ v.short }}</span>{% icon "chevron-down" "lang-menu-chevron" %}</summary>{% endif %}{% endfor %}
+  <ul class="lang-menu-list">
+    {% for v in versions %}
+    <li>
+      {% if v.current %}<span class="lang-link is-current" aria-current="true" lang="{{ v.hreflang }}">{{ v.short }}</span>
+      {% else %}<a class="lang-link{% if not v.published %} is-unpublished{% endif %}" href="{{ v.url }}" hreflang="{{ v.hreflang }}" lang="{{ v.hreflang }}"{% if not v.published %} title="{% translate 'Ainda não publicado' %}"{% endif %}>{{ v.short }}</a>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</details>
+{% else %}
+<nav class="lang-switch lang-switch--{{ variant }}" aria-label="{% translate 'Idioma' %}">
+  {% for v in versions %}
+    {% if not forloop.first %}<span class="lang-sep" aria-hidden="true">·</span>{% endif %}
+    {% if v.current %}
+    <span class="lang-link is-current" aria-current="true" lang="{{ v.hreflang }}">{{ v.short }}</span>
+    {% else %}
+    <a class="lang-link{% if not v.published %} is-unpublished{% endif %}" href="{{ v.url }}" hreflang="{{ v.hreflang }}" lang="{{ v.hreflang }}"{% if not v.published %} title="{% translate 'Ainda não publicado' %}"{% endif %}>{{ v.short }}</a>
+    {% endif %}
+  {% endfor %}
+</nav>
+{% endif %}

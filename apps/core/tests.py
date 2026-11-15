@@ -1,7 +1,8 @@
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core import mail
 from django.core.management import call_command
-from django.test import TestCase
+from apps.core.testing import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
@@ -69,9 +70,10 @@ class ContactTests(TestCase):
         call_command("seed_site", verbosity=0)
 
     def payload(self, **extra):
+        dental = Treatment.objects.get(slug_pt_br="odontologia")
         data = {
             "name": "Maria", "email": "maria@example.com", "phone": "+55 11 9",
-            "country": "Brasil", "treatment": "Tratamentos Odontológicos", "message": "Oi",
+            "country": "Brasil", "treatment": str(dental.pk), "message": "Oi",
         }
         data.update(extra)
         return data
@@ -79,9 +81,30 @@ class ContactTests(TestCase):
     def test_valid_submission_saves_and_notifies(self):
         r = self.client.post("/contato/", self.payload())
         self.assertRedirects(r, "/obrigado/")
-        self.assertEqual(Lead.objects.count(), 1)
+        lead = Lead.objects.get()
+        self.assertEqual(lead.treatment, "Tratamentos Odontológicos")
+        self.assertEqual(lead.treatment_ref.slug, "odontologia")
+        self.assertEqual(lead.language, "pt-br")
         self.assertEqual(len(mail.outbox), 1)
         self.assertIn("Maria", mail.outbox[0].subject)
+
+    def test_other_procedure(self):
+        self.client.post("/contato/", self.payload(treatment="outro"))
+        lead = Lead.objects.get()
+        self.assertEqual(lead.treatment, "Outro procedimento")
+        self.assertIsNone(lead.treatment_ref)
+
+    def test_spanish_form_records_language_and_portuguese_treatment(self):
+        SiteSettings.objects.filter(pk=1).update(published_languages="es")
+        Treatment.objects.filter(slug="odontologia").update(title_es="Tratamientos dentales")
+        r = self.client.get("/es/contacto/")
+        self.assertContains(r, "Tratamientos dentales")
+        r = self.client.post("/es/contacto/", self.payload())
+        self.assertRedirects(r, "/es/gracias/")
+        lead = Lead.objects.get()
+        self.assertEqual(lead.language, "es")
+        self.assertEqual(lead.treatment, "Tratamentos Odontológicos")  # equipe lê em PT
+        self.assertIn("[ES]", mail.outbox[0].subject)
 
     def test_honeypot_is_dropped_silently(self):
         r = self.client.post("/contato/", self.payload(botcheck="sou robô"))
@@ -184,6 +207,7 @@ class AdminTests(TestCase):
         cls.admin = get_user_model().objects.create_superuser("admin", "a@example.com", "x")
 
     def setUp(self):
+        super().setUp()
         self.client.force_login(self.admin)
 
     def test_every_admin_changelist_and_form_loads(self):
@@ -206,25 +230,50 @@ class AdminTests(TestCase):
             self.client.get(reverse("admin:core_page_delete", args=[page.pk])).status_code, 403
         )
 
-    def test_section_edit_through_admin(self):
-        page = Page.objects.get(key="faq")
-        url = reverse("admin:core_page_change", args=[page.pk])
+    def _page_post_data(self, page, section_edits):
+        """Dados do formulário do admin da página, campo a campo por idioma."""
+        sfx = [code.replace("-", "_") for code, _ in settings.LANGUAGES]
         sections = list(page.sections.all())
         data = {
-            "seo_title": page.seo_title, "seo_description": page.seo_description,
-            "og_title": page.og_title, "og_description": page.og_description,
-            "cta_title": "", "cta_text": "",
             "sections-TOTAL_FORMS": len(sections), "sections-INITIAL_FORMS": len(sections),
             "sections-MIN_NUM_FORMS": 0, "sections-MAX_NUM_FORMS": 1000,
         }
-        for i, s in enumerate(sections):
-            data.update({
-                f"sections-{i}-id": s.pk, f"sections-{i}-page": page.pk,
-                f"sections-{i}-eyebrow": s.eyebrow, f"sections-{i}-title": "Dúvidas",
-                f"sections-{i}-text": s.text, f"sections-{i}-body": s.body,
-                f"sections-{i}-items": s.items, f"sections-{i}-note": s.note,
-                f"sections-{i}-image_alt": s.image_alt,
-            })
+        for f in ["seo_title", "seo_description", "og_title", "og_description", "cta_title", "cta_text"]:
+            for s in sfx:
+                data[f"{f}_{s}"] = getattr(page, f"{f}_{s}") or ""
+        for i, sec in enumerate(sections):
+            data[f"sections-{i}-id"] = sec.pk
+            data[f"sections-{i}-page"] = page.pk
+            for f in ["eyebrow", "title", "text", "body", "items", "note", "image_alt"]:
+                for s in sfx:
+                    key = f"{f}_{s}"
+                    data[f"sections-{i}-{key}"] = section_edits.get((sec.key, key), getattr(sec, key) or "")
+        return data
+
+    def test_section_edit_through_admin(self):
+        page = Page.objects.get(key="faq")
+        url = reverse("admin:core_page_change", args=[page.pk])
+        data = self._page_post_data(page, {
+            ("hero", "title_pt_br"): "Dúvidas",
+            ("hero", "title_es"): "Preguntas frecuentes",
+        })
         r = self.client.post(url, data)
         self.assertEqual(r.status_code, 302, getattr(r, "context", None) and r.context["errors"])
+        self.client.logout()
         self.assertContains(self.client.get("/perguntas-frequentes/"), "Dúvidas")
+        # Espanhol ainda não publicado: o público não vê.
+        self.assertEqual(self.client.get("/es/preguntas-frecuentes/").status_code, 404)
+        SiteSettings.objects.filter(pk=1).update(published_languages="es")
+        self.assertContains(self.client.get("/es/preguntas-frecuentes/"), "Preguntas frecuentes")
+
+    def test_admin_has_language_tabs(self):
+        page = Page.objects.get(key="home")
+        r = self.client.get(reverse("admin:core_page_change", args=[page.pk]))
+        for name in ["title_pt_br", "title_es", "title_en", "title_tr"]:
+            self.assertContains(r, f"-{name}")
+
+    def test_published_languages_checkboxes(self):
+        url = reverse("admin:core_sitesettings_change", args=[1])
+        r = self.client.get(url)
+        self.assertContains(r, 'name="published" value="es"')
+        self.assertNotContains(r, 'name="published" value="pt-br"')

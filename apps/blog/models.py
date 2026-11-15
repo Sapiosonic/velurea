@@ -1,6 +1,7 @@
 import math
 
 import nh3
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
@@ -53,6 +54,14 @@ class PublishedManager(models.Manager):
             .filter(status=Post.Status.PUBLISHED, published_at__lte=timezone.now())
             .select_related("category")
         )
+
+    def for_language(self, lang):
+        """Publicados que têm tradução no idioma. Português: todos."""
+        qs = self.get_queryset()
+        if lang == settings.LANGUAGE_CODE:
+            return qs
+        title = f"title_{lang.replace('-', '_')}"
+        return qs.exclude(**{f"{title}__isnull": True}).exclude(**{title: ""})
 
 
 class Post(models.Model):
@@ -109,7 +118,12 @@ class Post(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        self.body = clean_html(self.body or "")
+        # Higieniza o corpo em todos os idiomas (body_pt_br, body_es…).
+        for code, _ in settings.LANGUAGES:
+            field = f"body_{code.replace('-', '_')}"
+            value = getattr(self, field, None)
+            if value:
+                setattr(self, field, clean_html(value))
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -118,6 +132,11 @@ class Post(models.Model):
     @property
     def is_live(self):
         return self.status == self.Status.PUBLISHED and self.published_at <= timezone.now()
+
+    def is_translated(self, lang):
+        if lang == settings.LANGUAGE_CODE:
+            return True
+        return bool(getattr(self, f"title_{lang.replace('-', '_')}", None))
 
     @property
     def reading_time(self):

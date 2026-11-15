@@ -66,3 +66,66 @@ def image_url(section, default_static):
     if section is not None and getattr(section, "image", None):
         return section.image.url
     return static(default_static)
+
+
+# ------------------------------------------------------------- idiomas ---
+
+# Data longa por idioma. Português e espanhol escrevem o mês em minúsculas
+# ("12 de março de 2026"); inglês e turco, com inicial maiúscula.
+LONG_DATE = {
+    "pt-br": ("j \d\e F \d\e Y", True),
+    "es": ("j \d\e F \d\e Y", True),
+    "en": ("F j, Y", False),
+    "tr": ("j F Y", False),
+}
+
+
+@register.filter
+def long_date(value):
+    from django.utils import dateformat, timezone
+
+    from apps.core import languages
+
+    if not value:
+        return ""
+    fmt, lower = LONG_DATE.get(languages.current(), LONG_DATE[languages.DEFAULT])
+    text = dateformat.format(timezone.localtime(value), fmt)
+    return text.lower() if lower else text
+
+
+@register.simple_tag(takes_context=True)
+def language_versions(context):
+    """Versões desta página em cada idioma, para o seletor e o hreflang.
+
+    A view pode informar `alternates` (tratamentos e posts, cujo slug muda por
+    idioma); senão, a URL é traduzida a partir da rota atual.
+    """
+    from apps.core import languages
+
+    request = context["request"]
+    published = getattr(request, "published_languages", [languages.DEFAULT])
+    is_staff = request.user.is_authenticated and request.user.is_staff
+    # Quem está no admin navega também pelos idiomas ainda não publicados.
+    visible = languages.ALL if is_staff else published
+
+    alternates = context.get("alternates")
+    if alternates is None:
+        alternates = languages.alternates_for_path(request.path, visible)
+    current = languages.current()
+
+    versions = []
+    for code in languages.ALL:
+        if code not in alternates or code not in visible:
+            continue
+        meta = languages.META[code]
+        versions.append({
+            "code": code,
+            "short": meta["short"],
+            "hreflang": meta["hreflang"],
+            "og": meta["og"],
+            "url": alternates[code],
+            "absolute_url": request.build_absolute_uri(alternates[code]),
+            "current": code == current,
+            "published": code in published,
+        })
+    return versions
