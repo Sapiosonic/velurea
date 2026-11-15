@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block seo %}
+  <title>{{ treatment.page_title }}</title>
+  <meta name="description" content="{{ treatment.short }}">
+  <meta property="og:title" content="{{ treatment.page_title }}">
+  <meta property="og:description" content="{{ treatment.short }}">
+{% endblock %}
+{% block content %}
+<section class="bg-sand">
+  <div class="mx-auto max-w-4xl px-5 py-20 lg:px-8 lg:py-28">
+    <p class="eyebrow">Tratamento</p>
+    <h1 class="mt-5 text-4xl leading-tight text-primary md:text-5xl">{{ treatment.title }}</h1>
+    <p class="mt-6 text-base leading-relaxed text-muted-foreground">{{ treatment.intro }}</p>
+    {% if treatment.duration or treatment.stay %}
+    <dl class="mt-10 grid gap-6 border-t border-border pt-6 sm:grid-cols-2">
+      {% if treatment.duration %}<div><dt class="text-xs tracking-[0.14em] text-muted-foreground uppercase">Duração</dt><dd class="mt-1 text-foreground">{{ treatment.duration }}</dd></div>{% endif %}
+      {% if treatment.stay %}<div><dt class="text-xs tracking-[0.14em] text-muted-foreground uppercase">Permanência estimada</dt><dd class="mt-1 text-foreground">{{ treatment.stay }}</dd></div>{% endif %}
+    </dl>
+    {% endif %}
+  </div>
+</section>
+
+<section class="px-5 py-20 lg:px-8 lg:py-28">
+  <div class="mx-auto max-w-7xl">
+    {% with cols=treatment.columns %}
+    <div class="{% if cols|length > 1 %}grid gap-14 lg:grid-cols-2{% else %}grid max-w-2xl gap-14{% endif %}">
+      {% for title, items in cols %}
+      <div>
+        <h2 class="text-2xl text-primary rule-gold">{{ title }}</h2>
+        <ul class="mt-8 space-y-4 text-sm text-muted-foreground">
+          {% for p in items %}<li class="flex gap-3 border-b border-border/60 pb-4">{% icon "check" "mt-0.5 h-4 w-4 shrink-0 text-gold" %}{{ p }}</li>{% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+    {% endwith %}
+
+    {# Este aviso aparece SEMPRE. Num site de saúde ele não é opcional. #}
+    <div class="mt-16 border border-border bg-sand p-8 lg:p-10">
+      {% if treatment.candidates %}<h2 class="text-xl text-primary">Quem costuma ser candidato</h2>{% endif %}
+      <p class="max-w-3xl text-sm leading-relaxed text-muted-foreground {% if treatment.candidates %}mt-3{% endif %}">{% if treatment.candidates %}{{ treatment.candidates }} {% endif %}A indicação final é sempre da equipe médica, após avaliação clínica e exames. Esta página tem caráter informativo e não substitui consulta médica.</p>
+    </div>
+
+    <div class="mt-14">
+      <h2 class="text-sm tracking-[0.16em] text-muted-foreground uppercase">Outros tratamentos</h2>
+      <div class="mt-5 flex flex-wrap gap-3">
+        {% for o in others %}<a href="{{ o.get_absolute_url }}" class="border border-border px-5 py-2.5 text-sm text-primary transition-colors hover:bg-sand">{{ o.title }}</a>{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "partials/cta.html" with cta_title=treatment.cta_title %}
+{% endblock %}
