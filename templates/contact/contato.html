@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "partials/page_hero.html" with hero=page.s.hero %}
+
+<section class="px-5 py-20 lg:px-8 lg:py-28">
+  <div class="mx-auto max-w-7xl">
+    <div class="grid gap-14 lg:grid-cols-[1.3fr_1fr]">
+      <form class="border border-border bg-card p-8 shadow-[var(--shadow-soft)] lg:p-10" action="{% url 'contato' %}" method="post" novalidate>
+        {% csrf_token %}
+        {# Honeypot: invisível para pessoas, preenchido por robôs. #}
+        <input type="text" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        {% if form.errors %}
+        <div class="form-alert mb-8" role="alert">Confira os campos destacados abaixo.</div>
+        {% endif %}
+
+        <div class="grid gap-6 sm:grid-cols-2">
+          <div class="sm:col-span-2">
+            <label class="text-sm font-medium leading-none" for="nome">Nome completo</label>
+            <input class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring md:text-sm mt-2{% if form.name.errors %} field-error{% endif %}" id="nome" name="name" required placeholder="Seu nome" value="{{ form.name.value|default_if_none:'' }}" maxlength="150">
+            {% for e in form.name.errors %}<p class="field-error-text">{{ e }}</p>{% endfor %}
+          </div>
+          <div>
+            <label class="text-sm font-medium leading-none" for="email">E-mail</label>
+            <input type="email" class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring md:text-sm mt-2{% if form.email.errors %} field-error{% endif %}" id="email" name="email" required placeholder="voce@email.com" value="{{ form.email.value|default_if_none:'' }}">
+            {% for e in form.email.errors %}<p class="field-error-text">{{ e }}</p>{% endfor %}
+          </div>
+          <div>
+            <label class="text-sm font-medium leading-none" for="telefone">WhatsApp (com DDI)</label>
+            <input class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring md:text-sm mt-2{% if form.phone.errors %} field-error{% endif %}" id="telefone" name="phone" required placeholder="+55 11 90000-0000" value="{{ form.phone.value|default_if_none:'' }}" maxlength="40">
+            {% for e in form.phone.errors %}<p class="field-error-text">{{ e }}</p>{% endfor %}
+          </div>
+          <div>
+            <label class="text-sm font-medium leading-none" for="pais">País de residência</label>
+            <input class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring md:text-sm mt-2{% if form.country.errors %} field-error{% endif %}" id="pais" name="country" required placeholder="Brasil" value="{{ form.country.value|default_if_none:'' }}" maxlength="80">
+            {% for e in form.country.errors %}<p class="field-error-text">{{ e }}</p>{% endfor %}
+          </div>
+          <div>
+            <label class="text-sm font-medium leading-none" for="tratamento">Tratamento de interesse</label>
+            <select id="tratamento" name="treatment" required class="mt-2 h-9 w-full border border-input bg-background px-3 text-sm text-foreground{% if form.treatment.errors %} field-error{% endif %}">
+              <option value="" disabled{% if not form.treatment.value %} selected{% endif %}>Selecione</option>
+              {% for title in form.treatment_choices %}<option value="{{ title }}"{% if form.treatment.value == title %} selected{% endif %}>{{ title }}</option>{% endfor %}
+            </select>
+            {% for e in form.treatment.errors %}<p class="field-error-text">{{ e }}</p>{% endfor %}
+          </div>
+          <div class="sm:col-span-2">
+            <label class="text-sm font-medium leading-none" for="mensagem">Conte um pouco sobre o seu caso</label>
+            <textarea class="flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-base shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring md:text-sm mt-2" id="mensagem" name="message" rows="5" placeholder="Idade, histórico de saúde, cirurgias anteriores, expectativas e datas possíveis para a viagem.">{{ form.message.value|default_if_none:'' }}</textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="mt-8 w-full bg-primary px-8 py-4 text-[0.78rem] tracking-[0.16em] text-primary-foreground uppercase transition-opacity hover:opacity-90">Enviar solicitação</button>
+        {% if page.s.formulario.text %}<p class="mt-4 text-xs leading-relaxed text-muted-foreground">{{ page.s.formulario.text }}</p>{% endif %}
+      </form>
+
+      {% with sec=page.s.canais %}
+      <aside>
+        <h2 class="text-2xl text-primary rule-gold">{% firstof sec.title "Canais diretos" %}</h2>
+        <ul class="mt-8 space-y-6 text-sm">
+          <li class="flex gap-4">{% icon "message-circle" "mt-0.5 h-5 w-5 shrink-0 text-gold" "1.4" %}<div><p class="text-xs tracking-[0.14em] text-muted-foreground uppercase">WhatsApp</p><a href="{{ site.whatsapp_link }}" target="_blank" rel="noopener noreferrer" class="text-foreground hover:text-gold">{{ site.whatsapp_display }}</a></div></li>
+          <li class="flex gap-4">{% icon "mail" "mt-0.5 h-5 w-5 shrink-0 text-gold" "1.4" %}<div><p class="text-xs tracking-[0.14em] text-muted-foreground uppercase">E-mail</p><a href="mailto:{{ site.email }}" class="text-foreground hover:text-gold">{{ site.email }}</a></div></li>
+          <li class="flex gap-4">{% icon "map-pin" "mt-0.5 h-5 w-5 shrink-0 text-gold" "1.4" %}<div><p class="text-xs tracking-[0.14em] text-muted-foreground uppercase">Escritório</p><p class="text-foreground">{{ site.address }}</p></div></li>
+          <li class="flex gap-4">{% icon "clock" "mt-0.5 h-5 w-5 shrink-0 text-gold" "1.4" %}<div><p class="text-xs tracking-[0.14em] text-muted-foreground uppercase">Atendimento</p><p class="text-foreground">{{ site.hours }}</p></div></li>
+        </ul>
+        {% if sec.body %}
+        <div class="mt-10 border border-border bg-sand p-6">
+          {% for p in sec.body|paragraphs %}<p class="text-sm leading-relaxed text-muted-foreground">{{ p|rich }}</p>{% endfor %}
+        </div>
+        {% endif %}
+      </aside>
+      {% endwith %}
+    </div>
+  </div>
+</section>
+{% endblock %}
