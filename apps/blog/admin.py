@@ -2,13 +2,14 @@ from django.contrib import admin
 from django.utils.html import format_html
 from modeltranslation.admin import TabbedTranslationAdmin
 
+from apps.core.admin import TranslationStatusMixin
 from apps.core.languages import prepopulated_slugs
 
 from .models import Category, Post
 
 
 @admin.register(Category)
-class CategoryAdmin(TabbedTranslationAdmin):
+class CategoryAdmin(TranslationStatusMixin, TabbedTranslationAdmin):
     list_display = ["name", "slug", "post_count"]
     prepopulated_fields = prepopulated_slugs("slug", "name")
 
@@ -18,7 +19,7 @@ class CategoryAdmin(TabbedTranslationAdmin):
 
 
 @admin.register(Post)
-class PostAdmin(TabbedTranslationAdmin):
+class PostAdmin(TranslationStatusMixin, TabbedTranslationAdmin):
     list_display = ["title", "category", "status", "published_at", "view_link"]
     list_filter = ["status", "category"]
     search_fields = ["title", "excerpt", "body"]

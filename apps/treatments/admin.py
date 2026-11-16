@@ -1,13 +1,14 @@
 from django.contrib import admin
 from modeltranslation.admin import TabbedTranslationAdmin
 
+from apps.core.admin import TranslationStatusMixin
 from apps.core.languages import prepopulated_slugs
 
 from .models import Treatment
 
 
 @admin.register(Treatment)
-class TreatmentAdmin(TabbedTranslationAdmin):
+class TreatmentAdmin(TranslationStatusMixin, TabbedTranslationAdmin):
     list_display = ["title", "slug", "order", "is_active"]
     list_editable = ["order", "is_active"]
     list_filter = ["is_active"]

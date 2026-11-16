@@ -87,9 +87,17 @@ Detalhes que valem saber:
 
 ## Idiomas (PT · ES · EN · TR)
 
-O site suporta português, espanhol, inglês e turco. **Só o português está no
-ar**; cada outro idioma é publicado quando a tradução estiver completa e
-revisada.
+O site suporta português, espanhol, inglês e turco. Cada idioma além do
+português é publicado quando a tradução estiver completa e revisada.
+
+| Idioma | Situação |
+| --- | --- |
+| Português | original, sempre no ar |
+| Español | **traduzido por IA** (conteúdo e textos fixos) — rascunho para a fase de desenvolvimento; **revisar com tradutor antes do lançamento** |
+| English / Türkçe | ainda sem tradução |
+
+Num banco novo, `seed_site` já carrega o espanhol; para deixá-lo público,
+marque-o em **Configurações do site → Idiomas publicados**.
 
 ### Para quem traduz (admin)
 
@@ -101,6 +109,11 @@ revisada.
 3. Com tudo revisado, marque o idioma em **Configurações do site → Idiomas
    publicados**. A partir daí ele fica público, ganha seletor de idioma no
    header e no rodapé, entra no sitemap e nas tags `hreflang`.
+
+**Quanto falta:** em Configurações do site, "Situação das traduções" mostra a
+porcentagem de cada idioma. Nas listas do admin (Páginas, Tratamentos, Posts…),
+a coluna **Traduções** marca cada item: `ES ✓` completo, `ES 3/5` parcial,
+`ES –` sem tradução. O endereço (slug) não entra na conta.
 
 O que **não** se traduz, de propósito: o texto dos depoimentos (fica no idioma
 em que o paciente escreveu), nomes de pacientes e médicos, telefone e e-mail.
@@ -119,6 +132,27 @@ traduzido é redirecionado (301).
 admin e no assunto do e-mail, ex.: `[ES]`), para a equipe responder na língua
 do paciente. O tratamento é gravado sempre com o nome em português.
 
+### Traduções em arquivo (`locale/content/<idioma>.json`)
+
+O conteúdo do banco não vai para o repositório. Para uma tradução feita fora
+do admin chegar a qualquer instalação, ela fica em
+`locale/content/<idioma>.json`, carregado automaticamente pelo `seed_site`.
+A importação **só preenche campos vazios**: nada escrito no admin é
+sobrescrito.
+
+```bash
+python manage.py export_content -o para-traduzir.json   # texto em português
+python manage.py import_content es                      # carrega es.json
+python manage.py import_content es --overwrite          # substitui o que já existe
+```
+
+Cada registro é identificado pelo texto/endereço em português (ex.: a FAQ
+pela pergunta, o tratamento pelo endereço). Se o português for reescrito no
+admin, a tradução antiga deixa de ser aplicada — de propósito.
+
+Nos posts, links internos precisam apontar para a versão do idioma
+(`/es/contacto/`, não `/contato/`).
+
 ### Para desenvolvedores (textos fixos dos templates)
 
 Textos que não estão no banco ("Ver detalhes", rótulos do formulário, menu)
@@ -136,7 +170,11 @@ python manage.py compilemessages --ignore=.venv
 
 Os trechos de URL estão nos mesmos arquivos, com contexto `url`
 (`msgctxt "url"`). **Já estão traduzidos; mudá-los depois de publicado muda os
-endereços do site.** Os demais textos estão vazios, à espera da tradução.
+endereços do site.** Espanhol completo; inglês e turco à espera da tradução.
+
+Com mais de um idioma publicado, o botão de WhatsApp do header desktop fica
+só com o ícone (o menu em espanhol não cabe com o rótulo); o botão flutuante
+continua.
 
 Novos idiomas: acrescente em `LANGUAGES` e `apps/core/languages.py` (META),
 rode `makemigrations` (o modeltranslation cria as colunas) e `makemessages`.
@@ -148,12 +186,14 @@ rode `makemigrations` (o modeltranslation cria as colunas) e `makemessages`.
 ```
 config/                 settings, urls (rotas por idioma)
 apps/core/              configurações, páginas/seções, coleções, seed_site,
-                        idiomas (languages.py, middleware.py, translation.py)
+                        idiomas (languages.py, middleware.py, translation.py,
+                        content_translations.py)
 apps/treatments/        tratamentos
 apps/blog/              posts e categorias
 apps/contact/           formulário e contatos recebidos
 templates/              base.html (header/rodapé) + uma pasta por app
-locale/                 traduções dos textos fixos (.po/.mo)
+locale/                 traduções dos textos fixos (.po/.mo) e, em
+                        locale/content/, do conteúdo do banco (.json)
 static/css/style.css    CSS original (Tailwind compilado) — não editar à mão
 static/css/cms.css      estilos novos: blog, formulário, seletor de idioma
 static/js/site.js       menu mobile, FAQ e seletor de idioma

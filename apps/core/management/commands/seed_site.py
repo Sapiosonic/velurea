@@ -15,7 +15,7 @@ from django.utils.text import slugify
 
 from apps.blog.models import Category, Post
 from apps.blog.seed_posts import BODIES
-from apps.core import seed
+from apps.core import content_translations, seed
 from apps.core.admin import CONTENT_FIELDS
 from apps.core.models import (
     Differential, Doctor, Faq, Hospital, Page, Section, SiteSettings, Step, Testimonial,
@@ -39,6 +39,10 @@ class Command(BaseCommand):
         # vez de depender de quem chamou o comando.
         with translation.override(settings.LANGUAGE_CODE):
             self._load(reset)
+            # Traduções versionadas (locale/content/*.json): só preenchem o
+            # que ainda está vazio — nada escrito no admin é sobrescrito.
+            for lang in content_translations.available():
+                content_translations.apply(lang, content_translations.load_file(lang))
 
     @transaction.atomic
     def _load(self, reset):

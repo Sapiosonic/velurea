@@ -15,70 +15,69 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\apps\contact\forms.py:24 .\apps\contact\forms.py:25
 msgid "Selecione um tratamento da lista."
-msgstr ""
+msgstr "Selecciona un tratamiento de la lista."
 
 #: .\apps\contact\forms.py:37
 msgid "Outro procedimento"
-msgstr ""
+msgstr "Otro procedimiento"
 
 #: .\apps\core\context_processors.py:10
 msgid "Início"
-msgstr ""
+msgstr "Inicio"
 
 #: .\apps\core\context_processors.py:11
 msgid "Sobre"
-msgstr ""
+msgstr "Nosotros"
 
 #: .\apps\core\context_processors.py:12 .\templates\base.html:79
 msgid "Tratamentos"
-msgstr ""
+msgstr "Tratamientos"
 
 #: .\apps\core\context_processors.py:13
 msgid "Médicos e Hospitais"
-msgstr ""
+msgstr "Médicos y Hospitales"
 
 #: .\apps\core\context_processors.py:14
 msgid "Como Funciona"
-msgstr ""
+msgstr "Cómo Funciona"
 
 #: .\apps\core\context_processors.py:15 .\templates\base.html:90
 msgid "Depoimentos"
-msgstr ""
+msgstr "Testimonios"
 
 #: .\apps\core\context_processors.py:16 .\templates\base.html:91
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: .\apps\core\context_processors.py:17
 msgid "FAQ"
-msgstr ""
+msgstr "FAQ"
 
 #: .\apps\treatments\models.py:81
 #, python-format
 msgid "%(title)s na Turquia — Velurea Clinic"
-msgstr ""
+msgstr "%(title)s en Turquía — Velurea Clinic"
 
 #: .\apps\treatments\models.py:88
 #, python-format
 msgid "Quer saber se %(title)s é indicado para você?"
-msgstr ""
+msgstr "¿Quieres saber si %(title)s es adecuado para ti?"
 
 #: .\apps\treatments\models.py:95
 msgid "Áreas atendidas"
-msgstr ""
+msgstr "Áreas atendidas"
 
 #: .\apps\treatments\models.py:96
 msgid "Procedimentos disponíveis"
-msgstr ""
+msgstr "Procedimientos disponibles"
 
 #: .\apps\treatments\models.py:98
 msgid "O que a coordenação inclui"
-msgstr ""
+msgstr "Qué incluye la coordinación"
 
 #: .\config\urls.py:41
 msgctxt "url"
@@ -132,288 +131,288 @@ msgstr "gracias/"
 
 #: .\templates\404.html:3 .\templates\404.html:10
 msgid "Página não encontrada"
-msgstr ""
+msgstr "Página no encontrada"
 
 #: .\templates\404.html:11
 msgid "O endereço que você procurou não existe ou foi movido."
-msgstr ""
+msgstr "La dirección que buscaste no existe o fue trasladada."
 
 #: .\templates\404.html:13 .\templates\core\obrigado.html:20
 msgid "Voltar ao início"
-msgstr ""
+msgstr "Volver al inicio"
 
 #: .\templates\base.html:14
 msgid "Velurea Clinic — Turismo médico em Istambul"
-msgstr ""
+msgstr "Velurea Clinic — Turismo médico en Estambul"
 
 #: .\templates\base.html:15
 msgid ""
 "Coordenação completa de tratamentos médicos na Turquia para pacientes "
 "internacionais."
-msgstr ""
+msgstr "Coordinación integral de tratamientos médicos en Turquía para pacientes internacionales."
 
 #: .\templates\base.html:42
 #, python-format
 msgid ""
 "Pré-visualização: o idioma %(name)s ainda não está publicado. Só quem está "
 "logado no admin vê esta página; campos sem tradução aparecem em português."
-msgstr ""
+msgstr "Vista previa: el idioma %(name)s aún no está publicado. Solo quien inició sesión en el admin ve esta página; los campos sin traducción aparecen en portugués."
 
 #: .\templates\base.html:54 .\templates\base.html:61
 #: .\templates\core\home.html:15
 msgid "Avaliação gratuita"
-msgstr ""
+msgstr "Evaluación gratuita"
 
 #: .\templates\base.html:56
 msgid "Abrir menu"
-msgstr ""
+msgstr "Abrir menú"
 
 #: .\templates\base.html:56
 msgid "Fechar menu"
-msgstr ""
+msgstr "Cerrar menú"
 
 #: .\templates\base.html:85
 msgid "Institucional"
-msgstr ""
+msgstr "Institucional"
 
 #: .\templates\base.html:87
 msgid "Sobre a Velurea"
-msgstr ""
+msgstr "Sobre Velurea"
 
 #: .\templates\base.html:88
 msgid "Como funciona"
-msgstr ""
+msgstr "Cómo funciona"
 
 #: .\templates\base.html:89
 msgid "Médicos e hospitais"
-msgstr ""
+msgstr "Médicos y hospitales"
 
 #: .\templates\base.html:92
 msgid "Perguntas frequentes"
-msgstr ""
+msgstr "Preguntas frecuentes"
 
 #: .\templates\base.html:96
 msgid "Contato"
-msgstr ""
+msgstr "Contacto"
 
 #: .\templates\base.html:112
 msgid "Todos os direitos reservados."
-msgstr ""
+msgstr "Todos los derechos reservados."
 
 #: .\templates\base.html:118 .\templates\core\home.html:16
 #: .\templates\core\obrigado.html:19 .\templates\partials\cta.html:12
 msgid "Falar no WhatsApp"
-msgstr ""
+msgstr "Escribir por WhatsApp"
 
 #: .\templates\base.html:118
 msgid "Fale conosco"
-msgstr ""
+msgstr "Contáctanos"
 
 #: .\templates\blog\detail.html:12
 msgid ""
 "Pré-visualização: este post ainda não está publicado. Só quem está logado no "
 "admin vê esta página."
-msgstr ""
+msgstr "Vista previa: este artículo aún no está publicado. Solo quien inició sesión en el admin ve esta página."
 
 #: .\templates\blog\detail.html:21 .\templates\blog\list.html:28
 #, python-format
 msgid "leitura de %(n)s min"
-msgstr ""
+msgstr "lectura de %(n)s min"
 
 #: .\templates\blog\detail.html:35
 msgid "Todos os artigos"
-msgstr ""
+msgstr "Todos los artículos"
 
 #: .\templates\blog\detail.html:43
 msgid "Leia também"
-msgstr ""
+msgstr "Lee también"
 
 #: .\templates\blog\list.html:5 .\templates\blog\list.html:49
 #, python-format
 msgid "Página %(n)s"
-msgstr ""
+msgstr "Página %(n)s"
 
 #: .\templates\blog\list.html:17
 msgid "Categoria:"
-msgstr ""
+msgstr "Categoría:"
 
 #: .\templates\blog\list.html:17
 msgid "ver todos"
-msgstr ""
+msgstr "ver todos"
 
 #: .\templates\blog\list.html:29
 msgid "Ler artigo"
-msgstr ""
+msgstr "Leer artículo"
 
 #: .\templates\blog\list.html:35
 msgid "Paginação do blog"
-msgstr ""
+msgstr "Paginación del blog"
 
 #: .\templates\blog\list.html:37
 msgid "Página anterior"
-msgstr ""
+msgstr "Página anterior"
 
 #: .\templates\blog\list.html:37 .\templates\blog\list.html:39
 msgid "Anterior"
-msgstr ""
+msgstr "Anterior"
 
 #: .\templates\blog\list.html:55
 msgid "Próxima página"
-msgstr ""
+msgstr "Página siguiente"
 
 #: .\templates\blog\list.html:55 .\templates\blog\list.html:57
 msgid "Próxima"
-msgstr ""
+msgstr "Siguiente"
 
 #: .\templates\blog\list.html:60
 #, python-format
 msgid "Página %(n)s de %(total)s"
-msgstr ""
+msgstr "Página %(n)s de %(total)s"
 
 #: .\templates\blog\list.html:60
 #, python-format
 msgid "%(count)s artigo"
 msgid_plural "%(count)s artigos"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s artículo"
+msgstr[1] "%(count)s artículos"
 
 #: .\templates\blog\list.html:63
 msgid "Nenhum artigo publicado ainda."
-msgstr ""
+msgstr "Todavía no hay artículos publicados."
 
 #: .\templates\contact\contato.html:14
 msgid "Confira os campos destacados abaixo."
-msgstr ""
+msgstr "Revisa los campos destacados abajo."
 
 #: .\templates\contact\contato.html:19
 msgid "Nome completo"
-msgstr ""
+msgstr "Nombre completo"
 
 #: .\templates\contact\contato.html:20
 msgid "Seu nome"
-msgstr ""
+msgstr "Tu nombre"
 
 #: .\templates\contact\contato.html:24 .\templates\contact\contato.html:61
 msgid "E-mail"
-msgstr ""
+msgstr "Correo electrónico"
 
 #: .\templates\contact\contato.html:25
 msgid "voce@email.com"
-msgstr ""
+msgstr "tu@correo.com"
 
 #: .\templates\contact\contato.html:29
 msgid "WhatsApp (com DDI)"
-msgstr ""
+msgstr "WhatsApp (con código de país)"
 
 #: .\templates\contact\contato.html:30
 msgid "+55 11 90000-0000"
-msgstr ""
+msgstr "+52 55 0000 0000"
 
 #: .\templates\contact\contato.html:34
 msgid "País de residência"
-msgstr ""
+msgstr "País de residencia"
 
 #: .\templates\contact\contato.html:35
 msgid "Brasil"
-msgstr ""
+msgstr "México"
 
 #: .\templates\contact\contato.html:39
 msgid "Tratamento de interesse"
-msgstr ""
+msgstr "Tratamiento de interés"
 
 #: .\templates\contact\contato.html:47
 msgid "Conte um pouco sobre o seu caso"
-msgstr ""
+msgstr "Cuéntanos un poco sobre tu caso"
 
 #: .\templates\contact\contato.html:48
 msgid ""
 "Idade, histórico de saúde, cirurgias anteriores, expectativas e datas "
 "possíveis para a viagem."
-msgstr ""
+msgstr "Edad, historial de salud, cirugías anteriores, expectativas y fechas posibles para el viaje."
 
 #: .\templates\contact\contato.html:52
 msgid "Enviar solicitação"
-msgstr ""
+msgstr "Enviar solicitud"
 
 #: .\templates\contact\contato.html:58
 msgid "Canais diretos"
-msgstr ""
+msgstr "Canales directos"
 
 #: .\templates\contact\contato.html:60
 msgid "WhatsApp"
-msgstr ""
+msgstr "WhatsApp"
 
 #: .\templates\contact\contato.html:62
 msgid "Escritório"
-msgstr ""
+msgstr "Oficina"
 
 #: .\templates\contact\contato.html:63
 msgid "Atendimento"
-msgstr ""
+msgstr "Horario de atención"
 
 #: .\templates\core\home.html:44
 msgid "Conhecer a Velurea"
-msgstr ""
+msgstr "Conocer Velurea"
 
 #: .\templates\core\home.html:57 .\templates\treatments\list.html:21
 msgid "Ver detalhes"
-msgstr ""
+msgstr "Ver detalles"
 
 #: .\templates\core\home.html:70
 msgid "Ver o processo completo"
-msgstr ""
+msgstr "Ver el proceso completo"
 
 #: .\templates\core\home.html:91
 msgid "Ver todos os depoimentos"
-msgstr ""
+msgstr "Ver todos los testimonios"
 
 #: .\templates\partials\cta.html:11
 msgid "Solicitar avaliação"
-msgstr ""
+msgstr "Solicitar evaluación"
 
 #: .\templates\partials\language_switcher.html:12
 #: .\templates\partials\language_switcher.html:23
 msgid "Idioma"
-msgstr ""
+msgstr "Idioma"
 
 #: .\templates\partials\language_switcher.html:17
 #: .\templates\partials\language_switcher.html:29
 msgid "Ainda não publicado"
-msgstr ""
+msgstr "Aún no publicado"
 
 #: .\templates\treatments\detail.html:11
 msgid "Tratamento"
-msgstr ""
+msgstr "Tratamiento"
 
 #: .\templates\treatments\detail.html:16 .\templates\treatments\list.html:15
 msgid "Duração"
-msgstr ""
+msgstr "Duración"
 
 #: .\templates\treatments\detail.html:17
 msgid "Permanência estimada"
-msgstr ""
+msgstr "Estancia estimada"
 
 #: .\templates\treatments\detail.html:40
 msgid "Quem costuma ser candidato"
-msgstr ""
+msgstr "Quién suele ser candidato"
 
 #: .\templates\treatments\detail.html:41
 msgid ""
 "A indicação final é sempre da equipe médica, após avaliação clínica e "
 "exames. Esta página tem caráter informativo e não substitui consulta médica."
-msgstr ""
+msgstr "La indicación final siempre es del equipo médico, tras la evaluación clínica y los exámenes. Esta página es informativa y no sustituye una consulta médica."
 
 #: .\templates\treatments\detail.html:45
 msgid "Outros tratamentos"
-msgstr ""
+msgstr "Otros tratamientos"
 
 #: .\templates\treatments\list.html:16
 msgid "Estadia"
-msgstr ""
+msgstr "Estancia"
 
 #: .\templates\treatments\list.html:19
 #, python-format
 msgid "%(n)s procedimento coordenado"
 msgid_plural "%(n)s procedimentos coordenados"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(n)s procedimiento coordinado"
+msgstr[1] "%(n)s procedimientos coordinados"

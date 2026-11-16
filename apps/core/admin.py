@@ -1,16 +1,50 @@
 from django import forms
+from django.conf import settings
 from django.contrib import admin
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.utils.html import format_html
 from modeltranslation.admin import TabbedTranslationAdmin, TranslationStackedInline
 
-from . import languages
+from . import content_translations, languages
 from .models import Differential, Doctor, Faq, Hospital, Page, Section, SiteSettings, Step, Testimonial
 
 # Campos traduzidos aparecem em abas por idioma (Português, Español…). Campo
 # vazio num idioma mostra o português no site — mas o idioma só fica público
 # depois de marcado em Configurações do site → Idiomas publicados.
+
+_BADGE = ('<span title="{title}" style="display:inline-block;margin:0 4px 2px 0;padding:1px 6px;'
+          'border-radius:9px;font-size:11px;font-weight:600;white-space:nowrap;'
+          'background:{bg};color:{fg}">{label}</span>')
+_COLORS = {"done": ("#dcefdc", "#1e5e1e"), "partial": ("#fbecc8", "#7a5200"), "none": ("#ececec", "#666")}
+
+
+def translation_badges(obj):
+    """Uma etiqueta por idioma: ✓ completo, 3/5 parcial, – sem tradução."""
+    parts = []
+    for lang in languages.OPTIONAL:
+        done, total = content_translations.status(obj, lang)
+        short = languages.META[lang]["short"]
+        if total and done == total:
+            state, label, title = "done", f"{short} ✓", "traduzido"
+        elif done:
+            state, label, title = "partial", f"{short} {done}/{total}", f"{done} de {total} campos traduzidos"
+        else:
+            state, label, title = "none", f"{short} –", "sem tradução"
+        bg, fg = _COLORS[state]
+        parts.append(format_html(_BADGE, title=title, bg=bg, fg=fg, label=label))
+    return format_html("".join(["{}"] * len(parts)), *parts)
+
+
+class TranslationStatusMixin:
+    """Acrescenta a coluna "Traduções" à lista do admin."""
+
+    def get_list_display(self, request):
+        return [*super().get_list_display(request), "translations"]
+
+    @admin.display(description="Traduções")
+    def translations(self, obj):
+        return translation_badges(obj)
 
 
 class SiteSettingsForm(forms.ModelForm):
@@ -40,9 +74,10 @@ class SiteSettingsForm(forms.ModelForm):
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(TabbedTranslationAdmin):
     form = SiteSettingsForm
+    readonly_fields = ["translation_overview"]
     fieldsets = [
         ("Idiomas", {
-            "fields": ["published"],
+            "fields": ["published", "translation_overview"],
             "description": "O português está sempre no ar. Para revisar um idioma antes "
             "de publicar, abra o site com o prefixo dele (/es/, /en/, /tr/) estando "
             "logado no admin.",
@@ -58,6 +93,22 @@ class SiteSettingsAdmin(TabbedTranslationAdmin):
         }),
         ("Formulário e Google", {"fields": ["lead_notification_email", "noindex", "site_name"]}),
     ]
+
+    @admin.display(description="Situação das traduções")
+    def translation_overview(self, obj):
+        rows = []
+        for lang in languages.OPTIONAL:
+            done, total = content_translations.overview(lang)
+            pct = round(100 * done / total) if total else 0
+            rows.append(format_html(
+                "<li><strong>{}</strong>: {}% — {} de {} campos</li>",
+                dict(settings.LANGUAGES)[lang], pct, done, total))
+        return format_html(
+            '<ul style="margin:0;padding-left:1.2em">{}</ul>'
+            '<p class="help">Conta os textos do banco (páginas, seções, tratamentos, '
+            "posts…). Campo sem tradução aparece em português. A coluna "
+            "“Traduções” de cada lista mostra o que falta.</p>",
+            format_html("".join(["{}"] * len(rows)), *rows))
 
     # Registro único: a lista pula direto para a edição.
     def changelist_view(self, request, extra_context=None):
@@ -135,7 +186,7 @@ class SectionInline(TranslationStackedInline):
 
 
 @admin.register(Page)
-class PageAdmin(TabbedTranslationAdmin):
+class PageAdmin(TranslationStatusMixin, TabbedTranslationAdmin):
     list_display = ["name", "seo_title", "view_link"]
     inlines = [SectionInline]
     fieldsets = [
@@ -149,6 +200,9 @@ class PageAdmin(TabbedTranslationAdmin):
         }),
     ]
 
+    def get_queryset(self, request):
+        return super().get_queryset(request).prefetch_related("sections")
+
     @admin.display(description="No site")
     def view_link(self, obj):
         return format_html('<a href="{}" target="_blank">abrir ↗</a>', obj.get_absolute_url())
@@ -160,7 +214,7 @@ class PageAdmin(TabbedTranslationAdmin):
         return False
 
 
-class OrderedAdmin(TabbedTranslationAdmin):
+class OrderedAdmin(TranslationStatusMixin, TabbedTranslationAdmin):
     list_editable = ["order", "is_active"]
     list_filter = ["is_active"]
 

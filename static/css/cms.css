@@ -148,9 +148,11 @@
   padding: .55rem 1rem;
 }
 
-/* Entre 1280 e 1439px o menu desktop já ocupa toda a largura. Com o seletor
-   de idioma no header, o botão de WhatsApp vira só ícone para caber — o botão
-   flutuante "Fale conosco" continua visível. Só português publicado: nada muda. */
-@media (min-width: 1280px) and (max-width: 1439.98px) {
+/* O menu desktop já ocupa quase toda a largura do header (que tem largura
+   máxima, então tela maior não ajuda). Com o seletor de idioma, o botão de
+   WhatsApp vira só ícone: sem isso, "Médicos y Hospitales" e "Cómo Funciona"
+   quebram em duas linhas em espanhol. O botão flutuante "Fale conosco"
+   continua visível. Só português publicado: nada muda. */
+@media (min-width: 1280px) {
   .has-lang-menu .header-wa-label { display: none; }
 }
