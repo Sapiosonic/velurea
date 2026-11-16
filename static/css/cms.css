@@ -156,3 +156,14 @@
 @media (min-width: 1280px) {
   .has-lang-menu .header-wa-label { display: none; }
 }
+
+/* Rótulos longos (turco: "Doktorlar ve Hastaneler", "Hasta Yorumları") não
+   podem quebrar em duas linhas no menu desktop. Entre 1280 e 1439px o
+   container é mais estreito que o seu máximo (1280px) e o espaço entre os
+   links diminui um pouco para caber. */
+.has-lang-menu nav.xl\:flex a,
+.has-lang-menu .lang-menu summary,
+.has-lang-menu a.bg-primary { white-space: nowrap; }
+@media (min-width: 1280px) and (max-width: 1439.98px) {
+  .has-lang-menu nav.xl\:flex { column-gap: 1.25rem; }
+}

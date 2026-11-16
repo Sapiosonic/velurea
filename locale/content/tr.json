@@ -1,0 +1,462 @@
+{
+  "site": {
+    "site": {
+      "whatsapp_message": "Merhaba! Türkiye'deki tedaviler hakkında bilgi almak istiyorum.",
+      "address": "Nispetiye Cad., Beşiktaş, İstanbul, Türkiye",
+      "hours": "Pzt–Cmt, 09.00 — 19.00 (GMT+3)",
+      "footer_about": "Uluslararası hastalar için Türkiye'de tıbbi tedavilerin uçtan uca koordinasyonu. İşlemleri doğrudan biz gerçekleştirmiyoruz: sizi alanında önde gelen doktor ve hastanelerle buluşturuyor, tüm süreci yönetiyoruz.",
+      "footer_disclaimer": "Bilgilendirme amaçlıdır. Tıbbi muayene, teşhis veya tedavinin yerine geçmez.",
+      "cta_eyebrow": "İlk adım",
+      "cta_title": "Durumunuzu birlikte değerlendirelim mi?",
+      "cta_text": "Bilgilerinizi gönderin, ekibimizden Portekizce, İspanyolca, İngilizce veya Türkçe olarak kişiye özel ve bağlayıcı olmayan bir yönlendirme alın."
+    }
+  },
+  "page": {
+    "home": {
+      "seo_title": "Velurea Clinic — Türkiye'de uçtan uca destekli sağlık turizmi",
+      "seo_description": "İstanbul'da obezite cerrahisi, estetik cerrahi, saç ekimi veya diş tedavinizi koordine ediyoruz: anlaşmalı doktorlar, konaklama, VIP transfer ve Türkçe destek.",
+      "og_title": "Velurea Clinic — Türkiye'de sağlık turizmi",
+      "og_description": "İstanbul'da eksiksiz bir tedavi süreci; Portekizce, İspanyolca, İngilizce ve Türkçe kişisel destekle."
+    },
+    "sobre": {
+      "seo_title": "Velurea Clinic hakkında — İstanbul'da sağlık turizmi",
+      "seo_description": "Velurea Clinic'i tanıyın: Latin Amerika, İspanya, Portekiz ve Brezilya'dan gelen hastaların tüm sürecini koordine eden İstanbul merkezli sağlık turizmi şirketi.",
+      "og_title": "Velurea Clinic hakkında",
+      "og_description": "Türkiye'deki tıbbi tedavilerin insani ve şeffaf koordinasyonu."
+    },
+    "tratamentos": {
+      "seo_title": "Türkiye'de tedaviler — Koordine edilen 10 uzmanlık alanı | Velurea Clinic",
+      "seo_description": "İstanbul'da estetik cerrahi, obezite cerrahisi, diş tedavisi, saç ekimi, üroloji, kadın sağlığı, onkoloji, kök hücre, tüp bebek ve ortopedi; Velurea Clinic'in eksiksiz koordinasyonuyla.",
+      "og_title": "Velurea Clinic tarafından koordine edilen tedaviler",
+      "og_description": "Akredite hastanelerde, anlaşmalı tıbbi ekiplerce gerçekleştirilen işlemler."
+    },
+    "medicos": {
+      "seo_title": "Türkiye'deki anlaşmalı doktorlar ve hastaneler — Velurea Clinic",
+      "seo_description": "İstanbul'da, her uluslararası hastanın durumuna göre seçilen deneyimli doktorlar ve akredite hastanelerle çalışıyoruz.",
+      "og_title": "Anlaşmalı doktorlar ve hastaneler — Velurea Clinic",
+      "og_description": "İstanbul'da tıbbi ekipler ve akredite kurumlar.",
+      "cta_title": "Durumunuz için önerilen ekibi tanımak ister misiniz?"
+    },
+    "como-funciona": {
+      "seo_title": "Sağlık seyahati nasıl işler — Velurea Clinic",
+      "seo_description": "İlk değerlendirmeden ameliyat sonrasına: otel, VIP transfer ve tercüman dahil İstanbul'a sağlık seyahatinizi adım adım nasıl planladığımızı öğrenin.",
+      "og_title": "Velurea Clinic ile sağlık seyahati nasıl işler",
+      "og_description": "Net altı adım ve durumunuza özel bir koordinatör."
+    },
+    "depoimentos": {
+      "seo_title": "Hasta yorumları — Velurea Clinic",
+      "seo_description": "Velurea Clinic koordinasyonuyla İstanbul'da tedavi olan Brezilya, Portekiz ve Latin Amerikalı hastaların deneyimleri.",
+      "og_title": "Hasta yorumları — Velurea Clinic",
+      "og_description": "Velurea Clinic'in hizmet verdiği uluslararası hastaların gerçek deneyimleri.",
+      "cta_title": "Bu süreci yaşamış biriyle konuşmak ister misiniz?",
+      "cta_text": "Sizi deneyimini paylaşmayı kabul eden hastalarla tanıştırabiliriz."
+    },
+    "blog": {
+      "seo_title": "Blog — Türkiye'de tıbbi tedavi rehberleri | Velurea Clinic",
+      "seo_description": "Türkiye'de obezite cerrahisi, saç ekimi, estetik diş hekimliği ve uluslararası hasta güvenliği üzerine dürüst rehberler.",
+      "og_title": "Velurea Clinic Blog",
+      "og_description": "İstanbul'da tedavi olmayı düşünenler için bilgilendirici içerikler."
+    },
+    "faq": {
+      "seo_title": "Türkiye'de tedavi hakkında sıkça sorulan sorular — Velurea Clinic",
+      "seo_description": "Velurea Clinic ile değerlendirme, Türkiye'de kalış süresi, fiyat teklifi, hizmet dilleri, vize ve ameliyat sonrası destek hakkında sorular.",
+      "og_title": "Sıkça sorulan sorular — Velurea Clinic",
+      "og_description": "Velurea Clinic ile sağlık turizminin nasıl işlediğine dair net yanıtlar."
+    },
+    "contato": {
+      "seo_title": "İletişim — Ücretsiz değerlendirme talep edin | Velurea Clinic",
+      "seo_description": "Velurea Clinic'e WhatsApp, e-posta veya form üzerinden ulaşın; İstanbul'daki tedaviniz için kişiye özel ve bağlayıcı olmayan bir yönlendirme alın.",
+      "og_title": "İletişim — Velurea Clinic",
+      "og_description": "Portekizce, İspanyolca, İngilizce veya Türkçe ücretsiz ilk değerlendirme."
+    },
+    "obrigado": {
+      "seo_title": "Talebiniz gönderildi — Velurea Clinic",
+      "seo_description": "Uluslararası hastalar için Türkiye'de tıbbi tedavilerin uçtan uca koordinasyonu."
+    }
+  },
+  "section": {
+    "home/hero": {
+      "eyebrow": "Sağlık turizmi · İstanbul, Türkiye",
+      "title": "Türkiye'deki tedavi süreciniz, ilk temastan ameliyat sonrasına kadar yanınızda.",
+      "text": "Velurea Clinic, uluslararası hastalarla İstanbul'un önde gelen doktorları, klinikleri ve hastaneleri arasında bir köprüdür. Değerlendirmeyi, seyahat planlamasını ve konaklamanızın her ayrıntısını sizin dilinizde, insani bir destekle üstleniyoruz.",
+      "note": "PT · ES · EN · TR dillerinde hizmet",
+      "image_alt": "Gün batımında Boğaz üzerinden İstanbul silueti"
+    },
+    "home/pilares": {
+      "items": "Akredite hastaneler | Önde gelen kurumlar ve deneyimli doktorlarla iş birlikleri.\nSizin dilinizde | Her aşamada Portekizce, İspanyolca, İngilizce ve Türkçe.\nPlanlı seyahat | Otel, VIP transfer ve günlük program yola çıkmadan önce hazır.\nKesintisiz destek | Tedavi öncesinde, sırasında ve sonrasında yanınızdayız."
+    },
+    "home/quem_somos": {
+      "eyebrow": "Biz kimiz",
+      "title": "İşlemi biz yapmıyoruz. Onu çevreleyen her şeyle biz ilgileniyoruz.",
+      "text": "İstanbul merkezli bir sağlık turizmi şirketiyiz. İşimiz, doğru tıbbi ekibi sizinle birlikte seçmek, seyahatinizi organize etmek ve her muayene, tetkik ve kontrolde kelimenin tam anlamıyla anlaşılmanızı sağlamak.",
+      "items": "İlk değerlendirme ve kişiye özel yönlendirme\nHasta ile tıbbi ekip arasında doğrudan iletişim\nOtel, VIP transfer ve refakatçi tercüman\nTedavi koordinasyonu ve ameliyat sonrası destek",
+      "note": "Velurea'yı tanıyın",
+      "image_alt": "Uluslararası bir hastayı karşılayan Velurea Clinic koordinatörü"
+    },
+    "home/tratamentos": {
+      "eyebrow": "Tedaviler",
+      "title": "İstanbul'da koordine ettiğimiz işlemler",
+      "text": "Her plan bireysel olarak hazırlanır; doktorlar kliniğin takvimine göre değil, sizin durumunuza göre seçilir."
+    },
+    "home/como_funciona": {
+      "eyebrow": "Nasıl çalışır",
+      "title": "Altı adım, durumunuzdan sorumlu tek bir kişi",
+      "note": "Sürecin tamamını görün"
+    },
+    "home/diferenciais": {
+      "eyebrow": "Farkımız",
+      "title": "Uluslararası hastalar neden Velurea'yı seçiyor"
+    },
+    "home/depoimentos": {
+      "eyebrow": "Hasta yorumları",
+      "title": "Bizimle seyahat edenlerin hikâyeleri",
+      "note": "Tüm yorumları görün"
+    },
+    "sobre/hero": {
+      "eyebrow": "Hakkımızda",
+      "title": "Sizinle Türk tıbbı arasında güvenli bir köprü",
+      "text": "Velurea Clinic, yurt dışında tedavi arayanların en büyük endişesini gidermek için kuruldu: işler beklendiği gibi gitmediğinde kime başvuracağını bilmemek."
+    },
+    "sobre/papel": {
+      "eyebrow": "Rolümüz",
+      "title": "Biz koordine ederiz. İşlemleri anlaşmalı tıbbi ekipler gerçekleştirir.",
+      "text": "İstanbul merkezli, başta Latin Amerika, İspanya, Portekiz ve Brezilya olmak üzere uluslararası hastalara hizmet veren bir sağlık turizmi şirketiyiz.",
+      "body": "Bir klinik veya hastaneden farklı olarak, işlemleri doğrudan biz gerçekleştirmiyoruz. Hasta ile Türkiye'nin önde gelen doktorları, klinikleri ve hastaneleri arasında köprü kuruyor, tedaviyi çevreleyen tüm deneyimin sorumluluğunu üstleniyoruz.\n\nBu; durumunuzu dürüstçe değerlendirmek, doğru uzmanı önermek, riskleri ve beklentileri açıkça anlatmak ve evinize döndükten sonra bile yanınızda olmak demektir.\n\nPortekizce, İspanyolca, İngilizce ve Türkçe hizmet veriyoruz; koordinatörlerimiz tedavi için uzaklardan gelenlerin yaşadıklarını iyi bilir.",
+      "image_alt": "Bir hastayla birlikte Velurea Clinic koordinasyon ekibi"
+    },
+    "sobre/valores": {
+      "eyebrow": "Değerlerimiz",
+      "title": "Aldığımız her kararı yönlendiren ilkeler"
+    },
+    "sobre/numeros": {
+      "items": "4 dil | Her aşamada Portekizce, İspanyolca, İngilizce ve Türkçe.\n7/24 | Türkiye'de kaldığınız süre boyunca ulaşabileceğiniz yerel ekip.\n12 ay | Ülkenize döndükten sonra uzaktan takip."
+    },
+    "tratamentos/hero": {
+      "eyebrow": "Tedaviler",
+      "title": "Koordine ettiğimiz işlemler",
+      "text": "Her plan kişiye özeldir: tıbbi ekibi durumunuza, geçmişinize ve beklediğiniz sonuca göre seçiyoruz."
+    },
+    "medicos/hero": {
+      "eyebrow": "Anlaşmalı ağımız",
+      "title": "Önerdiğimiz doktorlar ve hastaneler",
+      "text": "Uzmanları; branşlarına, uluslararası hastalarla deneyimlerine ve sonuç geçmişlerine göre seçiyoruz — asla ticari çıkara göre değil."
+    },
+    "medicos/equipes": {
+      "eyebrow": "Tıbbi ekipler",
+      "title": "Tedavi alanına göre uzmanlar",
+      "note": "Uzman seçimi, durumunuz değerlendirildikten sonra yapılır. Herhangi bir karar vermeden önce önerilen ekibin mesleki sicilini, belgelerini ve geçmişini sizinle paylaşabiliriz."
+    },
+    "medicos/instituicoes": {
+      "eyebrow": "Kurumlar",
+      "title": "İstanbul'daki akredite hastaneler ve klinikler",
+      "text": "Tüm işlemler; tam donanımlı, kendi anestezi ekibine sahip ve gerektiğinde yoğun bakım desteği sunan kurumlarda yapılır.",
+      "image_alt": "İstanbul'daki anlaşmalı bir hastanenin modern ameliyathanesi"
+    },
+    "como-funciona/hero": {
+      "eyebrow": "Süreç",
+      "title": "Sağlık seyahatiniz nasıl işler",
+      "text": "Her adımı yazılı olarak takip edersiniz; ilk temastan ameliyat sonrası takibe kadar size özel bir koordinatörünüz olur."
+    },
+    "como-funciona/incluidos": {
+      "eyebrow": "Dahil olan hizmetler",
+      "title": "Koordinasyonumuzun her zaman kapsadıkları",
+      "text": "Kapsam, fiyat teklifinde yazılı olarak ayrıntılandırılır; gizli maliyet veya son dakika ücreti yoktur.",
+      "items": "İlk değerlendirme ve kişiye özel yönlendirme\nHasta ile tıbbi ekip arasında iletişim\nSağlık seyahatinin eksiksiz planlanması\nHastaneye yakın otel rezervasyonu\nHavalimanı, otel ve hastane arasında VIP transfer\nTercümanlık ve yüz yüze refakat\nTıbbi ekiple tedavi koordinasyonu\nDönüş sonrası ameliyat sonrası destek"
+    },
+    "como-funciona/transparencia": {
+      "eyebrow": "Şeffaflık",
+      "title": "Neleri vaat etmiyoruz",
+      "text": "Başka hastalarınkiyle aynı sonuçları garanti etmiyoruz, tıbbi değerlendirme olmadan işlem önermiyoruz ve kimseyi karar vermeye zorlamıyoruz. Gerçek olamayacak kadar iyi görünen her teklif şüpheyi hak eder — bizimkiler de dahil."
+    },
+    "depoimentos/hero": {
+      "eyebrow": "Hasta yorumları",
+      "title": "Bizimle seyahat edenler",
+      "text": "Yorumları hastalarımızın izniyle yayımlıyoruz. Sonuçlar kişiden kişiye değişir ve bireysel tıbbi değerlendirmeye bağlıdır."
+    },
+    "blog/hero": {
+      "eyebrow": "Blog",
+      "title": "Karar vermeden önce bilgi",
+      "text": "İşlemler, hasta güvenliği ve bir sağlık seyahatinin gerçekleri hakkında, abartılı vaatler içermeyen eğitici içerikler."
+    },
+    "blog/rodape": {
+      "text": "Her ay yeni yazılar yayımlıyoruz. E-postayla almak ister misiniz? İletişim sayfasından bize yazın."
+    },
+    "faq/hero": {
+      "eyebrow": "SSS",
+      "title": "Sıkça sorulan sorular",
+      "text": "Sorunuz burada yoksa bize yazın: Portekizce, İspanyolca, İngilizce veya Türkçe yanıt veriyoruz."
+    },
+    "contato/hero": {
+      "eyebrow": "İletişim",
+      "title": "Ücretsiz değerlendirme talep edin",
+      "text": "Bilgilerinizi ve istediğiniz tedaviyle ilgili ayrıntıları gönderin. Ekibimiz 24 iş saati içinde, herhangi bir yükümlülük olmadan yanıt verir."
+    },
+    "contato/formulario": {
+      "text": "Bilgileriniz yalnızca size hizmet vermek ve durumunuzu değerlendirmek için kullanılır. Ekibimiz 24 iş saati içinde e-postayla yanıt verir. Hemen konuşmak isterseniz WhatsApp'ı kullanabilirsiniz."
+    },
+    "contato/canais": {
+      "title": "Doğrudan iletişim kanalları",
+      "body": "**Portekizce, İspanyolca, İngilizce ve Türkçe** hizmet veriyoruz. Dilerseniz fotoğraf ve tetkik sonuçlarınızı WhatsApp'tan gönderin — ilk değerlendirme ücretsizdir ve bağlayıcı değildir."
+    },
+    "obrigado/hero": {
+      "eyebrow": "Talebiniz alındı",
+      "title": "Bilgilerinizi aldık",
+      "text": "Ekibimiz durumunuzu inceleyip 24 iş saati içinde, herhangi bir yükümlülük olmadan e-postayla yanıt verecek."
+    },
+    "obrigado/proximos_passos": {
+      "title": "Bundan sonra ne olacak",
+      "items": "Gönderdiğiniz bilgileri inceliyor ve kişiye özel bir ilk yönlendirme hazırlıyoruz.\nYanıtımız **info@velureaistanbul.com** adresinden veya belirttiğiniz e-postaya gelecek — spam klasörünü de kontrol etmenizi öneririz.\nSüreci hızlandırmak isterseniz fotoğraf ve tetkik sonuçlarınızı WhatsApp'tan gönderin. İlk değerlendirme ücretsizdir.",
+      "note": "Bilgilendirme amaçlıdır. Tıbbi muayene, teşhis veya tedavinin yerine geçmez."
+    }
+  },
+  "treatment": {
+    "cirurgia-plastica": {
+      "slug": "plastik-cerrahi",
+      "title": "Yüz ve Vücut Estetik Cerrahisi",
+      "short": "Burun estetiği, yüz ve meme cerrahisi, vücut şekillendirme ve mommy makeover.",
+      "intro": "Anatominize, ihtiyaçlarınıza ve beklentilerinize göre kişiselleştirilmiş cerrahi planlama.",
+      "procedures": "Burun estetiği (rinoplasti)\nYüz cerrahisi\nGöz kapağı estetiği\nMeme cerrahisi\nKarın germe\nLiposuction\nBBL — Brezilya popo kaldırma\nVücut şekillendirme\nMommy makeover"
+    },
+    "cirurgia-bariatrica": {
+      "slug": "obezite-cerrahisi",
+      "title": "Obezite ve Sindirim Sistemi Cerrahisi",
+      "short": "Tüp mide, gastrik bypass ve sindirim sistemi ameliyatları.",
+      "intro": "Tıbbi ihtiyaçlarınıza ve uzman değerlendirmesine göre kişiselleştirilmiş cerrahi planlama.",
+      "procedures": "Tüp mide (sleeve gastrektomi)\nGastrik bypass\nObezite cerrahisi\nGastroözofageal reflü cerrahisi\nHiatal herni cerrahisi\nSafra kesesi cerrahisi\nGenel cerrahi ve sindirim sistemi cerrahisi"
+    },
+    "odontologia": {
+      "slug": "dis-tedavileri",
+      "title": "Diş Tedavileri",
+      "short": "İmplant, gülüş tasarımı, porselen lamina ve ağız rehabilitasyonu.",
+      "intro": "Ağız sağlığı ihtiyaçlarınıza ve uzman değerlendirmesine göre kişiselleştirilmiş tedavi planlaması.",
+      "procedures": "Diş implantı\nGülüş tasarımı\nPorselen lamina\nDiş çekimi\nKanal tedavisi\nDiş eti (periodontal) tedavileri\nTam ağız rehabilitasyonu\nDiş beyazlatma\nÇocuk diş hekimliği"
+    },
+    "transplante-capilar": {
+      "slug": "sac-ekimi",
+      "title": "Saç, Sakal ve Kaş Ekimi",
+      "short": "Safir FUE, DHI, saç çizgisi tasarımı ve sakal ekimi.",
+      "intro": "Saç özelliklerinize, donör bölgenize, yüz oranlarınıza ve bireysel ihtiyaçlarınıza göre kişiselleştirilmiş planlama.",
+      "procedures": "Safir FUE\nDHI saç ekimi\nSaç çizgisi tasarımı\nSakal ekimi\nKaş ekimi\nSaç ve saçlı deri için destekleyici tedaviler"
+    },
+    "urologia-saude-masculina": {
+      "slug": "uroloji-erkek-sagligi",
+      "title": "Üroloji ve Erkek Cinsel Sağlığı",
+      "short": "Erektil disfonksiyon, protezler, ESWT ve ürolojik cerrahi.",
+      "intro": "Sağlık ihtiyaçlarınıza ve uzman değerlendirmesine göre kişiselleştirilmiş tedavi planlaması.",
+      "procedures": "Erektil disfonksiyon tedavileri\nPenil protez\nTestis protezi\nPenis uzatma ve kalınlaştırma\nESWT\nCinsel fonksiyon tedavileri\nÜrolojik cerrahi"
+    },
+    "saude-feminina-estetica-intima": {
+      "slug": "kadin-sagligi-genital-estetik",
+      "title": "Kadın Sağlığı ve Genital Estetik",
+      "short": "Labioplasti, vajinoplasti, vajinal gençleştirme ve cinsel fonksiyon.",
+      "intro": "İhtiyaçlarınıza, konforunuza ve uzman değerlendirmesine göre kişiselleştirilmiş tedavi planlaması.",
+      "procedures": "Labioplasti\nVajinoplasti\nGenital estetik cerrahi\nVajinal gençleştirme\nCinsel fonksiyon desteği\nKişiye özel kadın sağlığı çözümleri"
+    },
+    "oncologia": {
+      "slug": "onkoloji",
+      "title": "Onkoloji ve Onkolojik Cerrahi",
+      "short": "Onkolojik cerrahi, kemoterapi, radyoterapi ve multidisipliner değerlendirme.",
+      "intro": "Tıbbi ihtiyaçlarınıza ve uzman değerlendirmesine göre kişiselleştirilmiş tedavi planlaması.",
+      "procedures": "Onkolojik cerrahi\nTıbbi onkoloji ve kemoterapi\nRadyasyon onkolojisi ve radyoterapi\nPatoloji\nPET/BT ve tıbbi görüntüleme\nMultidisipliner değerlendirme",
+      "areas": "Meme kanseri\nAkciğer kanseri\nYemek borusu kanseri\nMide kanseri\nKolon ve rektum kanseri\nPankreas kanseri\nÜrolojik kanserler\nJinekolojik kanserler"
+    },
+    "celulas-tronco": {
+      "slug": "kok-hucre-tedavileri",
+      "title": "Kök Hücre Tedavileri",
+      "short": "Ortopedi, dermatoloji, saç, üroloji ve kadın sağlığında uygulamalar.",
+      "intro": "Tıbbi ihtiyaçlarınıza ve uzman değerlendirmesine göre kişiselleştirilmiş tedavi planlaması.",
+      "procedures": "Uzman değerlendirmesi\nTıbbi uygunluk değerlendirmesi\nKişiye özel tedavi protokolü\nKlinik uygulama\nTıbbi izlem\nTakip",
+      "areas": "Ortopedi ve eklem sağlığı\nÜroloji ve erkek sağlığı\nDermatoloji ve cilt\nSaç ve saçlı deri\nEstetik ve rejeneratif uygulamalar\nKadın sağlığı"
+    },
+    "fiv-fertilidade": {
+      "slug": "tup-bebek-dogurganlik",
+      "title": "Tüp Bebek ve Doğurganlık Tedavileri",
+      "short": "Doğurganlık değerlendirmesi, tüp bebek, ICSI ve embriyo transferi.",
+      "intro": "Ebeveynlik yolculuğunuzun her adımı kişiye özel olarak planlanır. Doğurganlık geçmişiniz, mevcut tetkik sonuçlarınız ve tıbbi bulgularınız değerlendirilerek kişiselleştirilmiş bir yardımcı üreme planı hazırlanır.",
+      "procedures": "Doğurganlık değerlendirmesi\nTüp bebek tedavisi\nICSI / mikroenjeksiyon\nEmbriyo transferi\nEmbriyo dondurma\nKişiye özel doğurganlık planlaması"
+    },
+    "ortopedia-alongamento-membros": {
+      "slug": "ortopedi-boy-uzatma",
+      "title": "Ortopedik Cerrahi ve Boy Uzatma",
+      "short": "Boy uzatma, diz, kalça ve omuz cerrahisi ile artroskopi.",
+      "intro": "Hareket ihtiyaçlarınıza, tıbbi bulgularınıza ve uzman değerlendirmesine göre kişiselleştirilmiş cerrahi planlama.",
+      "procedures": "Boy uzatma ameliyatı\nDiz cerrahisi\nKalça cerrahisi\nOmuz cerrahisi\nSpor yaralanmaları ve artroskopi\nOrtopedi ve travmatoloji cerrahisi"
+    }
+  },
+  "step": {
+    "Avaliação inicial": {
+      "title": "İlk değerlendirme",
+      "text": "Fotoğraflarınızı, tetkik sonuçlarınızı ve sağlık geçmişinizi gönderirsiniz. 24 saat içinde size özel ve bağlayıcı olmayan bir yönlendirmeyle dönüş yaparız."
+    },
+    "Plano médico e orçamento": {
+      "title": "Tedavi planı ve fiyat teklifi",
+      "text": "Önerilen tıbbi ekibi, tedavi planını ve gizli maliyet içermeyen net bir fiyat teklifini sunarız."
+    },
+    "Planejamento da viagem": {
+      "title": "Seyahat planlaması",
+      "text": "Tarihleri belirler, otelinizi ayırır, VIP transferleri düzenler ve konaklamanızın günlük programını size göndeririz."
+    },
+    "Chegada em Istambul": {
+      "title": "İstanbul'a varış",
+      "text": "Havalimanında karşılama, özel transfer ve tüm muayene ve tetkiklerde tercüman eşliği."
+    },
+    "Tratamento": {
+      "title": "Tedavi",
+      "text": "İşlem öncesinde, sırasında ve sonrasında size özel bir koordinatör, sizin dilinizde yanınızdadır."
+    },
+    "Retorno e pós-operatório": {
+      "title": "Dönüş ve ameliyat sonrası",
+      "text": "Taburculuk muayenesi, yazılı talimatlar ve dönüşünüzün ardından tıbbi ekiple sürekli uzaktan takip."
+    }
+  },
+  "differential": {
+    "Coordenação completa": {
+      "title": "Uçtan uca koordinasyon",
+      "text": "Kaldığınız süre boyunca doktorlar, hastane, otel, transfer ve tercümanlık için tek bir muhatap."
+    },
+    "Atendimento no seu idioma": {
+      "title": "Sizin dilinizde hizmet",
+      "text": "Portekizce, İspanyolca, İngilizce ve Türkçe — aracısız, yanlış anlaşılmaya yer bırakmayan doğrudan iletişim."
+    },
+    "Hospitais acreditados": {
+      "title": "Akredite hastaneler",
+      "text": "Uluslararası akreditasyona sahip hastaneler ve yabancı hastalarla deneyimli doktorlarla iş birliği."
+    },
+    "Transparência total": {
+      "title": "Tam şeffaflık",
+      "text": "Her karardan önce net fiyat teklifi, ayrıntılı kapsam ve risklerle beklentilerin açık bir anlatımı."
+    },
+    "Suporte 24/7 na Turquia": {
+      "title": "Türkiye'de 7/24 destek",
+      "text": "Konaklamanız boyunca, refakatçileriniz dahil, her an ulaşabileceğiniz yerel ekip."
+    },
+    "Acompanhamento pós-operatório": {
+      "title": "Ameliyat sonrası takip",
+      "text": "Dönüşünüzün ardından düzenli iletişim ve sorumlu tıbbi ekiple açık bir kanal."
+    }
+  },
+  "testimonial": {
+    "Mariana R.": {
+      "treatment": "Tüp mide"
+    },
+    "Carlos M.": {
+      "treatment": "FUE saç ekimi"
+    },
+    "Ana Sofia P.": {
+      "treatment": "Ağız rehabilitasyonu"
+    },
+    "Rodrigo L.": {
+      "treatment": "Karın germe"
+    }
+  },
+  "faq": {
+    "A Velurea Clinic realiza os procedimentos?": {
+      "question": "İşlemleri Velurea Clinic mi gerçekleştiriyor?",
+      "answer": "Hayır. Biz bir sağlık turizmi şirketiyiz: hastanın tüm sürecini koordine ediyor ve sizi Türkiye'nin önde gelen doktorları, klinikleri ve hastaneleriyle buluşturuyoruz. İşlemler, akredite kurumlarda anlaşmalı tıbbi ekipler tarafından gerçekleştirilir."
+    },
+    "Como funciona a primeira avaliação?": {
+      "question": "İlk değerlendirme nasıl yapılıyor?",
+      "answer": "Fotoğraflarınızı, güncel tetkik sonuçlarınızı ve sağlık geçmişinizi WhatsApp'tan veya sitedeki formdan gönderirsiniz. Tıbbi ekip durumunuzu inceler, biz de genellikle 24 iş saati içinde size özel bir yönlendirmeyle dönüş yaparız."
+    },
+    "Quanto tempo preciso ficar na Turquia?": {
+      "question": "Türkiye'de ne kadar kalmam gerekiyor?",
+      "answer": "İşleme bağlıdır: saç ekimi için 3–4 gün, diş tedavileri için 5–7 gün, obezite ve estetik cerrahi için 7–12 gün. Tüm program seyahatten önce size gönderilir."
+    },
+    "O orçamento inclui hotel e traslados?": {
+      "question": "Fiyat teklifine otel ve transfer dahil mi?",
+      "answer": "Evet. Paketlerimize konaklama, havalimanı, otel ve hastane arasında VIP transfer, tercüman ve refakat dahildir. Her şey onaydan önce yazılı olarak ayrıntılandırılır; gizli maliyet yoktur."
+    },
+    "Em quais idiomas vocês atendem?": {
+      "question": "Hangi dillerde hizmet veriyorsunuz?",
+      "answer": "Portekizce, İspanyolca, İngilizce ve Türkçe; hastane içi de dahil her aşamada, yanınızda bir tercümanla."
+    },
+    "E se eu precisar de suporte após voltar para casa?": {
+      "question": "Evime döndükten sonra desteğe ihtiyacım olursa ne olur?",
+      "answer": "Ameliyat sonrası takip uzaktan devam eder. Koordinatörünüzle ve gerektiğinde işleminizden sorumlu tıbbi ekiple iletişimde kalırsınız."
+    },
+    "Preciso de visto para a Turquia?": {
+      "question": "Türkiye için vizeye ihtiyacım var mı?",
+      "answer": "Brezilya, Portekiz ve Latin Amerika ile Avrupa ülkelerinin çoğunun vatandaşları kısa süreli turistik ziyaretler için vizeye ihtiyaç duymaz. Ülkenize özel belgeler konusunda size yol gösteririz."
+    },
+    "Quais são as formas de pagamento?": {
+      "question": "Hangi ödeme yöntemlerini kabul ediyorsunuz?",
+      "answer": "Anlaşmalı hastaneye göre uluslararası havale ve kart. Bir kısmı rezervasyonda, kalanı varışta ödenir; her zaman makbuz ve sözleşmeyle."
+    }
+  },
+  "doctor": {
+    "Dr. Emre Yıldız": {
+      "role": "Obezite ve Metabolik Cerrahi",
+      "detail": "3.000'den fazla işlem. IFSO üyesi."
+    },
+    "Dra. Selin Arslan": {
+      "role": "Estetik, Plastik ve Rekonstrüktif Cerrahi",
+      "detail": "Meme estetiği ve vücut şekillendirme uzmanı; İngilizce hizmet veriyor."
+    },
+    "Dr. Kaan Demir": {
+      "role": "Saç Ekimi (FUE ve DHI)",
+      "detail": "Ön saç çizgisi tasarımı ve doğal sonuçlarıyla tanınıyor."
+    },
+    "Dra. Ayşe Korkmaz": {
+      "role": "Estetik Diş Hekimliği ve İmplantoloji",
+      "detail": "Dijital gülüş tasarımı ve tam ağız rehabilitasyonu."
+    }
+  },
+  "hospital": {
+    "Hospital parceiro — Şişli": {
+      "name": "Anlaşmalı hastane — Şişli",
+      "detail": "Uluslararası akreditasyona ve kendi yoğun bakım ünitesine sahip multidisipliner kurum."
+    },
+    "Hospital parceiro — Beşiktaş": {
+      "name": "Anlaşmalı hastane — Beşiktaş",
+      "detail": "Uluslararası hastalara ayrılmış, tek kişilik odalara sahip cerrahi merkez."
+    },
+    "Clínica parceira — Nişantaşı": {
+      "name": "Anlaşmalı klinik — Nişantaşı",
+      "detail": "Saç ekimi ve estetik diş hekimliğinde uzmanlaşmış birim."
+    }
+  },
+  "category": {
+    "cirurgia-bariatrica": {
+      "name": "Obezite Cerrahisi",
+      "slug": "obezite-cerrahisi"
+    },
+    "como-funciona": {
+      "name": "Nasıl Çalışır",
+      "slug": "nasil-calisir"
+    },
+    "seguranca-do-paciente": {
+      "name": "Hasta Güvenliği",
+      "slug": "hasta-guvenligi"
+    },
+    "transplante-capilar": {
+      "name": "Saç Ekimi",
+      "slug": "sac-ekimi"
+    }
+  },
+  "post": {
+    "sleeve-gastrico-turquia": {
+      "title": "Türkiye'de tüp mide: öncesinde, sırasında ve sonrasında sizi neler bekliyor",
+      "slug": "turkiyede-tup-mide",
+      "excerpt": "Uygunluk kriterleri, hastanede kalış süresi, ilk haftalarda beslenme ve uzaktan takip hakkında dürüst bir rehber.",
+      "body": "\n<p>Sleeve gastrektomi, yani <em>tüp mide</em> ameliyatı, İstanbul'a en çok uluslararası hasta getiren işlemlerden biridir. Ancak tarih ve bilet düşünmeden önce, kararın nasıl verildiğini ve sürecin her aşamasında neler olduğunu anlamakta fayda var.</p>\n\n<h2>Seyahatten önce: endikasyon değerlendirmeyle belirlenir</h2>\n<p>Hiçbir paket tıbbi değerlendirmenin yerini tutmaz. İlk adım, sağlık geçmişinizi, güncel tetkik sonuçlarınızı ve önceki tedavilerinize dair bilgileri göndermektir. Anlaşmalı tıbbi ekip durumunuzu inceler ve ameliyatın size uygun olup olmadığını söyler — uygun değilse, bu da dürüst bir yanıttır.</p>\n<p>Vücut kitle indeksi, eşlik eden hastalıklar ve daha önceki tedavi denemeleri gibi kriterler bireysel olarak değerlendirilir. Tetkiklerinizi görmeden onay vaat edenlere karşı dikkatli olun.</p>\n<ul>\n<li>Sağlık geçmişi ve kullandığınız ilaçlar</li>\n<li>Varsa güncel tetkik sonuçları</li>\n<li>Önceki ameliyatlar, özellikle karın bölgesindekiler</li>\n<li>Beklentiler ve olası seyahat tarihleri</li>\n</ul>\n\n<h2>İstanbul'da kaldığınız süre boyunca</h2>\n<p>Obezite ameliyatlarında kalış süresi genellikle 7 ile 12 gün arasındadır; kesin program tıbbi ekip tarafından belirlenir ve yola çıkmadan önce size yazılı olarak gönderilir. Programda ameliyat öncesi tetkikler, hastanede yatış, kontrol muayeneleri ve taburculuk muayenesi yer alır.</p>\n<p>Bu süre boyunca havalimanı, otel ve hastane arasında transferiniz, muayenelerde tercümanınız ve — refakatçiniz dahil — sizin dilinizde ulaşabileceğiniz bir koordinatörünüz olur.</p>\n\n<h2>Sonrasında: beslenme ve uzaktan takip</h2>\n<p>İlk haftalar dikkatli ve kademeli bir beslenme geçişi gerektirir. Evinize sorumlu ekibin yazılı talimatlarıyla dönersiniz ve takip uzaktan devam eder: koordinatörünüzle ve gerektiğinde tıbbi ekiple iletişim kanalı açık kalır.</p>\n<blockquote>Obezite cerrahisi, tedavinin sonu değil, yeni bir yaşam düzeninin başlangıcıdır.</blockquote>\n<p>Uzun vadeli kontroller için kendi ülkenizde bir doktor ve diyetisyenle yerel takip planlamanız da önerilir.</p>\n\n<h2>Karar vermeden önce sormanız gerekenler</h2>\n<ul>\n<li>Cerrah kim ve bu işlemde ne kadar deneyimli?</li>\n<li>Ameliyat hangi hastanede yapılacak ve yoğun bakım altyapısı nasıl?</li>\n<li>Fiyat teklifine neler dahil, neler değil?</li>\n<li>Dönüşten sonra tıbbi ekiple iletişim nasıl sağlanıyor?</li>\n</ul>\n<p>Bu ameliyata uygun olup olmadığınızı öğrenmek isterseniz, ücretsiz ilk değerlendirme için <a href=\"/tr/iletisim/\" rel=\"noopener noreferrer\">bilgilerinizi gönderin</a>.</p>\n"
+    },
+    "fue-ou-dhi": {
+      "title": "FUE mi DHI mı: size hangi saç ekimi tekniği uygun",
+      "slug": "fue-mi-dhi-mi",
+      "excerpt": "Teknikler arasındaki gerçek farklar, yoğunluğa etkileri, iyileşme süresi ve seyahatten önce donör bölgeyi nasıl değerlendirdiğimiz.",
+      "body": "\n<p>Türkiye'de saç ekimi denince en çok anılan iki teknik FUE ve DHI'dır. İkisi de donör bölgeden alınan foliküler ünitelerle çalışır; temel fark, kılların nasıl yerleştirildiğindedir.</p>\n\n<h2>FUE: kanalların açılması ve ekim</h2>\n<p>FUE'de (<em>Follicular Unit Extraction</em>) foliküler üniteler donör bölgeden tek tek alınır. Ardından cerrah alıcı bölgede kanallar açar ve kılları yerleştirir. <strong>Safir FUE</strong> yönteminde kanallar safir uçlu bıçaklarla açılır.</p>\n\n<h2>DHI: kalemle ekim</h2>\n<p>DHI'da (<em>Direct Hair Implantation</em>) kıllar, kanalı açıp folikülü aynı hareketle yerleştiren kalem biçiminde bir aletle ekilir. Bu teknik, her kılın açısını ve yönünü hassas biçimde kontrol etmeyi sağlar.</p>\n\n<h2>Hangisi daha iyi?</h2>\n<p>Tek bir doğru yanıt yoktur. Seçim, kişiye göre değerlendirilen etkenlere bağlıdır:</p>\n<ul>\n<li>Kapatılacak alanın genişliği</li>\n<li>Donör bölgenin kalitesi ve kapasitesi</li>\n<li>Saçın özellikleri (kalınlık, kıvrım, renk)</li>\n<li>Ön saç çizgisinin tasarımı ve yüz oranları</li>\n</ul>\n<p>Bazı durumlarda ekip iki tekniği birleştirir. Önemli olan, önerinin bir fiyat listesinden değil, fotoğraflarınız incelendikten sonra gelmesidir.</p>\n\n<h2>Seyahatten önce donör bölgeyi nasıl değerlendiriyoruz</h2>\n<p>Belirli açılardan — önden, tepeden, yanlardan ve enseden — fotoğraflar ile saç dökülmesi geçmişiniz ve daha önce yaptırdığınız tedaviler hakkında bilgi istiyoruz. Bu sayede tıbbi ekip, donör bölgenin beklenen sonucu karşılayıp karşılayamayacağını tahmin eder ve tekniği önerir.</p>\n<p>Saç ekimi için İstanbul'da kalış süresi genellikle 3–4 gündür. İyileşme süreci, ilk günlerdeki bakım ve saçların çıkma süresi sorumlu ekip tarafından yazılı talimatlarla anlatılır.</p>\n<blockquote>Donör bölge görülmeden vaat edilen yoğunluk bir uyarı işaretidir.</blockquote>\n<p>Durumunuzun incelenmesini ister misiniz? <a href=\"/tr/iletisim/\" rel=\"noopener noreferrer\">Fotoğraflarınızı gönderin</a> — ilk değerlendirme ücretsizdir.</p>\n"
+    },
+    "como-escolher-clinica-turquia": {
+      "title": "Abartılı vaatlere kapılmadan Türkiye'de bir klinik nasıl değerlendirilir",
+      "slug": "turkiyede-klinik-nasil-secilir",
+      "excerpt": "Akreditasyon, doktorun sicil numarası, yazılı sözleşme ve her uluslararası hastanın bilmesi gereken uyarı işaretleri.",
+      "body": "\n<p>Türkiye, önde gelen hastanelere ve çok deneyimli uzmanlara ev sahipliği yapıyor. Aynı zamanda agresif reklamlar, değerlendirme yapılmadan satılan paketler ve tutulması zor vaatler de var. Bunları birbirinden ayırt edebilmek, araştırmanızın en önemli parçasıdır.</p>\n\n<h2>1. Kurumun akreditasyonu</h2>\n<p>İşlemin nerede yapılacağını ve kurumun uluslararası akreditasyonu olup olmadığını sorun. Kendi anestezi ekibi ve gerektiğinde yoğun bakım desteği olup olmadığını kontrol edin — ciddi bir iş ortağı bu bilgiyi tereddütsüz verir.</p>\n\n<h2>2. Doktorun adı ve sicili</h2>\n<p>Sizi kimin ameliyat edeceğini bilmek hakkınızdır. Doktorun tam adını, uzmanlık alanını ve mesleki sicil numarasını isteyin. Yanıt genel geçer olduğunda (“ekibimiz”) veya doktor yalnızca işlem günü ortaya çıktığında dikkatli olun.</p>\n\n<h2>3. Yazılı sözleşme ve fiyat teklifi</h2>\n<p>Güvenilir bir fiyat teklifi neyin dahil olduğunu — işlem, hastanede yatış, konaklama, transfer, tercümanlık, kontrol muayeneleri — ve neyin dahil olmadığını ayrıntılı olarak belirtir. Ödeme yöntemleri, kapora tutarları ve iptal koşulları da makbuz ve sözleşmeyle birlikte yazılı olmalıdır.</p>\n\n<h2>4. Fiyattan önce değerlendirme</h2>\n<p>Tetkik veya fotoğraf görmeden hazır paket sunan biri tedavi önermiyor, ürün satıyordur. Önce tıbbi değerlendirme gelir; fiyat teklifi onun sonucudur.</p>\n\n<h2>Uyarı işaretleri</h2>\n<ul>\n<li>Garanti edilen ya da başka bir hastanınkiyle kıyaslanan sonuç</li>\n<li>Hızlı karar vermeniz için baskı (“sadece bugün”, “son yer”)</li>\n<li>Riskler ve iyileşme hakkında hiçbir açıklama yapılmaması</li>\n<li>Sorumlu doktorun kim olduğunu öğrenmenin zor olması</li>\n<li>Dönüşten sonra hiçbir takip planının olmaması</li>\n</ul>\n<blockquote>Gerçek olamayacak kadar iyi görünen her teklif şüpheyi hak eder — bizimkiler de dahil.</blockquote>\n\n<h2>Bir koordinasyon şirketinin rolü</h2>\n<p>Velurea işlem yapmaz: sizi anlaşmalı doktor ve hastanelerle buluşturur ve tüm sürecinizi yönetiriz. Bu yüzden, herhangi bir karar vermeden önce önerilen ekibin mesleki sicilini, belgelerini ve geçmişini sizinle paylaşabiliriz — paylaşmalıyız da. <a href=\"/tr/doktorlar-ve-hastaneler/\" rel=\"noopener noreferrer\">Anlaşmalı ağımızı tanıyın</a>.</p>\n"
+    },
+    "roteiro-viagem-medica": {
+      "title": "Bir sağlık seyahatinin programı: İstanbul'da 10 gün, gün gün",
+      "slug": "saglik-seyahati-programi",
+      "excerpt": "Havalimanına varıştan taburculuk muayenesine kadar — tetkikleri, ameliyatı, dinlenmeyi ve serbest zamanı güvenle nasıl planlıyoruz.",
+      "body": "\n<p>İyi planlanmış bir sağlık seyahatinde doğaçlamaya pek yer yoktur. Aşağıda, İstanbul'da yaklaşık on günlük bir konaklamanın nasıl düzenlendiğine dair bir örnek bulacaksınız — gerçek süre işleme bağlıdır ve tıbbi ekip tarafından belirlenir.</p>\n\n<h2>Yola çıkmadan önce</h2>\n<p>Değerlendirme tamamlanıp tedavi planı onaylandıktan sonra tarihleri belirler, hastaneye yakın bir otel ayırır ve size yazılı bir günlük program göndeririz. Brezilya, Portekiz ve Latin Amerika ile Avrupa ülkelerinin çoğunun vatandaşları kısa süreli turistik ziyaretler için vizeye ihtiyaç duymaz; yine de her ülkenin belgeleri konusunda yol gösteririz.</p>\n\n<h2>1. gün — Varış</h2>\n<p>Havalimanında karşılama ve otele özel transfer. Koordinatörünüz önümüzdeki günlerin programını teyit eder ve sizin de refakatçinizin de her türlü sorusu için ulaşılabilir olur.</p>\n\n<h2>2. gün — Muayene ve tetkikler</h2>\n<p>Yanınızda bir tercümanla tıbbi ekiple yüz yüze muayene ve ameliyat öncesi tetkikler. İşlem, riskler ve iyileşme hakkındaki tüm sorularınızı sorma zamanıdır.</p>\n\n<h2>3–5. günler — İşlem ve hastanede yatış</h2>\n<p>İşlem anlaşmalı hastanede yapılır, ardından ekibin belirlediği süre boyunca hastanede kalınır. Koordinatör ailenizle ilgilenir ve sürekli iletişimde kalır.</p>\n\n<h2>6–9. günler — İyileşme</h2>\n<p>Otele dönüş ve tedavi planına göre kontrol muayeneleri. Dinlenme zamanıdır: geziler yalnızca ekibin onayıyla ve verilen talimatlara uyarak yapılır.</p>\n\n<h2>10. gün — Taburculuk ve dönüş</h2>\n<p>Taburculuk muayenesi, yazılı talimatlar ve havalimanına transfer. Dönüşünüzün ardından takip uzaktan devam eder; koordinatörünüzle ve sorumlu tıbbi ekiple iletişim kanalı açık kalır.</p>\n\n<h2>Koordinasyona her zaman dahil olanlar</h2>\n<ul>\n<li>İlk değerlendirme ve kişiye özel yönlendirme</li>\n<li>Hastaneye yakın otel rezervasyonu</li>\n<li>Havalimanı, otel ve hastane arasında VIP transfer</li>\n<li>Tercümanlık ve yüz yüze refakat</li>\n<li>Dönüş sonrası ameliyat sonrası destek</li>\n</ul>\n<p><a href=\"/tr/nasil-calisir/\" rel=\"noopener noreferrer\">Sürecin tamamını</a> inceleyin veya <a href=\"/tr/iletisim/\" rel=\"noopener noreferrer\">değerlendirme talep edin</a>.</p>\n"
+    }
+  }
+}

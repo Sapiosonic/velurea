@@ -5,7 +5,7 @@ from django.core.management import call_command
 from apps.core.testing import TestCase
 
 from apps.blog.models import Post
-from apps.core.models import SiteSettings
+from apps.core.models import Page, Section, SiteSettings
 from apps.treatments.models import Treatment
 
 
@@ -32,12 +32,13 @@ class LanguageRoutingTests(TestCase):
     def test_staff_previews_unpublished_language_with_portuguese_fallback(self):
         staff = get_user_model().objects.create_user("ed", password="x", is_staff=True)
         self.client.force_login(staff)
+        # Campo sem tradução no idioma: aparece em português.
+        Section.objects.filter(page__key="home", key="hero").update(title_tr="")
         r = self.client.get("/tr/")
         self.assertEqual(r.status_code, 200)
         self.assertContains(r, '<html lang="tr">')
         self.assertContains(r, "lang-preview-bar")
         self.assertContains(r, "noindex")
-        # Turco ainda sem tradução: o conteúdo aparece em português.
         self.assertContains(r, "Sua jornada médica na Turquia")
 
     def test_published_language_is_public(self):
@@ -112,10 +113,11 @@ class TranslatedSlugTests(TestCase):
         self.assertEqual(r.status_code, 200)
 
     def test_blog_shows_only_posts_translated_into_the_language(self):
-        # Turco: nenhum post traduzido ainda.
+        # Sem nenhum post traduzido para o turco:
+        Post.objects.update(title_tr="")
         r = self.client.get("/tr/blog/")
-        self.assertContains(r, "Nenhum artigo publicado ainda.")  # texto fixo ainda sem tradução
-        self.assertEqual(self.client.get("/tr/blog/fue-ou-dhi/").status_code, 404)
+        self.assertContains(r, "Henüz yayımlanmış yazı yok.")
+        self.assertEqual(self.client.get("/tr/blog/fue-mi-dhi-mi/").status_code, 404)
 
         Post.objects.filter(slug_pt_br="fue-ou-dhi").update(
             title_tr="FUE mi DHI mi", slug_tr="fue-mi-dhi-mi", excerpt_tr="Özet", body_tr="<p>Metin</p>")
@@ -125,6 +127,7 @@ class TranslatedSlugTests(TestCase):
         self.assertContains(self.client.get("/tr/blog/fue-mi-dhi-mi/"), "Metin")
 
     def test_post_hreflang_only_lists_translated_versions(self):
+        Post.objects.filter(slug_pt_br="fue-ou-dhi").update(title_tr="", slug_tr=None)
         r = self.client.get("/blog/fue-ou-dhi/")
         self.assertContains(r, 'hreflang="es" href="http://testserver/es/blog/fue-o-dhi/"')
         self.assertContains(r, 'hreflang="en" href="http://testserver/en/blog/fue-or-dhi/"')
@@ -142,7 +145,7 @@ class TranslatedSlugTests(TestCase):
 
 
 class SpanishContentTests(TestCase):
-    """Fases 2 e 3: espanhol e inglês vêm de locale/content/<idioma>.json."""
+    """Fases 2 a 4: as traduções vêm de locale/content/<idioma>.json."""
 
     @classmethod
     def setUpTestData(cls):
@@ -154,7 +157,7 @@ class SpanishContentTests(TestCase):
 
         # Toda chave do arquivo aponta para um registro existente e todo campo
         # com texto em português tem tradução.
-        for lang in ("es", "en"):
+        for lang in ("es", "en", "tr"):
             with self.subTest(lang=lang):
                 result = content_translations.apply(lang, content_translations.load_file(lang))
                 self.assertEqual(result["missing"], 0)
@@ -197,7 +200,11 @@ class SpanishContentTests(TestCase):
         r = self.client.get("/admin/core/page/")
         self.assertContains(r, "ES ✓")
         self.assertContains(r, "EN ✓")
-        self.assertContains(r, "TR –")
+        self.assertContains(r, "TR ✓")
+        # Um campo apagado vira "parcial" na lista.
+        Page.objects.filter(key="faq").update(seo_title_tr="")
+        r = self.client.get("/admin/core/page/")
+        self.assertRegex(r.content.decode(), r"TR \d+/\d+")
         r = self.client.get("/admin/core/sitesettings/1/change/")
         self.assertContains(r, "Situação das traduções")
         self.assertContains(r, "100%")
@@ -225,3 +232,25 @@ class EnglishContentTests(TestCase):
         r = self.client.get("/en/blog/gastric-sleeve-turkey/")
         self.assertContains(r, 'href="/en/contact/"')
         self.assertContains(self.client.get("/en/blog/category/hair-transplant/"), "FUE or DHI")
+
+
+class TurkishContentTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed_site", verbosity=0)
+        publish("es", "en", "tr")
+
+    def test_turkish_pages_render_translated_content_and_ui(self):
+        r = self.client.get("/tr/")
+        self.assertContains(r, '<html lang="tr">')
+        self.assertContains(r, "Türkiye&#x27;deki tedavi süreciniz")
+        self.assertContains(r, "Ücretsiz değerlendirme")
+        r = self.client.get("/tr/iletisim/")
+        self.assertContains(r, "Ad soyad")
+        self.assertContains(r, "Başka bir işlem")
+
+    def test_turkish_slugs_and_internal_links(self):
+        self.assertContains(self.client.get("/tr/tedaviler/ortopedi-boy-uzatma/"), "Boy Uzatma")
+        r = self.client.get("/tr/blog/turkiyede-tup-mide/")
+        self.assertContains(r, 'href="/tr/iletisim/"')
+        self.assertContains(self.client.get("/tr/blog/kategori/sac-ekimi/"), "FUE mi DHI mı")

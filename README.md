@@ -95,7 +95,7 @@ português é publicado quando a tradução estiver completa e revisada.
 | Português | original, sempre no ar |
 | Español (neutro) | **traduzido por IA** (conteúdo e textos fixos) |
 | English (EUA) | **traduzido por IA** (conteúdo e textos fixos) |
-| Türkçe | ainda sem tradução |
+| Türkçe | **traduzido por IA** (conteúdo e textos fixos), tratamento formal ("siz") |
 
 As traduções por IA são rascunho para a fase de desenvolvimento: **revisar
 com tradutor antes do lançamento**.
@@ -174,11 +174,12 @@ python manage.py compilemessages --ignore=.venv
 
 Os trechos de URL estão nos mesmos arquivos, com contexto `url`
 (`msgctxt "url"`). **Já estão traduzidos; mudá-los depois de publicado muda os
-endereços do site.** Espanhol e inglês completos; turco à espera da tradução.
+endereços do site.** Os três idiomas estão completos.
 
-Com mais de um idioma publicado, o botão de WhatsApp do header desktop fica
-só com o ícone (o menu em espanhol não cabe com o rótulo); o botão flutuante
-continua.
+Com mais de um idioma publicado, o header desktop se ajusta para caber os
+rótulos mais longos (turco: "Doktorlar ve Hastaneler"): o botão de WhatsApp
+fica só com o ícone (o flutuante continua), os links do menu não quebram
+linha e, entre 1280 e 1439px, ficam um pouco mais próximos.
 
 Novos idiomas: acrescente em `LANGUAGES` e `apps/core/languages.py` (META),
 rode `makemigrations` (o modeltranslation cria as colunas) e `makemessages`.
