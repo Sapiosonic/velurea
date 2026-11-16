@@ -93,11 +93,15 @@ português é publicado quando a tradução estiver completa e revisada.
 | Idioma | Situação |
 | --- | --- |
 | Português | original, sempre no ar |
-| Español | **traduzido por IA** (conteúdo e textos fixos) — rascunho para a fase de desenvolvimento; **revisar com tradutor antes do lançamento** |
-| English / Türkçe | ainda sem tradução |
+| Español (neutro) | **traduzido por IA** (conteúdo e textos fixos) |
+| English (EUA) | **traduzido por IA** (conteúdo e textos fixos) |
+| Türkçe | ainda sem tradução |
 
-Num banco novo, `seed_site` já carrega o espanhol; para deixá-lo público,
-marque-o em **Configurações do site → Idiomas publicados**.
+As traduções por IA são rascunho para a fase de desenvolvimento: **revisar
+com tradutor antes do lançamento**.
+
+Num banco novo, `seed_site` já carrega as traduções; para deixar um idioma
+público, marque-o em **Configurações do site → Idiomas publicados**.
 
 ### Para quem traduz (admin)
 
@@ -170,7 +174,7 @@ python manage.py compilemessages --ignore=.venv
 
 Os trechos de URL estão nos mesmos arquivos, com contexto `url`
 (`msgctxt "url"`). **Já estão traduzidos; mudá-los depois de publicado muda os
-endereços do site.** Espanhol completo; inglês e turco à espera da tradução.
+endereços do site.** Espanhol e inglês completos; turco à espera da tradução.
 
 Com mais de um idioma publicado, o botão de WhatsApp do header desktop fica
 só com o ícone (o menu em espanhol não cabe com o rótulo); o botão flutuante

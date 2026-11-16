@@ -32,12 +32,12 @@ class LanguageRoutingTests(TestCase):
     def test_staff_previews_unpublished_language_with_portuguese_fallback(self):
         staff = get_user_model().objects.create_user("ed", password="x", is_staff=True)
         self.client.force_login(staff)
-        r = self.client.get("/en/")
+        r = self.client.get("/tr/")
         self.assertEqual(r.status_code, 200)
-        self.assertContains(r, '<html lang="en">')
+        self.assertContains(r, '<html lang="tr">')
         self.assertContains(r, "lang-preview-bar")
         self.assertContains(r, "noindex")
-        # Inglês ainda sem tradução: o conteúdo aparece em português.
+        # Turco ainda sem tradução: o conteúdo aparece em português.
         self.assertContains(r, "Sua jornada médica na Turquia")
 
     def test_published_language_is_public(self):
@@ -95,7 +95,7 @@ class TranslatedSlugTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         call_command("seed_site", verbosity=0)
-        publish("es", "en")
+        publish("es", "en", "tr")
 
     def test_translated_treatment_slug_and_redirect_from_portuguese_slug(self):
         Treatment.objects.filter(slug="odontologia").update(
@@ -112,25 +112,26 @@ class TranslatedSlugTests(TestCase):
         self.assertEqual(r.status_code, 200)
 
     def test_blog_shows_only_posts_translated_into_the_language(self):
-        # Inglês: nenhum post traduzido ainda.
-        r = self.client.get("/en/blog/")
+        # Turco: nenhum post traduzido ainda.
+        r = self.client.get("/tr/blog/")
         self.assertContains(r, "Nenhum artigo publicado ainda.")  # texto fixo ainda sem tradução
-        self.assertEqual(self.client.get("/en/blog/fue-ou-dhi/").status_code, 404)
+        self.assertEqual(self.client.get("/tr/blog/fue-ou-dhi/").status_code, 404)
 
         Post.objects.filter(slug_pt_br="fue-ou-dhi").update(
-            title_en="FUE or DHI", slug_en="fue-or-dhi", excerpt_en="Summary", body_en="<p>Text</p>")
-        r = self.client.get("/en/blog/")
-        self.assertContains(r, "FUE or DHI")
+            title_tr="FUE mi DHI mi", slug_tr="fue-mi-dhi-mi", excerpt_tr="Özet", body_tr="<p>Metin</p>")
+        r = self.client.get("/tr/blog/")
+        self.assertContains(r, "FUE mi DHI mi")
         self.assertNotContains(r, "Sleeve gástrico")
-        self.assertContains(self.client.get("/en/blog/fue-or-dhi/"), "Text")
+        self.assertContains(self.client.get("/tr/blog/fue-mi-dhi-mi/"), "Metin")
 
     def test_post_hreflang_only_lists_translated_versions(self):
         r = self.client.get("/blog/fue-ou-dhi/")
         self.assertContains(r, 'hreflang="es" href="http://testserver/es/blog/fue-o-dhi/"')
-        self.assertNotContains(r, 'hreflang="en"')
-        Post.objects.filter(slug="fue-ou-dhi").update(title_en="FUE or DHI", slug_en="fue-or-dhi")
-        r = self.client.get("/blog/fue-ou-dhi/")
         self.assertContains(r, 'hreflang="en" href="http://testserver/en/blog/fue-or-dhi/"')
+        self.assertNotContains(r, 'hreflang="tr"')
+        Post.objects.filter(slug_pt_br="fue-ou-dhi").update(title_tr="FUE mi DHI mi", slug_tr="fue-mi-dhi-mi")
+        r = self.client.get("/blog/fue-ou-dhi/")
+        self.assertContains(r, 'hreflang="tr" href="http://testserver/tr/blog/fue-mi-dhi-mi/"')
 
     def test_body_sanitized_in_every_language(self):
         post = Post.objects.get(slug_pt_br="fue-ou-dhi")
@@ -141,7 +142,7 @@ class TranslatedSlugTests(TestCase):
 
 
 class SpanishContentTests(TestCase):
-    """Fase 2: o espanhol vem de locale/content/es.json (carregado pelo seed)."""
+    """Fases 2 e 3: espanhol e inglês vêm de locale/content/<idioma>.json."""
 
     @classmethod
     def setUpTestData(cls):
@@ -153,9 +154,12 @@ class SpanishContentTests(TestCase):
 
         # Toda chave do arquivo aponta para um registro existente e todo campo
         # com texto em português tem tradução.
-        result = content_translations.apply("es", content_translations.load_file("es"))
-        self.assertEqual(result["missing"], 0)
-        self.assertEqual(content_translations.overview("es")[0], content_translations.overview("es")[1])
+        for lang in ("es", "en"):
+            with self.subTest(lang=lang):
+                result = content_translations.apply(lang, content_translations.load_file(lang))
+                self.assertEqual(result["missing"], 0)
+                done, total = content_translations.overview(lang)
+                self.assertEqual(done, total)
 
     def test_spanish_pages_render_translated_content_and_ui(self):
         r = self.client.get("/es/")
@@ -192,7 +196,32 @@ class SpanishContentTests(TestCase):
         self.client.force_login(admin)
         r = self.client.get("/admin/core/page/")
         self.assertContains(r, "ES ✓")
-        self.assertContains(r, "EN –")
+        self.assertContains(r, "EN ✓")
+        self.assertContains(r, "TR –")
         r = self.client.get("/admin/core/sitesettings/1/change/")
         self.assertContains(r, "Situação das traduções")
         self.assertContains(r, "100%")
+
+
+class EnglishContentTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command("seed_site", verbosity=0)
+        publish("es", "en")
+
+    def test_english_pages_render_translated_content_and_ui(self):
+        r = self.client.get("/en/")
+        self.assertContains(r, "Your medical journey in Turkey")
+        self.assertContains(r, "Free assessment")
+        r = self.client.get("/en/contact/")
+        self.assertContains(r, "Full name")
+        self.assertContains(r, "Other procedure")
+
+    def test_english_slugs_switcher_and_internal_links(self):
+        r = self.client.get("/en/treatments/plastic-surgery/")
+        self.assertContains(r, "Facial and Body Plastic Surgery")
+        self.assertContains(r, 'href="/es/tratamientos/cirugia-plastica/"')
+        self.assertContains(r, 'href="/tratamentos/cirurgia-plastica/"')
+        r = self.client.get("/en/blog/gastric-sleeve-turkey/")
+        self.assertContains(r, 'href="/en/contact/"')
+        self.assertContains(self.client.get("/en/blog/category/hair-transplant/"), "FUE or DHI")

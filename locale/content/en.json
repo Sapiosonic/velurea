@@ -1,0 +1,462 @@
+{
+  "site": {
+    "site": {
+      "whatsapp_message": "Hello! I'd like information about treatments in Turkey.",
+      "address": "Nispetiye Cad., Beşiktaş, Istanbul, Turkey",
+      "hours": "Mon to Sat, 9 a.m. — 7 p.m. (GMT+3)",
+      "footer_about": "End-to-end coordination of medical treatment in Turkey for international patients. We do not perform the procedures ourselves: we connect you with leading doctors and hospitals and take care of your entire journey.",
+      "footer_disclaimer": "For information only. Not a substitute for medical consultation, diagnosis or treatment.",
+      "cta_eyebrow": "First step",
+      "cta_title": "Shall we review your case?",
+      "cta_text": "Send us your details and receive personalized guidance from our team, with no obligation, in Portuguese, Spanish, English or Turkish."
+    }
+  },
+  "page": {
+    "home": {
+      "seo_title": "Velurea Clinic — Medical tourism in Turkey with end-to-end support",
+      "seo_description": "We coordinate your bariatric surgery, plastic surgery, hair transplant or dental treatment in Istanbul: partner doctors, accommodation, VIP transfers and support in English.",
+      "og_title": "Velurea Clinic — Medical tourism in Turkey",
+      "og_description": "A complete medical journey in Istanbul, with personal support in Portuguese, Spanish, English and Turkish."
+    },
+    "sobre": {
+      "seo_title": "About Velurea Clinic — Medical tourism in Istanbul",
+      "seo_description": "Meet Velurea Clinic: a medical tourism company in Istanbul that coordinates the entire journey for patients from Latin America, Spain, Portugal and Brazil.",
+      "og_title": "About Velurea Clinic",
+      "og_description": "Personal, transparent coordination of medical treatment in Turkey."
+    },
+    "tratamentos": {
+      "seo_title": "Treatments in Turkey — 10 coordinated specialties | Velurea Clinic",
+      "seo_description": "Plastic surgery, bariatric surgery, dentistry, hair transplant, urology, women's health, oncology, stem cells, IVF and orthopedics in Istanbul, fully coordinated by Velurea Clinic.",
+      "og_title": "Treatments coordinated by Velurea Clinic",
+      "og_description": "Procedures performed by partner medical teams in accredited hospitals."
+    },
+    "medicos": {
+      "seo_title": "Partner doctors and hospitals in Turkey — Velurea Clinic",
+      "seo_description": "We work with experienced doctors and accredited hospitals in Istanbul, selected according to each international patient's case.",
+      "og_title": "Partner doctors and hospitals — Velurea Clinic",
+      "og_description": "Medical teams and accredited institutions in Istanbul.",
+      "cta_title": "Would you like to meet the team recommended for your case?"
+    },
+    "como-funciona": {
+      "seo_title": "How your medical trip works — Velurea Clinic",
+      "seo_description": "From the initial assessment to post-operative care: see step by step how we organize your medical trip to Istanbul, including hotel, VIP transfers and an interpreter.",
+      "og_title": "How your medical trip works with Velurea Clinic",
+      "og_description": "Six clear steps, with a coordinator dedicated to your case."
+    },
+    "depoimentos": {
+      "seo_title": "Patient testimonials — Velurea Clinic",
+      "seo_description": "Stories from patients in Brazil, Portugal and Latin America who were treated in Istanbul with Velurea Clinic's coordination.",
+      "og_title": "Patient testimonials — Velurea Clinic",
+      "og_description": "Real experiences from international patients supported by Velurea Clinic.",
+      "cta_title": "Would you like to talk to someone who has been through the process?",
+      "cta_text": "We can put you in touch with patients who have agreed to share their experience."
+    },
+    "blog": {
+      "seo_title": "Blog — Guides to medical treatment in Turkey | Velurea Clinic",
+      "seo_description": "Honest guides to bariatric surgery, hair transplants, cosmetic dentistry and international patient safety in Turkey.",
+      "og_title": "Velurea Clinic Blog",
+      "og_description": "Information for anyone considering treatment in Istanbul."
+    },
+    "faq": {
+      "seo_title": "Frequently asked questions about treatment in Turkey — Velurea Clinic",
+      "seo_description": "Questions about the assessment, your stay in Turkey, pricing, languages, visas and post-operative support with Velurea Clinic.",
+      "og_title": "Frequently asked questions — Velurea Clinic",
+      "og_description": "Clear answers about how medical tourism with Velurea Clinic works."
+    },
+    "contato": {
+      "seo_title": "Contact — Request your free assessment | Velurea Clinic",
+      "seo_description": "Reach Velurea Clinic by WhatsApp, email or our form and receive personalized guidance on your treatment in Istanbul, with no obligation.",
+      "og_title": "Contact — Velurea Clinic",
+      "og_description": "Free initial assessment in Portuguese, Spanish, English or Turkish."
+    },
+    "obrigado": {
+      "seo_title": "Request sent — Velurea Clinic",
+      "seo_description": "End-to-end coordination of medical treatment in Turkey for international patients."
+    }
+  },
+  "section": {
+    "home/hero": {
+      "eyebrow": "Medical tourism · Istanbul, Turkey",
+      "title": "Your medical journey in Turkey, guided from first contact to post-operative care.",
+      "text": "Velurea Clinic is the bridge between international patients and leading doctors, clinics and hospitals in Istanbul. We handle the assessment, trip planning and every detail of your stay — with personal support in your language.",
+      "note": "Support in PT · ES · EN · TR",
+      "image_alt": "Istanbul skyline over the Bosphorus at sunset"
+    },
+    "home/pilares": {
+      "items": "Accredited hospitals | Partnerships with leading institutions and experienced doctors.\nIn your language | Portuguese, Spanish, English and Turkish at every step.\nOrganized travel | Hotel, VIP transfers and a day-by-day itinerary set before you fly.\nOngoing support | Support before, during and after treatment."
+    },
+    "home/quem_somos": {
+      "eyebrow": "Who we are",
+      "title": "We don't perform the procedure. We take care of everything around it.",
+      "text": "We are a medical tourism company based in Istanbul. Our job is to choose the right medical team with you, organize your trip and make sure you are understood — literally — at every consultation, test and follow-up.",
+      "items": "Initial assessment and personalized guidance\nDirect communication between patient and medical team\nHotel, VIP transfers and a personal interpreter\nTreatment coordination and post-operative support",
+      "note": "Get to know Velurea",
+      "image_alt": "Velurea Clinic coordinator welcoming an international patient"
+    },
+    "home/tratamentos": {
+      "eyebrow": "Treatments",
+      "title": "Procedures we coordinate in Istanbul",
+      "text": "Every plan is built individually, with doctors chosen for your case — not for the clinic's schedule."
+    },
+    "home/como_funciona": {
+      "eyebrow": "How it works",
+      "title": "Six steps, one person responsible for your case",
+      "note": "See the full process"
+    },
+    "home/diferenciais": {
+      "eyebrow": "Why Velurea",
+      "title": "Why international patients choose Velurea"
+    },
+    "home/depoimentos": {
+      "eyebrow": "Testimonials",
+      "title": "Stories from people who have traveled with us",
+      "note": "See all testimonials"
+    },
+    "sobre/hero": {
+      "eyebrow": "About us",
+      "title": "A safe bridge between you and Turkish medicine",
+      "text": "Velurea Clinic was created to address the biggest fear of anyone seeking treatment abroad: not knowing who to turn to when something doesn't go as planned."
+    },
+    "sobre/papel": {
+      "eyebrow": "Our role",
+      "title": "We coordinate. Procedures are performed by partner medical teams.",
+      "text": "We are a medical tourism company based in Istanbul, specializing in international patients — mainly from Latin America, Spain, Portugal and Brazil.",
+      "body": "Unlike a clinic or hospital, we do not perform the procedures ourselves. We act as a bridge between the patient and leading doctors, clinics and hospitals in Turkey, and we take responsibility for the entire experience surrounding the treatment.\n\nThat means assessing your case honestly, recommending the right professional, explaining risks and expectations clearly and staying by your side — even after you return home.\n\nWe work in Portuguese, Spanish, English and Turkish, with coordinators who understand what it's like to travel far for treatment.",
+      "image_alt": "Velurea Clinic coordination team with a patient"
+    },
+    "sobre/valores": {
+      "eyebrow": "Values",
+      "title": "What guides every decision we make"
+    },
+    "sobre/numeros": {
+      "items": "4 languages | Portuguese, Spanish, English and Turkish at every step.\n24/7 | Local team available throughout your stay in Turkey.\n12 months | Remote follow-up after you return home."
+    },
+    "tratamentos/hero": {
+      "eyebrow": "Treatments",
+      "title": "Procedures we coordinate",
+      "text": "Every plan is individual: we choose the medical team based on your case, your history and the result you hope for."
+    },
+    "medicos/hero": {
+      "eyebrow": "Partner network",
+      "title": "Doctors and hospitals we recommend",
+      "text": "We select professionals by specialty, experience with international patients and track record — never for commercial convenience."
+    },
+    "medicos/equipes": {
+      "eyebrow": "Medical teams",
+      "title": "Specialists by treatment area",
+      "note": "The professional is chosen after your case has been assessed. We can share the recommended team's professional registration, credentials and track record before you make any decision."
+    },
+    "medicos/instituicoes": {
+      "eyebrow": "Institutions",
+      "title": "Accredited hospitals and clinics in Istanbul",
+      "text": "All procedures take place in fully equipped institutions with their own anesthesiology team and intensive care support when needed.",
+      "image_alt": "Modern operating room at a partner hospital in Istanbul"
+    },
+    "como-funciona/hero": {
+      "eyebrow": "The process",
+      "title": "How your medical trip works",
+      "text": "You receive every step in writing and have a dedicated coordinator from first contact through post-operative follow-up."
+    },
+    "como-funciona/incluidos": {
+      "eyebrow": "Included services",
+      "title": "What our coordination always covers",
+      "text": "The scope is set out in writing in your quote, with no hidden costs and no last-minute charges.",
+      "items": "Initial assessment and personalized guidance\nCommunication between patient and medical team\nComplete medical trip planning\nHotel booking near the hospital\nVIP transfers between airport, hotel and hospital\nInterpreting and in-person support\nTreatment coordination with the medical team\nPost-operative support after you return home"
+    },
+    "como-funciona/transparencia": {
+      "eyebrow": "Transparency",
+      "title": "What we don't promise",
+      "text": "We don't guarantee results identical to other patients', we don't recommend procedures without a medical assessment and we don't pressure anyone to commit. Any offer that sounds too good to be true deserves suspicion — including ours."
+    },
+    "depoimentos/hero": {
+      "eyebrow": "Testimonials",
+      "title": "People who have traveled with us",
+      "text": "We publish stories with our patients' permission. Results vary from person to person and depend on an individual medical assessment."
+    },
+    "blog/hero": {
+      "eyebrow": "Blog",
+      "title": "Information before you decide",
+      "text": "Educational content about procedures, patient safety and the reality of a medical trip — without exaggerated promises."
+    },
+    "blog/rodape": {
+      "text": "New articles are published every month. Would you like to receive them by email? Write to us from the contact page."
+    },
+    "faq/hero": {
+      "eyebrow": "FAQ",
+      "title": "Frequently asked questions",
+      "text": "If your question isn't here, write to us: we reply in Portuguese, Spanish, English or Turkish."
+    },
+    "contato/hero": {
+      "eyebrow": "Contact",
+      "title": "Request your free assessment",
+      "text": "Send us your details and information about the treatment you're interested in. Our team replies within 24 business hours, with no obligation."
+    },
+    "contato/formulario": {
+      "text": "Your details are used only to assist you and assess your case. Our team replies by email within 24 business hours. If you'd rather talk now, use WhatsApp."
+    },
+    "contato/canais": {
+      "title": "Direct channels",
+      "body": "We work in **Portuguese, Spanish, English and Turkish**. If you prefer, send photos and test results by WhatsApp — the initial assessment is free and with no obligation."
+    },
+    "obrigado/hero": {
+      "eyebrow": "Request received",
+      "title": "We've received your details",
+      "text": "Our team will review your case and reply by email within 24 business hours, with no obligation."
+    },
+    "obrigado/proximos_passos": {
+      "title": "What happens next",
+      "items": "We review the information you sent and prepare personalized initial guidance.\nYou'll hear back from **info@velureaistanbul.com** or at the email address you provided — it's worth checking your spam folder.\nIf you'd like to speed things up, send photos and test results by WhatsApp. The initial assessment is free.",
+      "note": "For information only. Not a substitute for medical consultation, diagnosis or treatment."
+    }
+  },
+  "treatment": {
+    "cirurgia-plastica": {
+      "slug": "plastic-surgery",
+      "title": "Facial and Body Plastic Surgery",
+      "short": "Rhinoplasty, facial and breast surgery, body contouring and mommy makeover.",
+      "intro": "Personalized surgical planning, tailored to your anatomy, needs and expectations.",
+      "procedures": "Rhinoplasty\nFacial surgery\nEyelid surgery\nBreast surgery\nTummy tuck\nLiposuction\nBBL — Brazilian butt lift\nBody contouring\nMommy makeover"
+    },
+    "cirurgia-bariatrica": {
+      "slug": "bariatric-surgery",
+      "title": "Bariatric and Digestive Surgery",
+      "short": "Gastric sleeve, gastric bypass and digestive system surgery.",
+      "intro": "Personalized surgical planning, based on your medical needs and the specialist's assessment.",
+      "procedures": "Sleeve gastrectomy (gastric sleeve)\nGastric bypass\nBariatric surgery\nGastroesophageal reflux surgery\nHiatal hernia surgery\nGallbladder surgery\nGeneral and digestive surgery"
+    },
+    "odontologia": {
+      "slug": "dental-treatments",
+      "title": "Dental Treatments",
+      "short": "Implants, smile design, porcelain veneers and full-mouth rehabilitation.",
+      "intro": "Personalized treatment planning, based on your oral health needs and the specialist's assessment.",
+      "procedures": "Dental implants\nSmile design\nPorcelain veneers\nTooth extraction\nRoot canal treatment\nPeriodontal treatment\nFull-mouth rehabilitation\nTeeth whitening\nPediatric dentistry"
+    },
+    "transplante-capilar": {
+      "slug": "hair-transplant",
+      "title": "Hair, Beard and Eyebrow Transplant",
+      "short": "Sapphire FUE, DHI, hairline design and beard transplant.",
+      "intro": "Personalized planning based on your hair characteristics, donor area, facial proportions and individual needs.",
+      "procedures": "Sapphire FUE\nDHI hair transplant\nHairline design\nBeard transplant\nEyebrow transplant\nSupportive hair and scalp treatments"
+    },
+    "urologia-saude-masculina": {
+      "slug": "urology-mens-health",
+      "title": "Urology and Men's Sexual Health",
+      "short": "Erectile dysfunction, prostheses, ESWT and urological surgery.",
+      "intro": "Personalized treatment planning based on your health needs and the specialist's assessment.",
+      "procedures": "Erectile dysfunction treatments\nPenile prosthesis\nTesticular prosthesis\nPenile lengthening and girth enhancement\nESWT\nSexual function treatments\nUrological surgery"
+    },
+    "saude-feminina-estetica-intima": {
+      "slug": "womens-health-intimate-aesthetics",
+      "title": "Women's Health and Intimate Aesthetics",
+      "short": "Labiaplasty, vaginoplasty, vaginal rejuvenation and sexual function.",
+      "intro": "Personalized treatment planning based on your needs, comfort and the specialist's assessment.",
+      "procedures": "Labiaplasty\nVaginoplasty\nIntimate cosmetic surgery\nVaginal rejuvenation\nSexual function support\nPersonalized women's health solutions"
+    },
+    "oncologia": {
+      "slug": "oncology",
+      "title": "Oncology and Cancer Surgery",
+      "short": "Cancer surgery, chemotherapy, radiotherapy and multidisciplinary assessment.",
+      "intro": "Personalized treatment planning based on your medical needs and the specialist's assessment.",
+      "procedures": "Surgical oncology\nMedical oncology and chemotherapy\nRadiation oncology and radiotherapy\nPathology\nPET/CT and medical imaging\nMultidisciplinary assessment",
+      "areas": "Breast cancer\nLung cancer\nEsophageal cancer\nStomach cancer\nColorectal cancer\nPancreatic cancer\nUrological cancers\nGynecological cancers"
+    },
+    "celulas-tronco": {
+      "slug": "stem-cell-treatments",
+      "title": "Stem Cell Treatments",
+      "short": "Applications in orthopedics, dermatology, hair, urology and women's health.",
+      "intro": "Personalized treatment planning based on your medical needs and the specialist's assessment.",
+      "procedures": "Specialist assessment\nMedical eligibility assessment\nPersonalized treatment protocol\nClinical application\nMedical monitoring\nFollow-up",
+      "areas": "Orthopedics and joint health\nUrology and men's health\nDermatology and skin\nHair and scalp\nAesthetic and regenerative applications\nWomen's health"
+    },
+    "fiv-fertilidade": {
+      "slug": "ivf-fertility",
+      "title": "IVF and Fertility Treatments",
+      "short": "Fertility assessment, IVF, ICSI and embryo transfer.",
+      "intro": "Every step of your path to parenthood is planned individually. Your fertility history, existing test results and medical findings are reviewed to create a personalized assisted reproduction plan.",
+      "procedures": "Fertility assessment\nIVF treatment\nICSI / microinjection\nEmbryo transfer\nEmbryo freezing\nPersonalized fertility planning"
+    },
+    "ortopedia-alongamento-membros": {
+      "slug": "orthopedics-limb-lengthening",
+      "title": "Orthopedic Surgery and Limb Lengthening",
+      "short": "Limb lengthening, knee, hip and shoulder surgery and arthroscopy.",
+      "intro": "Personalized surgical planning based on your mobility needs, medical findings and the specialist's assessment.",
+      "procedures": "Limb lengthening surgery\nKnee surgery\nHip surgery\nShoulder surgery\nSports injuries and arthroscopy\nOrthopedic and trauma surgery"
+    }
+  },
+  "step": {
+    "Avaliação inicial": {
+      "title": "Initial assessment",
+      "text": "You send photos, test results and your medical history. Within 24 hours we get back to you with personalized guidance, with no obligation."
+    },
+    "Plano médico e orçamento": {
+      "title": "Medical plan and quote",
+      "text": "We introduce the recommended medical team, the treatment plan and a fixed quote, with no hidden costs."
+    },
+    "Planejamento da viagem": {
+      "title": "Trip planning",
+      "text": "We set the dates, book your hotel, arrange VIP transfers and send you a day-by-day itinerary for your stay."
+    },
+    "Chegada em Istambul": {
+      "title": "Arrival in Istanbul",
+      "text": "Airport welcome, private transfer and an interpreter at every consultation and test."
+    },
+    "Tratamento": {
+      "title": "Treatment",
+      "text": "A dedicated coordinator is with you before, during and after the procedure, in your language."
+    },
+    "Retorno e pós-operatório": {
+      "title": "Return and post-operative care",
+      "text": "Discharge consultation, written instructions and ongoing remote follow-up with the medical team after you return home."
+    }
+  },
+  "differential": {
+    "Coordenação completa": {
+      "title": "End-to-end coordination",
+      "text": "A single point of contact for doctors, hospital, hotel, transfers and interpreting throughout your stay."
+    },
+    "Atendimento no seu idioma": {
+      "title": "Support in your language",
+      "text": "Portuguese, Spanish, English and Turkish — direct communication, with no middlemen and no misunderstandings."
+    },
+    "Hospitais acreditados": {
+      "title": "Accredited hospitals",
+      "text": "Partnerships with internationally accredited hospitals and doctors experienced with foreign patients."
+    },
+    "Transparência total": {
+      "title": "Full transparency",
+      "text": "A fixed quote, a detailed scope and a clear explanation of risks and expectations before any decision."
+    },
+    "Suporte 24/7 na Turquia": {
+      "title": "24/7 support in Turkey",
+      "text": "A local team available around the clock during your stay, including for companions."
+    },
+    "Acompanhamento pós-operatório": {
+      "title": "Post-operative follow-up",
+      "text": "Regular contact after you return home, with an open line to the responsible medical team."
+    }
+  },
+  "testimonial": {
+    "Mariana R.": {
+      "treatment": "Gastric sleeve"
+    },
+    "Carlos M.": {
+      "treatment": "FUE hair transplant"
+    },
+    "Ana Sofia P.": {
+      "treatment": "Full-mouth rehabilitation"
+    },
+    "Rodrigo L.": {
+      "treatment": "Tummy tuck"
+    }
+  },
+  "faq": {
+    "A Velurea Clinic realiza os procedimentos?": {
+      "question": "Does Velurea Clinic perform the procedures?",
+      "answer": "No. We are a medical tourism company: we coordinate the patient's entire journey and connect you with leading doctors, clinics and hospitals in Turkey. Procedures are performed by partner medical teams in accredited institutions."
+    },
+    "Como funciona a primeira avaliação?": {
+      "question": "How does the first assessment work?",
+      "answer": "You send photos, recent test results and your medical history by WhatsApp or through the website form. The medical team reviews your case and we get back to you with personalized guidance, usually within 24 business hours."
+    },
+    "Quanto tempo preciso ficar na Turquia?": {
+      "question": "How long do I need to stay in Turkey?",
+      "answer": "It depends on the procedure: 3 to 4 days for a hair transplant, 5 to 7 days for dental work and 7 to 12 days for bariatric and plastic surgery. The full itinerary is sent before you travel."
+    },
+    "O orçamento inclui hotel e traslados?": {
+      "question": "Does the quote include hotel and transfers?",
+      "answer": "Yes. Our packages include accommodation, VIP transfers between airport, hotel and hospital, an interpreter and personal support. Everything is set out in writing before you confirm, with no hidden costs."
+    },
+    "Em quais idiomas vocês atendem?": {
+      "question": "Which languages do you work in?",
+      "answer": "Portuguese, Spanish, English and Turkish, at every step — including inside the hospital, with an interpreter at your side."
+    },
+    "E se eu precisar de suporte após voltar para casa?": {
+      "question": "What if I need support after I return home?",
+      "answer": "Post-operative follow-up continues remotely. You stay in touch with your coordinator and, when needed, with the medical team responsible for your procedure."
+    },
+    "Preciso de visto para a Turquia?": {
+      "question": "Do I need a visa for Turkey?",
+      "answer": "Citizens of Brazil, Portugal and most Latin American and European countries do not need a visa for short tourist stays. We advise you on the specific documents required for your country."
+    },
+    "Quais são as formas de pagamento?": {
+      "question": "What payment methods do you accept?",
+      "answer": "International bank transfer and card, depending on the partner hospital. Part of the amount is paid when booking and the rest on arrival, always with a receipt and a contract."
+    }
+  },
+  "doctor": {
+    "Dr. Emre Yıldız": {
+      "role": "Bariatric and Metabolic Surgery",
+      "detail": "More than 3,000 procedures performed. Member of IFSO."
+    },
+    "Dra. Selin Arslan": {
+      "role": "Aesthetic and Reconstructive Plastic Surgery",
+      "detail": "Specialist in breast surgery and body contouring; consults in English."
+    },
+    "Dr. Kaan Demir": {
+      "role": "Hair Transplant (FUE and DHI)",
+      "detail": "Known for hairline design and natural-looking results."
+    },
+    "Dra. Ayşe Korkmaz": {
+      "role": "Cosmetic Dentistry and Implantology",
+      "detail": "Digital smile design and full-mouth rehabilitation."
+    }
+  },
+  "hospital": {
+    "Hospital parceiro — Şişli": {
+      "name": "Partner hospital — Şişli",
+      "detail": "Multidisciplinary institution with international accreditation and its own ICU."
+    },
+    "Hospital parceiro — Beşiktaş": {
+      "name": "Partner hospital — Beşiktaş",
+      "detail": "Surgical center dedicated to international patients, with private rooms."
+    },
+    "Clínica parceira — Nişantaşı": {
+      "name": "Partner clinic — Nişantaşı",
+      "detail": "Specialized unit for hair transplants and cosmetic dentistry."
+    }
+  },
+  "category": {
+    "cirurgia-bariatrica": {
+      "name": "Bariatric Surgery",
+      "slug": "bariatric-surgery"
+    },
+    "como-funciona": {
+      "name": "How It Works",
+      "slug": "how-it-works"
+    },
+    "seguranca-do-paciente": {
+      "name": "Patient Safety",
+      "slug": "patient-safety"
+    },
+    "transplante-capilar": {
+      "name": "Hair Transplant",
+      "slug": "hair-transplant"
+    }
+  },
+  "post": {
+    "sleeve-gastrico-turquia": {
+      "title": "Gastric sleeve in Turkey: what to expect before, during and after",
+      "slug": "gastric-sleeve-turkey",
+      "excerpt": "An honest guide to eligibility criteria, length of hospital stay, eating in the first weeks and remote follow-up.",
+      "body": "\n<p>Sleeve gastrectomy, known as the <em>gastric sleeve</em>, is one of the procedures that bring the most international patients to Istanbul. Before thinking about dates and flights, though, it's worth understanding how the decision is made and what happens at each stage of the journey.</p>\n\n<h2>Before the trip: eligibility comes from the assessment</h2>\n<p>No package replaces a medical assessment. The first step is to send your medical history, recent test results and information about previous treatments. The partner medical team reviews your case and tells you whether surgery is indicated — and if it isn't, that is an honest answer too.</p>\n<p>Criteria such as body mass index, related conditions and previous treatment attempts are assessed individually. Be wary of anyone who promises approval before seeing your test results.</p>\n<ul>\n<li>Medical history and current medications</li>\n<li>Recent test results, if available</li>\n<li>Previous surgeries, especially abdominal ones</li>\n<li>Expectations and possible travel dates</li>\n</ul>\n\n<h2>During your stay in Istanbul</h2>\n<p>For bariatric surgery, the stay is usually between 7 and 12 days, but the exact itinerary is set by the medical team and sent to you in writing before you fly. It includes pre-operative tests, the hospital stay, check-up appointments and the discharge consultation.</p>\n<p>Throughout your stay you have transfers between airport, hotel and hospital, an interpreter at consultations and a coordinator available in your language — including for anyone traveling with you.</p>\n\n<h2>Afterwards: eating and remote follow-up</h2>\n<p>The first weeks call for a careful, gradual return to food. You go home with written instructions from the responsible team, and follow-up continues remotely: the line to your coordinator and, when needed, to the medical team stays open.</p>\n<blockquote>Bariatric surgery is the start of a change in routine, not the end of treatment.</blockquote>\n<p>It's also a good idea to arrange local follow-up in your country, with a doctor and a nutritionist, for long-term check-ups.</p>\n\n<h2>Questions to ask before you decide</h2>\n<ul>\n<li>Who is the surgeon, and how much experience do they have with this procedure?</li>\n<li>Which hospital will the surgery take place in, and what intensive care facilities does it have?</li>\n<li>What is and isn't included in the quote?</li>\n<li>How do you stay in touch with the medical team after you return home?</li>\n</ul>\n<p>If you'd like to know whether you are a candidate, <a href=\"/en/contact/\" rel=\"noopener noreferrer\">send us your information</a> for a free initial assessment.</p>\n"
+    },
+    "fue-ou-dhi": {
+      "title": "FUE or DHI: which hair transplant technique is right for you",
+      "slug": "fue-or-dhi",
+      "excerpt": "The real differences between the techniques, their effect on density, recovery time and how we assess the donor area before you travel.",
+      "body": "\n<p>FUE and DHI are the two techniques mentioned most often when it comes to hair transplants in Turkey. Both use follicular units taken from the donor area — the main difference is how the hairs are implanted.</p>\n\n<h2>FUE: opening the channels and implanting</h2>\n<p>In FUE (<em>Follicular Unit Extraction</em>), follicular units are extracted one by one from the donor area. The surgeon then opens channels in the recipient area and implants the hairs. In the <strong>Sapphire FUE</strong> variant, the channels are opened with sapphire blades.</p>\n\n<h2>DHI: implanting with a pen</h2>\n<p>In DHI (<em>Direct Hair Implantation</em>), the hairs are implanted with a pen-shaped instrument that opens the channel and places the follicle in a single movement. The technique allows precise control over the angle and direction of each hair.</p>\n\n<h2>Which is better?</h2>\n<p>There is no single answer. The choice depends on factors assessed case by case:</p>\n<ul>\n<li>Size of the area to be covered</li>\n<li>Quality and capacity of the donor area</li>\n<li>Hair characteristics (thickness, curl, color)</li>\n<li>Hairline design and facial proportions</li>\n</ul>\n<p>In some cases the team combines the techniques. What matters is that the recommendation comes after your photos have been reviewed, not from a price list.</p>\n\n<h2>How we assess the donor area before you travel</h2>\n<p>We ask for photos from specific angles — front, top, sides and back — and information about your history of hair loss and any treatments you have had. With this, the medical team estimates whether the donor area can support the expected result and recommends the technique.</p>\n<p>A stay in Istanbul for a hair transplant is usually 3 to 4 days. The responsible team explains recovery, care in the first few days and how long it takes for the hair to grow, with written instructions.</p>\n<blockquote>Density promised before anyone has seen your donor area is a warning sign.</blockquote>\n<p>Would you like your case reviewed? <a href=\"/en/contact/\" rel=\"noopener noreferrer\">Send us your photos</a> — the initial assessment is free.</p>\n"
+    },
+    "como-escolher-clinica-turquia": {
+      "title": "How to evaluate a clinic in Turkey without falling for exaggerated promises",
+      "slug": "how-to-choose-clinic-turkey",
+      "excerpt": "Accreditation, the doctor's registration number, a written contract and the warning signs every international patient should know.",
+      "body": "\n<p>Turkey is home to leading hospitals and highly experienced professionals. It is also home to aggressive advertising, packages sold without an assessment and promises that are hard to keep. Learning to tell one from the other is the most important part of your research.</p>\n\n<h2>1. The institution's accreditation</h2>\n<p>Ask where the procedure will take place and whether the institution has international accreditation. Check that it has its own anesthesiology team and intensive care support when needed — information a serious partner provides without hesitation.</p>\n\n<h2>2. The doctor's name and registration</h2>\n<p>You have the right to know who will operate on you. Ask for the doctor's full name, specialty and professional registration number. Be wary when the answer is vague (“our team”) or when the professional only appears on the day of the procedure.</p>\n\n<h2>3. A written contract and quote</h2>\n<p>A reliable quote sets out what is included — procedure, hospital stay, accommodation, transfers, interpreting, follow-up appointments — and what isn't. Payment methods, deposit amounts and cancellation terms should also be in writing, with a receipt and a contract.</p>\n\n<h2>4. Assessment before price</h2>\n<p>Anyone offering a fixed package before seeing test results or photos is selling a product, not recommending a treatment. The medical assessment comes first; the quote follows from it.</p>\n\n<h2>Warning signs</h2>\n<ul>\n<li>Guaranteed results, or results compared with another patient's</li>\n<li>Pressure to decide quickly (“today only”, “last spot”)</li>\n<li>No explanation of risks and recovery</li>\n<li>Difficulty finding out who the responsible doctor is</li>\n<li>No follow-up plan after you return home</li>\n</ul>\n<blockquote>Any offer that sounds too good to be true deserves suspicion — including ours.</blockquote>\n\n<h2>The role of a coordination company</h2>\n<p>Velurea does not perform procedures: we connect you with partner doctors and hospitals and take care of your entire journey. That's why we can — and should — share the recommended team's professional registration, credentials and track record before you make any decision. <a href=\"/en/doctors-and-hospitals/\" rel=\"noopener noreferrer\">Meet our partner network</a>.</p>\n"
+    },
+    "roteiro-viagem-medica": {
+      "title": "A medical trip itinerary: 10 days in Istanbul, day by day",
+      "slug": "medical-trip-itinerary",
+      "excerpt": "From arrival at the airport to the discharge consultation — how we organize tests, surgery, rest and free time safely.",
+      "body": "\n<p>A well-planned medical trip leaves little room for improvisation. Below is an example of how a stay of about ten days in Istanbul is organized — the actual length depends on the procedure and is set by the medical team.</p>\n\n<h2>Before you fly</h2>\n<p>Once the assessment is complete and the medical plan approved, we set the dates, book a hotel near the hospital and send you a written day-by-day itinerary. Citizens of Brazil, Portugal and most Latin American and European countries do not need a visa for short tourist stays, but we advise on the documents required for each country.</p>\n\n<h2>Day 1 — Arrival</h2>\n<p>Airport welcome and private transfer to the hotel. Your coordinator confirms the schedule for the coming days and is available for any questions — yours and those of anyone traveling with you.</p>\n\n<h2>Day 2 — Consultation and tests</h2>\n<p>An in-person consultation with the medical team and pre-operative tests, with an interpreter at your side. This is the time to ask everything about the procedure, risks and recovery.</p>\n\n<h2>Days 3 to 5 — Procedure and hospital stay</h2>\n<p>The procedure takes place at the partner hospital, followed by the hospital stay recommended by the team. Your coordinator supports your family and stays in constant contact.</p>\n\n<h2>Days 6 to 9 — Recovery</h2>\n<p>Back at the hotel, with check-up appointments according to the medical plan. This is time to rest: outings only with the team's approval and always following the instructions you've been given.</p>\n\n<h2>Day 10 — Discharge and return</h2>\n<p>Discharge consultation, written instructions and transfer to the airport. Follow-up continues remotely after you return home, with an open line to your coordinator and the responsible medical team.</p>\n\n<h2>What coordination always includes</h2>\n<ul>\n<li>Initial assessment and personalized guidance</li>\n<li>Hotel booking near the hospital</li>\n<li>VIP transfers between airport, hotel and hospital</li>\n<li>Interpreting and in-person support</li>\n<li>Post-operative support after you return home</li>\n</ul>\n<p>See the <a href=\"/en/how-it-works/\" rel=\"noopener noreferrer\">full process</a> or <a href=\"/en/contact/\" rel=\"noopener noreferrer\">request your assessment</a>.</p>\n"
+    }
+  }
+}
