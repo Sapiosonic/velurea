@@ -34,7 +34,9 @@
   {% if not v.current %}<meta property="og:locale:alternate" content="{{ v.og }}">{% endif %}
   {% if forloop.first %}<link rel="alternate" hreflang="x-default" href="{{ v.absolute_url }}">{% endif %}{% endfor %}
   {% endif %}
-  <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+  <link rel="icon" href="{% static 'favicon.ico' %}" sizes="48x48">
+  <link rel="icon" href="{% static 'favicon.svg' %}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{% static 'apple-touch-icon.png' %}">
   {% block head_extra %}{% endblock %}
 </head>
 <body>
