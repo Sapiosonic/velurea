@@ -223,6 +223,26 @@ class AdminTests(TestCase):
                     r = self.client.get(reverse("admin:%s_%s_change" % info, args=[obj.pk]))
                     self.assertEqual(r.status_code, 200)
 
+    def test_dashboard_shows_summary_and_theme(self):
+        Lead.objects.create(name="Ana", email="ana@example.com", phone="1", country="BR",
+                            treatment="Odontologia", message="Oi")
+        r = self.client.get(reverse("admin:index"))
+        self.assertContains(r, "admin-theme/velurea-admin.css")
+        self.assertContains(r, "Olá, admin.")
+        self.assertContains(r, "Contatos novos")
+        self.assertContains(r, reverse("admin:contact_lead_changelist") + "?status__exact=new")
+        self.assertContains(r, reverse("admin:blog_post_add"))
+        # A lista original de seções do admin continua lá.
+        self.assertContains(r, reverse("admin:core_page_changelist"))
+
+    def test_dashboard_respects_permissions(self):
+        staff = get_user_model().objects.create_user("ed", password="x", is_staff=True)
+        self.client.force_login(staff)
+        r = self.client.get(reverse("admin:index"))
+        self.assertEqual(r.status_code, 200)
+        self.assertNotContains(r, "Contatos novos")
+        self.assertNotContains(r, "Novo post")
+
     def test_pages_cannot_be_added_or_deleted(self):
         page = Page.objects.get(key="home")
         self.assertEqual(self.client.get(reverse("admin:core_page_add")).status_code, 403)

@@ -1,0 +1,42 @@
+<section class="v-dash" aria-label="Resumo">
+  <div class="v-dash-hero">
+    <div>
+      <p class="v-eyebrow">Painel</p>
+      <h1 class="v-dash-title">Olá, {% firstof user.get_short_name user.get_username %}.</h1>
+      <p class="v-dash-lead">Edite o conteúdo do site, publique artigos e acompanhe os contatos recebidos.</p>
+    </div>
+    <div class="v-dash-actions">
+      {% for a in actions %}<a href="{{ a.url }}" class="v-btn{% if a.primary %} v-btn--primary{% endif %}">{{ a.label }}</a>{% endfor %}
+      <a href="{{ site_url }}" class="v-btn v-btn--ghost" target="_blank" rel="noopener">Ver o site ↗</a>
+    </div>
+  </div>
+
+  {% if noindex %}
+  <a class="v-notice" href="{{ settings_url }}">
+    <strong>Modo demonstração ligado.</strong>
+    O site está escondido do Google. Desligue em Configurações do site ao publicar no domínio oficial.
+  </a>
+  {% endif %}
+
+  {% if stats %}
+  <div class="v-stats">
+    {% for s in stats %}
+    <a class="v-stat{% if s.highlight %} is-highlight{% endif %}" href="{{ s.url }}">
+      <span class="v-stat-label">{{ s.label }}</span>
+      <span class="v-stat-value">{{ s.value }}</span>
+      <span class="v-stat-hint">{{ s.hint }}</span>
+      {% if s.languages %}
+      <span class="v-langs">
+        {% for l in s.languages %}
+        <span class="v-lang{% if l.published %} is-live{% endif %}" title="{{ l.name }}: {{ l.pct }}% traduzido{% if l.published %}, publicado{% else %}, não publicado{% endif %}">
+          <span class="v-lang-code">{{ l.short }}</span>
+          <span class="v-lang-bar"><span style="width: {{ l.pct }}%"></span></span>
+        </span>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>

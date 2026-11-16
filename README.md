@@ -47,6 +47,10 @@ Testes: `python manage.py test apps`
 | **Blog → Posts / Categorias** | Artigos do blog, com editor visual |
 | **Contatos recebidos** | Cada formulário enviado pelo site, com situação (novo, em atendimento…) e anotações internas |
 
+A página inicial do admin mostra um resumo: contatos novos, posts publicados,
+idiomas no ar (com a porcentagem traduzida) e atalhos. Avisa também quando o
+site está escondido do Google (modo demonstração).
+
 Detalhes que valem saber:
 
 - **Páginas e seções não se criam nem se apagam pelo admin**, só se editam: elas
@@ -202,6 +206,8 @@ locale/                 traduções dos textos fixos (.po/.mo) e, em
 static/css/style.css    CSS original (Tailwind compilado) — não editar à mão
 static/css/cms.css      estilos novos: blog, formulário, seletor de idioma
 static/js/site.js       menu mobile, FAQ e seletor de idioma
+static/admin-theme/     tema visual do admin (só CSS; claro e escuro)
+templates/admin/        marca, painel inicial e links do topo do admin
 ```
 
 `style.css` é Tailwind já compilado: só existem nele as classes que o projeto

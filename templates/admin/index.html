@@ -1,0 +1,13 @@
+{% extends "admin/index.html" %}
+{% load velurea_admin %}
+{% comment %}
+  Estende o índice original do Django (mesmo nome, carregado do admin) e só
+  acrescenta o resumo acima da lista de seções.
+{% endcomment %}
+
+{% block content_title %}{% endblock %}
+
+{% block content %}
+{% velurea_dashboard %}
+{{ block.super }}
+{% endblock %}

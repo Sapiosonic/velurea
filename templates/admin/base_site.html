@@ -1,0 +1,48 @@
+{% extends "admin/base.html" %}
+{% load i18n static %}
+{% comment %}
+  Tema visual do admin (static/admin-theme/velurea-admin.css). Só aparência:
+  a estrutura e os blocos do admin do Django continuam os mesmos.
+{% endcomment %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block extrastyle %}{{ block.super }}
+<link rel="icon" href="{% static 'favicon.svg' %}" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Karla:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="{% static 'admin-theme/velurea-admin.css' %}">
+{% endblock %}
+
+{% block branding %}
+<div id="site-name">
+  <a href="{% url 'admin:index' %}" class="v-brand" aria-label="{{ site_header }}">
+    <img src="{% static 'favicon.svg' %}" alt="" width="34" height="34" class="v-brand-mark">
+    <span class="v-brand-text">
+      <span class="v-brand-name">Velurea</span>
+      <span class="v-brand-sub">Administração do site</span>
+    </span>
+  </a>
+</div>
+{% if user.is_anonymous %}
+  {% include "admin/color_theme_toggle.html" %}
+{% endif %}
+{% endblock %}
+
+{% block userlinks %}
+  {# Os mesmos links do Django, sem as barras "/" entre eles (viram botões no CSS). #}
+  {% if site_url %}<a href="{{ site_url }}">{% translate 'View site' %}</a>{% endif %}
+  {% if user.is_active and user.is_staff %}
+    {% url 'django-admindocs-docroot' as docsroot %}
+    {% if docsroot %}<a href="{{ docsroot }}">{% translate 'Documentation' %}</a>{% endif %}
+  {% endif %}
+  {% if user.has_usable_password %}<a href="{% url 'admin:password_change' %}">{% translate 'Change password' %}</a>{% endif %}
+  <form id="logout-form" method="post" action="{% url 'admin:logout' %}">
+    {% csrf_token %}
+    <button type="submit">{% translate 'Log out' %}</button>
+  </form>
+  {% include "admin/color_theme_toggle.html" %}
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
